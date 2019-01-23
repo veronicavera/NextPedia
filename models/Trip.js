@@ -2,19 +2,44 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const TripSchema = new Schema({
-    Trip: {
+    tripName: {
         type: String,
         required: true
     },
-    imageLink: {
+    startLocation: {
         type: String,
-        required: true,
-        unique: true
+        required: true
     },
-    urlLink: {
+    startDate: {
+        type: Date,
+        required: true
+    },
+    startFlightTakeOffTime: {
         type: String,
-        required: true,
-        unique: true
+        required: true
+    },
+    endLocation: {
+        type: String,
+        required: true
+    },
+    endDate: {
+        type: Date,
+        required: true
+    },
+    endFlightTakeOffTime: {
+        type: String,
+        required: true
+    },
+    roundTrip: {
+        type: Boolean,
+        required: true
+    },
+    // weatherInfo: {
+
+    // },
+    suitcases : {
+        type: Schema.Types.ObjectId,
+        ref: 'Suitcase'
     }
 });
 

@@ -2,19 +2,17 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const SuitcaseSchema = new Schema({
-    Suitcase: {
+    suitcaseId: {
         type: String,
         required: true
     },
-    imageLink: {
+    item: {
         type: String,
-        required: true,
-        unique: true
+        required: true
     },
-    urlLink: {
-        type: String,
-        required: true,
-        unique: true
+    quantity: {
+        type: Number,
+        required: true
     }
 });
 
