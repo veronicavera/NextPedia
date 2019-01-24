@@ -6,15 +6,12 @@ module.exports = {
         db.User
             .find(req.params)
             .sort({_id: -1})
-            // .populate('trips')
-            // .populate('suitcases')
             .then(async dbUser => {
                 const promises = dbUser[0].trips.map(async _id => {
                     const tripsWithSuitcases = await db.Trip
                         .find({_id: _id})
                         .populate('suitcases')        
                         return(tripsWithSuitcases);
-                        // .catch(err => res.status(422).json(err));
                 })
                 const results = await Promise.all(promises);
                 res.json(results);
