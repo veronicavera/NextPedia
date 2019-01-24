@@ -42,12 +42,10 @@ module.exports = {
     },
     putSuitcase: (req, res) => {
         db.Suitcase
-            .updateOne({_id: req.body.user}, 
+            .updateOne({_id: req.params.user}, 
                 {
                     $push: {
-                        items: req.body.item
-                    },
-                    $push: {
+                        items: req.body.item,
                         quantities: req.body.quantity
                     }
                 })
