@@ -41,13 +41,12 @@ module.exports = {
             .catch(err => res.status(422).json(err));
     },
     putSuitcase: (req, res) => {
+        console.log(req.body);
         db.Suitcase
-            .updateOne({_id: req.body.user}, 
+            .updateOne({_id: req.params.user}, 
                 {
                     $push: {
-                        items: req.body.item
-                    },
-                    $push: {
+                        items: req.body.item,
                         quantities: req.body.quantity
                     }
                 })
