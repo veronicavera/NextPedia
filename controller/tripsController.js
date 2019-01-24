@@ -31,7 +31,7 @@ module.exports = {
     },
     putTrip: (req, res) => {
         db.Trip
-            .update({_id: req.params.user}, {$push:req.body})
+            .updateOne({_id: req.params.user}, {$push:req.body})
             .then(dbTrip => res.json(dbTrip))
             .catch(err => res.status(422).json(err));
     }

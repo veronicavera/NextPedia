@@ -6,79 +6,74 @@ const trips = [
     {
         tripName: 'The Best Trip',
         startLocation: 'ORD',
-        startDate: 1000000000,
+        startDate: new Date(2019, 2, 2),
         startFlightTakeOffTime: '3 p.m.',
         endLocation: 'LAX',
-        endDate: 1000200000,
+        endDate: new Date(2019, 2, 9),
         endFlightTakeOffTime: '4 p.m.',
         roundTrip: true
     },
     {
         tripName: 'Moving',
         startLocation: 'ORD',
-        startDate: 1000000000,
+        startDate: new Date(2019, 3, 2),
         startFlightTakeOffTime: '8 a.m.',
         endLocation: 'LAX',
-        endDate: 1000000000,
+        endDate: new Date(2019, 3, 9),
         endFlightTakeOffTime: 'N/A',
         roundTrip: false
     },
     {
         tripName: 'My Trip',
         startLocation: 'ORD',
-        startDate: 1020000000,
+        startDate: new Date(2019, 3, 11),
         startFlightTakeOffTime: '12 p.m.',
         endLocation: 'LAX',
-        endDate: 1020200000,
+        endDate: new Date(2019, 3, 18),
         endFlightTakeOffTime: '11 a.m.',
         roundTrip: true
     },
     {
         tripName: 'Meeting',
         startLocation: 'ORD',
-        startDate: 1000000000,
+        startDate: new Date(2019, 1, 11),
         startFlightTakeOffTime: '6 p.m.',
         endLocation: 'LAX',
-        endDate: 1000200000,
+        endDate: new Date(2019, 1, 18),
         endFlightTakeOffTime: '7 p.m.',
         roundTrip: true
     },
     {
         tripName: 'Family Vacation',
         startLocation: 'ORD',
-        startDate: 1000000000,
+        startDate: new Date(2019, 3, 20),
         startFlightTakeOffTime: '2 p.m.',
         endLocation: 'LAX',
-        endDate: 1000200000,
+        endDate: new Date(2019, 3, 27),
         endFlightTakeOffTime: '5 p.m.',
         roundTrip: true
     }
 ]
 const suitcases = [
     {
-        suitcaseId: '1',
-        item: 'shirt',
-        quantity: 2
+        items: ['shirt', 'pant'],
+        quantities: [2, 4]
     },
     {
-        suitcaseId: '2',
-        item: 'blanket',
-        quantity: 1
+        items: ['blanket', 'sweater'],
+        quantities: [1, 5]
     },
     {
-        suitcaseId: '3',
-        item: 'neck pillow',
-        quantity: 1
+        items: ['neck pillow', 'tablet'],
+        quantities: [1, 1]
     },
     {
-        suitcaseId: '4',
-        item: 'pants',
-        quantity: 2
+        items: ['pants', 'socks'],
+        quantities: [2, 5]
     },
     {
-        suitcaseId: '5',
-        item: 'socks',
-        quantity: 2
+        items: ['socks', 'shoes'],
+        quantities: [2, 2]
     }
 ]
 let tripIds = [];

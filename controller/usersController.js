@@ -21,7 +21,7 @@ module.exports = {
     },
     putUser: (req, res) => {
         db.User
-            .update(req.params, {$push:req.body})
+            .updateOne(req.params, {$push:req.body})
             .then(dbUser => res.json(dbUser))
             .catch(err => res.status(422).json(err));
     }

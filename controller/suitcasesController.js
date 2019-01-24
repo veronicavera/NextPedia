@@ -33,8 +33,25 @@ module.exports = {
     },
     postSuitcase: (req, res) => {
         db.Suitcase
-            .create(req.body)
+            .create({
+                items: req.body.items,
+                quantities: req.body.quantities
+            })
             .then(dbSuitcase => res.json(dbSuitcase))
             .catch(err => res.status(422).json(err));
+    },
+    putSuitcase: (req, res) => {
+        db.Suitcase
+            .updateOne({_id: req.body.user}, 
+                {
+                    $push: {
+                        items: req.body.item
+                    },
+                    $push: {
+                        quantities: req.body.quantity
+                    }
+                })
+            .then(success => res.json(success))
+            .catch(err => res.json(err));
     }
 }
