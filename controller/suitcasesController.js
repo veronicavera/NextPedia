@@ -41,7 +41,6 @@ module.exports = {
             .catch(err => res.status(422).json(err));
     },
     putSuitcase: (req, res) => {
-        console.log(req.body);
         db.Suitcase
             .updateOne({_id: req.params.user}, 
                 {
