@@ -51,5 +51,22 @@ module.exports = {
                 })
             .then(success => res.json(success))
             .catch(err => res.json(err));
+    },
+    deleteSuitcase: (req, res) => {
+        db.Suitcase
+            .findOneAndDelete({_id: req.params.user})
+            .then(deletedSuitcase => {
+                const originalId = deletedSuitcase._id
+                const {items, quantities} = deletedSuitcase;
+                db.DeletedSuitcase
+                    .create({
+                        originalId: originalId,
+                        items: items,
+                        quantities: quantities
+                    })
+                    .then(previousSuitcase => res.json(previousSuitcase))
+                    .catch(err => res.status(422).json(err));
+            })
+            .catch(err => res.status(422).json(err));
     }
 }

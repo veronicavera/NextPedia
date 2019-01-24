@@ -10,6 +10,7 @@ router.route('/all')
 
 router.route('/:user')
     .get(suitcasesController.getUserWithSuitcases)
-    .put(suitcasesController.putSuitcase);
+    .put(suitcasesController.putSuitcase)
+    .delete(suitcasesController.deleteSuitcase);
 
 module.exports = router;
