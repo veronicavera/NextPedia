@@ -31,22 +31,40 @@ module.exports = {
             .then(dbSuitcase => {res.json(dbSuitcase)})
             .catch(err => res.status(422).json(err));
     },
+    // changed to start with a single item
     postSuitcase: (req, res) => {
         db.Suitcase
             .create({
-                items: req.body.items,
-                quantities: req.body.quantities
+                items: {
+                    name: req.body.item,
+                    quantity: req.body.quantity
+                }
             })
             .then(dbSuitcase => res.json(dbSuitcase))
             .catch(err => res.status(422).json(err));
     },
-    putSuitcase: (req, res) => {
+    addToSuitcase: (req, res) => {
         db.Suitcase
             .updateOne({_id: req.params.user}, 
                 {
                     $push: {
-                        items: req.body.item,
-                        quantities: req.body.quantity
+                        items: {
+                            name: req.body.item,
+                            quantity: req.body.quantity
+                        }
+                    }
+                })
+            .then(success => res.json(success))
+            .catch(err => res.json(err));
+    },
+    deleteFromSuitcase: (req, res) => {
+        db.Suitcase
+            .updateOne({_id: req.params.user}, 
+                {
+                    $pull: {
+                        items: {
+                            name:req.body.item
+                        },
                     }
                 })
             .then(success => res.json(success))
@@ -57,12 +75,11 @@ module.exports = {
             .findOneAndDelete({_id: req.params.user})
             .then(deletedSuitcase => {
                 const originalId = deletedSuitcase._id
-                const {items, quantities} = deletedSuitcase;
+                const {items} = deletedSuitcase;
                 db.DeletedSuitcase
                     .create({
                         originalId: originalId,
-                        items: items,
-                        quantities: quantities
+                        items: items
                     })
                     .then(previousSuitcase => res.json(previousSuitcase))
                     .catch(err => res.status(422).json(err));

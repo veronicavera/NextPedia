@@ -3,13 +3,16 @@ const Schema = mongoose.Schema;
 
 const DeletedSuitcaseSchema = new Schema({
     originalId: Schema.Types.ObjectId,
-    items: [{
-        type: String,
-        required: true
-    }],
-    quantities: [{
-        type: Number,
-        required: true
+    items: [{ 
+        name: {
+            type: String,
+            required: true
+        },
+        quantity: {
+            type: Number,
+            required: true
+        },
+        _id: false
     }]
 });
 
