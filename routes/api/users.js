@@ -9,6 +9,7 @@ router.route('/all')
 
 router.route('/:user')
     .get(usersController.getUser)
-    .put(usersController.putUser);
+    .put(usersController.putUser)
+    .delete(usersController.deleteUser);
 
 module.exports = router;

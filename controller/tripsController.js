@@ -34,5 +34,29 @@ module.exports = {
             .updateOne({_id: req.params.user}, {$push:req.body})
             .then(dbTrip => res.json(dbTrip))
             .catch(err => res.status(422).json(err));
+    },
+    deleteTrip: (req, res) => {
+        db.Trip
+            .findOneAndDelete({_id: req.params.user})
+            .then(deletedTrip => {
+                const originalId = deletedTrip._id
+                const {tripName, startLocation, startDate, startFlightTakeOffTime, endLocation, endDate, endFlightTakeOffTime, roundTrip, suitcases} = deletedTrip;
+                db.DeletedTrip
+                    .create({
+                        originalId: originalId,
+                        tripName: tripName,
+                        startLocation: startLocation,
+                        startDate: startDate,
+                        startFlightTakeOffTime: startFlightTakeOffTime,
+                        endLocation: endLocation,
+                        endDate: endDate,
+                        endFlightTakeOffTime: endFlightTakeOffTime,
+                        roundTrip: roundTrip,
+                        suitcases: suitcases
+                    })
+                    .then(previousTrip => res.json(previousTrip))
+                    .catch(err => res.status(422).json(err));
+            })
+            .catch(err => res.status(422).json(err));
     }
 }

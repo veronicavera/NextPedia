@@ -24,5 +24,20 @@ module.exports = {
             .updateOne(req.params, {$push:req.body})
             .then(dbUser => res.json(dbUser))
             .catch(err => res.status(422).json(err));
+    },
+    deleteUser: (req, res) => {
+        db.User
+            .findOneAndDelete({user: req.params.user})
+            .then(deletedUser => {
+                const {user, trips} = deletedUser;
+                db.DeletedUser
+                    .create({
+                        user: user,
+                        trips: trips
+                    })
+                    .then(previousUser => res.json(previousUser))
+                    .catch(err => res.status(422).json(err));
+            })
+            .catch(err => res.status(422).res.json(err));
     }
 }

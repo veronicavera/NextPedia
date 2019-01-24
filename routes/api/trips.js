@@ -10,6 +10,7 @@ router.route('/all')
 
 router.route('/:user')
     .get(tripsController.getUserWithTrips)
-    .put(tripsController.putTrip);
+    .put(tripsController.putTrip)
+    .delete(tripsController.deleteTrip);
 
 module.exports = router;
