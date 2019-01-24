@@ -14,16 +14,15 @@ module.exports = {
                         return(tripsWithSuitcases);
                 })
                 const results = await Promise.all(promises);
-                res.json(results);
+                const response = results.reduce((acc, cur) => [...acc, ...cur]);
+                res.json(response);
             }).catch(err => res.status(422).json(err));
     },
     getAllUsersWithSuitcases: (req, res) => {
-        db.User
+        db.Trip
             .find()
-            .sort({_id: -1})
-            .populate('trips')
-            .populate('suitcases')
-            .then(dbUser => {res.json(dbUser)})
+            .populate('suitcases')        
+            .then(suitcase => res.json(suitcase))
             .catch(err => res.status(422).json(err));
     },
     getAllSuitcases: (req, res) => {

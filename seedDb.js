@@ -86,13 +86,12 @@ let tripIds = [];
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/nextpedia", { useNewUrlParser: true });
 
 for (let i = 0; i < users.length; i++) {
-    // db.User.create({user: users[i]}).then(() => console.log(`user ${i} created`)).catch(err => console.log(err));
+    db.User.create({user: users[i]}).then(() => console.log(`user ${i} created`)).catch(err => console.log(err));
 
     db.Trip.create(trips[i])
         .then(trip => {
             console.log(`trip ${i} created`);
             tripIds.push(trip._id);
-            console.log(tripIds);
             db.User.updateOne({user: users[i]}, {$push: {trips: trip._id}})
                 .then(() => console.log(`user ${i} updated`))
                 .catch(err => console.log(err));
