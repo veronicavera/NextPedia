@@ -9,25 +9,34 @@ class FlightSearchForm extends Component {
     lengthOfStay: null
   }
 
+  handleInputChange = (event) => {
+    const target = event.target;
+    const value = target.value;
+    const name = target.name;
+    this.setState({
+      [name]: value
+    });
+  }
+
 
   render() {
     return (
       <form>
         <label>
           Origin
-          <input name="origin" type="text" />
+          <input name="origin" type="text" value={this.state.origin} onChange={this.handleInputChange} />
         </label>
         <label>
           Leaving Date
-          <input name="origin" type="date" />
+          <input name="departureDate" type="date" value={this.state.departureDate} onChange={this.handleInputChange} />
         </label>
         <label>
           Destination
-          <input name="destination" type="text" />
+          <input name="destination" type="text" value={this.state.destination} onChange={this.handleInputChange} />
         </label>
         <label>
           Length Of Stay
-          <input name="lengthOfStay" type="number" />
+          <input name="lengthOfStay" type="number" value={this.state.lengthOfStay} onChange={this.handleInputChange} />
         </label>
         <Calendar />
         <input type="submit" value="Submit" />
