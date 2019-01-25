@@ -3,7 +3,7 @@
 // suitcase
 
 import React, { Component } from "react";
-import "./reset.css";
+import "../allpages/reset.css";
 import "./Suitcase.css";
 
 class MySuitcaseItem extends Component {

@@ -1,11 +1,8 @@
-// note from ry - i've been using this to test things
-// without having to deal with react router. please don't delete!
-
 import React, { Component } from "react";
-import MyCalendar from "./flightfinder/Calendar";
-import MySuitcase from "./userdashboard/Suitcase";
+import MyCalendar from "../flightfinder/Calendar";
+import MySuitcase from "../userdashboard/Suitcase";
 
-class Home extends Component {
+class UserDashboard extends Component {
   state = {
     date: new Date()
   };
@@ -31,4 +28,4 @@ class Home extends Component {
   }
 }
 
-export default Home;
+export default UserDashboard;
