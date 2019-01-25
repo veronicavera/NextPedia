@@ -9,7 +9,9 @@ router.route('/all')
     .get(tripsController.getAllTrips);
 
 router.route('/:user')
-    .get(tripsController.getUserWithTrips)
+    .get(tripsController.getUserWithTrips);
+
+router.route('/:id')
     .put(tripsController.putTrip)
     .delete(tripsController.deleteTrip);
 

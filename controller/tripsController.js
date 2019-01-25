@@ -31,13 +31,13 @@ module.exports = {
     },
     putTrip: (req, res) => {
         db.Trip
-            .updateOne({_id: req.params.user}, {$push:req.body})
+            .updateOne({_id: req.params.id}, {$push:req.body})
             .then(dbTrip => res.json(dbTrip))
             .catch(err => res.status(422).json(err));
     },
     deleteTrip: (req, res) => {
         db.Trip
-            .findOneAndDelete({_id: req.params.user})
+            .findOneAndDelete({_id: req.params.id})
             .then(deletedTrip => {
                 const originalId = deletedTrip._id
                 const {tripName, startLocation, startDate, startFlightTakeOffTime, endLocation, endDate, endFlightTakeOffTime, roundTrip, suitcases} = deletedTrip;

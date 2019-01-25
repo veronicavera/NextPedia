@@ -45,7 +45,7 @@ module.exports = {
     },
     addToSuitcase: (req, res) => {
         db.Suitcase
-            .updateOne({_id: req.params.user}, 
+            .updateOne({_id: req.params.id}, 
                 {
                     $push: {
                         items: {
@@ -59,7 +59,7 @@ module.exports = {
     },
     deleteFromSuitcase: (req, res) => {
         db.Suitcase
-            .updateOne({_id: req.params.user}, 
+            .updateOne({_id: req.params.id}, 
                 {
                     $pull: {
                         items: {
@@ -72,7 +72,7 @@ module.exports = {
     },
     deleteSuitcase: (req, res) => {
         db.Suitcase
-            .findOneAndDelete({_id: req.params.user})
+            .findOneAndDelete({_id: req.params.id})
             .then(deletedSuitcase => {
                 const originalId = deletedSuitcase._id
                 const {items} = deletedSuitcase;
