@@ -65,7 +65,8 @@ const suitcases = [
                 name: 'pant',
                 quantity: 4
             }
-        ]
+        ],
+        notes: 'decide on suit'
     },
     {
         items: [
@@ -89,7 +90,8 @@ const suitcases = [
                 name: 'tablet',
                 quantity: 1
             }
-        ]
+        ],
+        notes: 'add more items'
     },
     {
         items: [

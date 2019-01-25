@@ -44,18 +44,44 @@ module.exports = {
             .catch(err => res.status(422).json(err));
     },
     addToSuitcase: (req, res) => {
-        db.Suitcase
-            .updateOne({_id: req.params.id}, 
-                {
-                    $push: {
-                        items: {
-                            name: req.body.item,
-                            quantity: req.body.quantity
+        if (req.body.item && req.body.quantity && req.body.notes) {
+            db.Suitcase
+                .updateOne({_id: req.params.id}, 
+                    {
+                        $push: {
+                            items: {
+                                name: req.body.item,
+                                quantity: req.body.quantity
+                            }
+                        },
+                        notes: req.body.notes
+                    })
+                .then(success => res.json(success))
+                .catch(err => res.json(err));
+        } else if (req.body.item && req.body.quantity) {
+            db.Suitcase
+                .updateOne({_id: req.params.id}, 
+                    {
+                        $push: {
+                            items: {
+                                name: req.body.item,
+                                quantity: req.body.quantity || 1
+                            }
                         }
-                    }
-                })
-            .then(success => res.json(success))
-            .catch(err => res.json(err));
+                    })
+                .then(success => res.json(success))
+                .catch(err => res.json(err));
+        } else if (req.body.notes) {
+            db.Suitcase
+                .updateOne({_id: req.params.id}, 
+                    {
+                        notes: req.body.notes
+                    })
+                .then(success => res.json(success))
+                .catch(err => res.json(err));
+        } else {
+            res.status(403).send('Insufficient data. Please send both quantity and item');
+        }
     },
     deleteFromSuitcase: (req, res) => {
         db.Suitcase
@@ -65,7 +91,7 @@ module.exports = {
                         items: {
                             name:req.body.item
                         },
-                    }
+                    },
                 })
             .then(success => res.json(success))
             .catch(err => res.json(err));
