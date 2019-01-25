@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "moment": "^2.24.0",
     "react": "^16.7.0",
     "react-calendar": "^2.18.1",
     "react-dom": "^16.7.0",
