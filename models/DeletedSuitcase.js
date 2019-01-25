@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const SuitcaseSchema = new Schema({
+const DeletedSuitcaseSchema = new Schema({
+    originalId: Schema.Types.ObjectId,
     items: [{ 
         name: {
             type: String,
@@ -15,6 +16,6 @@ const SuitcaseSchema = new Schema({
     }]
 });
 
-const Suitcase = mongoose.model('Suitcase', SuitcaseSchema);
+const DeletedSuitcase = mongoose.model('DeletedSuitcase', DeletedSuitcaseSchema);
 
-module.exports = Suitcase;
+module.exports = DeletedSuitcase;

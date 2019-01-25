@@ -56,24 +56,64 @@ const trips = [
 ]
 const suitcases = [
     {
-        items: ['shirt', 'pant'],
-        quantities: [2, 4]
+        items: [
+            {
+                name: 'shirt', 
+                quantity: 2
+            },
+            {
+                name: 'pant',
+                quantity: 4
+            }
+        ]
     },
     {
-        items: ['blanket', 'sweater'],
-        quantities: [1, 5]
+        items: [
+            {
+                name: 'blanket', 
+                quantity: 1
+            },
+            {
+                name: 'sweater',
+                quantity: 5
+            }
+        ]
     },
     {
-        items: ['neck pillow', 'tablet'],
-        quantities: [1, 1]
+        items: [
+            {
+                name: 'neck pillow', 
+                quantity: 1
+            },
+            {
+                name: 'tablet',
+                quantity: 1
+            }
+        ]
     },
     {
-        items: ['pants', 'socks'],
-        quantities: [2, 5]
+        items: [
+            {
+                name: 'socks', 
+                quantity: 5
+            },
+            {
+                name: 'pants',
+                quantity: 2
+            }
+        ]
     },
     {
-        items: ['socks', 'shoes'],
-        quantities: [2, 2]
+        items: [
+            {
+                name: 'socks', 
+                quantity: 2
+            },
+            {
+                name: 'shoes',
+                quantity: 2
+            }
+        ]
     }
 ]
 let tripIds = [];
