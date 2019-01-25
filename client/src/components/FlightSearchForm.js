@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Calendar from './Calendar';
+import Calendar from "./flightfinder/Calendar";
 
 class FlightSearchForm extends Component {
   state = {
@@ -7,6 +7,7 @@ class FlightSearchForm extends Component {
     origin: null,
     destination: null,
     lengthOfStay: null
+
   }
 
   handleInputChange = (event) => {
@@ -17,6 +18,7 @@ class FlightSearchForm extends Component {
       [name]: value
     });
   }
+
 
 
   render() {
