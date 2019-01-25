@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import FlightSearchForm from '../FlightSearchForm';
 class FlightFinder extends Component {
   state = {
 
@@ -8,6 +8,7 @@ class FlightFinder extends Component {
     return (
       <div>
         Hello this is the flight finder page.
+        <FlightSearchForm />
       </div>
     );
   }
