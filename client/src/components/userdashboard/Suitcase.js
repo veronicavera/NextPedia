@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import MySuitcaseItem from "../SuitcaseItem";
-import "../Suitcase.css";
+import MySuitcaseItem from "./SuitcaseItem";
+import "./Suitcase.css";
 
 const testSuit = [
   {
