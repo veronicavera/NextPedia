@@ -4,8 +4,7 @@ const Schema = mongoose.Schema;
 const DeletedUserSchema = new Schema({
     user: {
         type: String,
-        required: true,
-        unique: true
+        required: true
     },
     trips : [{
         type: Schema.Types.ObjectId,
