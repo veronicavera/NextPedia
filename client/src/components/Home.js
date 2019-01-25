@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import MyCalendar from "./Calendar";
+import MySuitcase from "./pages/Suitcase";
 
 class Home extends Component {
   state = {
@@ -21,6 +22,7 @@ class Home extends Component {
       <div>
         <MyCalendar onChange={this.onChange} />
         <button onClick={this.testFunc}>Hello</button>
+        <MySuitcase />
       </div>
     );
   }

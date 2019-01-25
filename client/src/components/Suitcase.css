@@ -1,0 +1,24 @@
+.suitcase-item-header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px grey solid;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.suitcase-item {
+  width: 50%;
+  border: 1px grey solid;
+  padding: 2px;
+}
+
+.suitcase {
+  margin: 5px;
+}
+
+.suitcase-item-delete {
+  color: red;
+  font-size: 24px;
+  margin: 0;
+  text-align: right;
+}
