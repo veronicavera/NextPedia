@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from "axios";
 
 export default {
   /**
@@ -8,16 +8,31 @@ export default {
    * @param {string} departureDate - This is a string formatted as "YYYY-MM-DD" that represents when they are leaving
    * @param {number} lengthOfStay - This is a number the represents the amount of time that individual is staying in a given location
    */
-  getFlightsData: function (origin, destination, departureDate, lengthOfStay) {
+  getFlightsData: function(origin, destination, departureDate, lengthOfStay) {
     if (!origin || !destination || !departureDate || !lengthOfStay) {
-      return { error: "Please pass an origin, destination, departureDate and lengthOfStay" }
+      return {
+        error:
+          "Please pass an origin, destination, departureDate and lengthOfStay"
+      };
     }
 
-    axios.put('/flights', {
-      "origin": origin,
-      "destination": destination,
-      "departureDate": departureDate,
-      "lengthofstay": lengthOfStay
+    axios.put("/flights", {
+      origin: origin,
+      destination: destination,
+      departureDate: departureDate,
+      lengthofstay: lengthOfStay
     });
+  },
+
+  getSuitcaseItemsAll: function() {
+    //
+    return axios.get(`/api/suitcases/all`);
+  },
+  getSuitcaseItems: function(userid) {
+    //router.route('/:user') .get(suitcasesController.getUserWithSuitcases)
+    console.log(userid);
+    //Returns array of trips associated with the user and includes data on suitcases
+
+    return axios.get(`/api/suitcases/${userid}`);
   }
-}
+};

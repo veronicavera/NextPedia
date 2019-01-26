@@ -4,6 +4,7 @@
 import React, { Component } from "react";
 import MyCalendar from "./flightfinder/Calendar";
 import MySuitcase from "./userdashboard/Suitcase";
+import MySuitcaseForm from "./userdashboard/SuitcaseForm";
 
 class Home extends Component {
   state = {
@@ -26,6 +27,7 @@ class Home extends Component {
         <MyCalendar onChange={this.onChange} />
         <button onClick={this.testFunc}>Hello</button>
         <MySuitcase />
+        <MySuitcaseForm />
       </div>
     );
   }

@@ -6,28 +6,23 @@ import React, { Component } from "react";
 import "../allpages/reset.css";
 import "./Suitcase.css";
 
-class MySuitcaseItem extends Component {
-  constructor(props) {
-    super(props);
-  }
+function MySuitcaseItem(props) {
+  return (
+    <div className="suitcase-item" value={props.id}>
+      <p
+        className="suitcase-item-delete"
+        onClick={() => props.onDelete(props.id)}
+      >
+        X
+      </p>
+      <div className="suitcase-item-header">
+        <p>Item: {props.item}</p>
 
-  onDelete = id => {
-    //
-  };
-
-  render() {
-    return (
-      <div className="suitcase-item" value={this.props.id}>
-        <p className="suitcase-item-delete">X</p>
-        <div className="suitcase-item-header">
-          <p>Item: {this.props.item}</p>
-
-          <p>Quantity: {this.props.quantity}</p>
-        </div>
-        <p>Notes: {this.props.notes}</p>
+        <p>Quantity: {props.quantity}</p>
       </div>
-    );
-  }
+      <p>Notes: {props.notes}</p>
+    </div>
+  );
 }
 
 export default MySuitcaseItem;

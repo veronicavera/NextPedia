@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import MySuitcaseItem from "./SuitcaseItem";
+import API from "../utils/API";
 import "./Suitcase.css";
+import { utils } from "mocha";
 
 const testSuit = [
   {
@@ -26,23 +28,41 @@ class MySuitcase extends Component {
     testSuit
   };
 
+  // ObjectId("5c4c7d8729afb9562f3b8e6d") - user ID
+  // ObjectId("5c4c7d8729afb9562f3b8e72") - suitcase
+  // ObjectId("5c4c7d8729afb9562f3b8e70") - user
+  componentWillMount = () => {
+    console.log("in component will mount");
+    API.getSuitcaseItemsAll().then(function(data) {
+      console.log(data);
+    });
+  };
+
+  componentDidMount = () => {
+    console.log("in component did mount");
+    API.getSuitcaseItems("tripPlanner@gmail.com").then(function(data) {
+      console.log(data);
+    });
+  };
+
+  onDelete = id => {
+    //
+    alert(id);
+  };
+
   render() {
     return (
       <div className="suitcase">
         {this.state.testSuit.map(suitcaseItem => (
           <MySuitcaseItem
+            onDelete={this.onDelete}
             item={suitcaseItem.item}
             quantity={suitcaseItem.quantity}
             notes={suitcaseItem.notes}
             id={suitcaseItem.id}
+            key={suitcaseItem.id}
           />
         ))}
-        <MySuitcaseItem
-          item={testSuit[0].item}
-          quantity={testSuit[0].quantity}
-          notes={testSuit[0].notes}
-          id={testSuit[0].id}
-        />
       </div>
     );
   }
