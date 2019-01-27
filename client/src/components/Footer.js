@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 
 class Footer extends Component {
@@ -19,9 +20,9 @@ class Footer extends Component {
 
             <footer style={footerStyle} className="footer d-flex justify-content-center" >
                 <div>
-                    <a style={liStyle}>About</a>
-                    <a style={liStyle}>FAQ</a>
-                    <a style={liStyle}>Contact</a>
+                    <Link style={liStyle} to='/FAQ'>About</Link>
+                    <Link style={liStyle} to='/FAQ'>FAQ</Link>
+                    <Link style={liStyle} to='/FAQ'>Contact</Link>
 
                     <br />
                     <div className="footer-copyright text-center py-3">© 2019 Copyright:
