@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './components/Home';
-import User from "./components/pages/User"
-import FlightFinder from './components/pages/FlightFinder';
+import { FlightFinder, Landing, User, UserDashboard } from './components/pages';
 
 class App extends Component {
   render() {
     return (
       <Router>
-        <div>
-          <Route exact path='/' component={Home} />
+        <Switch>
+          <Route exact path='/' component={Landing} />
+          <Route exact path='/test' component={Home} />
           <Route exact path='/user' component={User} />
           <Route exact path='/flightFinder' component={FlightFinder} />
-        </div>
+        </Switch>
       </Router>
     );
   }
