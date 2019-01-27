@@ -1,6 +1,12 @@
 const db = require('../models');
 
 module.exports = {
+    getSuitcase: (req, res) => {
+        db.Suitcase
+            .find({_id: req.params.id})
+            .then(dbSuitcase => res.json(dbSuitcase))
+            .catch(err => res.status(422).json(err));
+    },
     getUserWithSuitcases: (req, res) => {
         //https://futurestud.io/tutorials/node-js-how-to-run-an-asynchronous-function-in-array-map        
         db.User
@@ -31,7 +37,6 @@ module.exports = {
             .then(dbSuitcase => {res.json(dbSuitcase)})
             .catch(err => res.status(422).json(err));
     },
-    // changed to start with a single item
     postSuitcase: (req, res) => {
         db.Suitcase
             .create({
