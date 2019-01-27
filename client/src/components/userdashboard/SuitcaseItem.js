@@ -2,7 +2,7 @@
 
 // suitcase
 
-import React, { Component } from "react";
+import React from "react";
 import "../allpages/reset.css";
 import "./Suitcase.css";
 

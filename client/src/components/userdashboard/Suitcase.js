@@ -24,24 +24,30 @@ const testSuit = [
 //         <p>Quantity: {this.props.quantity}</p>
 //         <p>Notes {this.props.notes}</p>
 class MySuitcase extends Component {
-  state = {
-    testSuit
-  };
+  state = { testSuit, suitcases: {} };
 
+  // componentDidMount = () => this.setState(props.suitcases);
   // ObjectId("5c4c7d8729afb9562f3b8e6d") - user ID
   // ObjectId("5c4c7d8729afb9562f3b8e72") - suitcase
   // ObjectId("5c4c7d8729afb9562f3b8e70") - user
-  componentWillMount = () => {
-    console.log("in component will mount");
-    API.getSuitcaseItemsAll().then(function(data) {
-      console.log(data);
-    });
-  };
+  // componentWillMount = () => {
+  //   console.log("in component will mount");
+  //   API.getSuitcaseItemsAll().then(function(data) {
+  //     console.log(data);
+  //   });
+  // };
+
+  // componentDidMount = () => {
+  //   console.log("in component did mount");
+  //   API.getSuitcaseItems("tripPlanner@gmail.com").then(function(data) {
+  //     console.log(data);
+  //   });
+  // };
 
   componentDidMount = () => {
-    console.log("in component did mount");
-    API.getSuitcaseItems("tripPlanner@gmail.com").then(function(data) {
-      console.log(data);
+    console.log(this.props);
+    this.setState({
+      suitcases: this.props.suitcases
     });
   };
 
