@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import Calendar from './Calendar';
+// import { withRouter } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 class FlightSearchForm extends Component {
   state = {
-    departureDate: null,
-    origin: null,
-    destination: null,
-    lengthOfStay: null
+    departureDate: '',
+    origin: '',
+    destination: '',
+    lengthOfStay: ''
   }
 
   handleInputChange = (event) => {
@@ -18,28 +20,58 @@ class FlightSearchForm extends Component {
     });
   }
 
+  handleSubmit = (event) => {
+    event.preventDefault();
+    alert(this.state.departureDate);
+    alert(this.state.origin);
+    alert(this.state.destination);
+    alert(this.state.lengthOfStay);
+  }
+
 
   render() {
     return (
-      <form>
+      <form onSubmit={this.handleSubmit}>
         <label>
           Origin
-          <input name="origin" type="text" value={this.state.origin} onChange={this.handleInputChange} />
+          <input
+            name="origin"
+            type="text"
+            value={this.state.origin}
+            onChange={this.handleInputChange}
+          />
         </label>
         <label>
           Leaving Date
-          <input name="departureDate" type="date" value={this.state.departureDate} onChange={this.handleInputChange} />
+          <input
+            name="departureDate"
+            type="date"
+            value={this.state.departureDate}
+            onChange={this.handleInputChange}
+          />
         </label>
         <label>
           Destination
-          <input name="destination" type="text" value={this.state.destination} onChange={this.handleInputChange} />
+          <input
+            name="destination"
+            type="text"
+            value={this.state.destination}
+            onChange={this.handleInputChange}
+          />
         </label>
         <label>
           Length Of Stay
-          <input name="lengthOfStay" type="number" value={this.state.lengthOfStay} onChange={this.handleInputChange} />
+          <input
+            name="lengthOfStay"
+            type="number"
+            value={this.state.lengthOfStay}
+            onChange={this.handleInputChange}
+          />
         </label>
         <Calendar />
-        <input type="submit" value="Submit" />
+        <Link to={{ pathname: `/searchResults/${this.state.departureDate}/${this.state.origin}/${this.state.destination}/${this.state.lengthOfStay}` }}>
+          <button>Submit</button>
+        </Link>
       </form>
     );
   }

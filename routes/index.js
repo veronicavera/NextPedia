@@ -4,12 +4,13 @@ const apiRoutes = require('./api');
 
 router.use('/api', apiRoutes);
 
-if(process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV === 'production') {
     router.use((req, res) => {
         res.sendFile(path.join(__dirname, '../client/build/index.html'));
     })
 } else {
     router.use((req, res) => {
+        console.log(req.body, 'wrong spot in routes index');
         res.sendFile(path.join(__dirname, '../client/public/index.html'));
     })
 }

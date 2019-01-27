@@ -133,6 +133,7 @@ eventEmitter.on("bfm", bargainFinderMaxActivity);
 eventEmitter.on("end", workflowEnd);
 
 app.post('/flights', urlencodedParser, function (req, res) {
+    console.log(req.body, 'server file');
     formValue = {
         origin: req.body.origin,
         destination: req.body.destination,
@@ -143,7 +144,6 @@ app.post('/flights', urlencodedParser, function (req, res) {
 
     console.log("Post END");
     response = res;
-
 });
 
 /* FLIGHT API ENDS HERE */
