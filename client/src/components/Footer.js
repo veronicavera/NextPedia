@@ -7,7 +7,7 @@ class Footer extends Component {
     render() {
         const footerStyle = {
             bottom: '0',
-            position: 'absolute',
+            position: 'sticky',
             width: '100%'
         }
 
@@ -15,7 +15,7 @@ class Footer extends Component {
             margin: "50px"
         }
         return (
-            <footer style={footerStyle} className="footer d-flex justify-content-center" >
+            <footer style={footerStyle} className="footer d-flex justify-content-center bg-light" >
                 <div>
                     <Link style={liStyle} to='/About'>About</Link>
                     <Link style={liStyle} to='/FAQ'>FAQ</Link>
