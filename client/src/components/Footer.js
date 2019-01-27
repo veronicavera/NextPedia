@@ -20,7 +20,7 @@ class Footer extends Component {
 
             <footer style={footerStyle} className="footer d-flex justify-content-center" >
                 <div>
-                    <Link style={liStyle} to='/FAQ'>About</Link>
+                    <Link style={liStyle} to='/About'>About</Link>
                     <Link style={liStyle} to='/FAQ'>FAQ</Link>
                     <Link style={liStyle} to='/FAQ'>Contact</Link>
 
