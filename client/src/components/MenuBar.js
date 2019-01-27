@@ -1,21 +1,21 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
 
 class MenuBar extends Component {
-    
+
     render() {
-        
-        return  (
+
+        return (
             <div>
-                <nav className="navbar navbar-expand-lg navbar-light bg-light ">
-                        <ul className="navbar-nav mr-auto">
+                <nav className="navbar navbar-expand-lg navbar-light bg-light">
+                    <ul className="navbar-nav mr-auto">
                         <li className="nav-item">
                             <h4 className="nav-link disabled">Username</h4>
                         </li>
                         <li className="nav-item">
                             <h4 className="nav-link disabled">Logout</h4>
                         </li>
-                        </ul>
+                    </ul>
                 </nav>
             </div>
         );

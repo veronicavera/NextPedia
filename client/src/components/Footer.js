@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 
 class Footer extends Component {
@@ -6,32 +7,25 @@ class Footer extends Component {
     render() {
         const footerStyle = {
             bottom: '0',
-            position: 'absolute',
+            position: 'sticky',
             width: '100%'
         }
 
         const liStyle = {
             margin: "50px"
-
         }
         return (
-
-
-            <footer style={footerStyle} className="footer d-flex justify-content-center" >
+            <footer style={footerStyle} className="footer d-flex justify-content-center bg-light" >
                 <div>
-                    <a style={liStyle}>About</a>
-                    <a style={liStyle}>FAQ</a>
-                    <a style={liStyle}>Contact</a>
-
+                    <Link style={liStyle} to='/About'>About</Link>
+                    <Link style={liStyle} to='/FAQ'>FAQ</Link>
+                    <Link style={liStyle} to='/Contact'>Contact</Link>
                     <br />
                     <div className="footer-copyright text-center py-3">© 2019 Copyright:
-                <a href="https://github.com/veronicavera/NextPedia"> NextPedia</a>
+                        <a href="https://github.com/veronicavera/NextPedia"> NextPedia</a>
                     </div>
                 </div>
-
             </footer>
-
-
         );
     }
 }
