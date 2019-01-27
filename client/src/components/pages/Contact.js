@@ -5,7 +5,7 @@ class Contact extends Component {
   }
   render() {
     return (
-      <div>
+      <div style={{ minWidth: "100vw", minHeight: "100vh" }}>
         Hello this is the Contact page.
       </div>
     );
