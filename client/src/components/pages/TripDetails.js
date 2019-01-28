@@ -1,8 +1,8 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
-import MySuitcase from "../userdashboard/Suitcase";
+import MySuitcase from '../userdashboard/Suitcase';
 
-import API from "../utils/API";
+import API from '../utils/API';
 
 /**
  * On pageload: queries the user table to get the trips and suitcases associated
@@ -23,7 +23,7 @@ import API from "../utils/API";
       console.log(data.data[0].suitcases._id);
  */
 
-const useremail = "tripPlanner@gmail.com";
+const useremail = 'occasionalFlier@yahoo.com';
 
 class TripDetails extends Component {
   state = {
@@ -42,7 +42,7 @@ class TripDetails extends Component {
 
   testFunc = event => {
     event.preventDefault();
-    alert("Hi! " + this.state.suitcases_id);
+    alert('Hi! ' + this.state.suitcases_id);
   };
 
   render() {

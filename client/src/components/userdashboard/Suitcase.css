@@ -23,10 +23,10 @@
   text-align: right;
 }
 
-.suitcase-notes {
+.suitcase-item-notes {
   font-size: 14px;
   font-style: italic;
-  font-weight: bold;
+  border-top: 1px grey solid;
 }
 
 .suitcase-form-input {
