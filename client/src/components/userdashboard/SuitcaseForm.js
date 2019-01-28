@@ -1,5 +1,6 @@
-import React, { Component } from "react";
-import "./Suitcase.css";
+import React, { Component } from 'react';
+import './Suitcase.css';
+import API from '../utils/API';
 
 class MySuitcaseForm extends Component {
   componentDidMount = () => {
@@ -7,7 +8,7 @@ class MySuitcaseForm extends Component {
   };
   state = {
     suitcaseID: this.props.suitcaseID,
-    item: "",
+    item: '',
     quantity: 0,
     note: this.props.note
   };
@@ -25,45 +26,45 @@ class MySuitcaseForm extends Component {
 
   // on submit: do the ajax query to the backend
   eventTest = () => {
-    alert(this.state.item + " " + this.state.quantity);
+    alert(this.state.item + ' ' + this.state.quantity);
   };
 
   render() {
     return (
       <div>
-        <form className="suitcase-form">
-          <div className="suitcase-form-input">
-            <label htmlFor="item">Item</label>
+        <form className='suitcase-form'>
+          <div className='suitcase-form-input'>
+            <label htmlFor='item'>Item</label>
             <input
               onChange={this.handleInputChange}
-              name="item"
-              id="item"
-              type="text"
+              name='item'
+              id='item'
+              type='text'
             />
           </div>
-          <div className="suitcase-form-input">
-            <label htmlFor="quantity">Quantity</label>
+          <div className='suitcase-form-input'>
+            <label htmlFor='quantity'>Quantity</label>
             <input
               onChange={this.handleInputChange}
-              name="quantity"
-              id="quantity"
-              type="number"
+              name='quantity'
+              id='quantity'
+              type='number'
             />
           </div>
-          <div className="suitcase-form-input">
-            <label htmlFor="note">Note</label>
+          <div className='suitcase-form-input'>
+            <label htmlFor='note'>Note</label>
             <input
               value={this.state.note}
               onChange={this.handleInputChange}
-              name="note"
-              id="note"
-              type="text"
+              name='note'
+              id='note'
+              type='text'
             />
           </div>
 
           <p onClick={this.eventTest}>asdf</p>
 
-          <input type="submit" value="Submit" />
+          <input type='submit' value='Submit' />
         </form>
       </div>
     );
