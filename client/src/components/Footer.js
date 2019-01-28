@@ -18,6 +18,7 @@ class Footer extends Component {
         const copyrightStyle = {
             fontSize: '0.7rem'
         }
+
         return (
             <footer style={footerStyle} className="footer d-flex justify-content-center bg-light" >
                 <div>
