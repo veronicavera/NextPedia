@@ -1,0 +1,11 @@
+a {
+  color: black;
+  font-family: 'Oswald', sans-serif;
+}
+
+.links {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  width: 100vw;
+}
