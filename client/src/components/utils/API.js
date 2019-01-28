@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from 'axios';
 
 export default {
   /**
@@ -12,11 +12,11 @@ export default {
     if (!origin || !destination || !departureDate || !lengthOfStay) {
       return {
         error:
-          "Please pass an origin, destination, departureDate and lengthOfStay"
+          'Please pass an origin, destination, departureDate and lengthOfStay'
       };
     }
 
-    axios.put("/flights", {
+    axios.put('/flights', {
       origin: origin,
       destination: destination,
       departureDate: departureDate,
@@ -38,5 +38,12 @@ export default {
   getSuitcase: function(suitcaseID) {
     // console.log(suitcaseID);
     return axios.get(`/api/suitcases/search/${suitcaseID}`);
+  },
+  addItemToSuitcase: function(suitcaseID, newItem) {
+    //
+    console.log(suitcaseID);
+    console.log(newItem);
+
+    return axios.put(`/api/suitcases/${suitcaseID}`, newItem);
   }
 };

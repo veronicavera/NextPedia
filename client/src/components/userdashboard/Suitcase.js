@@ -1,24 +1,24 @@
-import React, { Component } from "react";
-import MySuitcaseItem from "./SuitcaseItem";
-import API from "../utils/API";
-import "./Suitcase.css";
-import MySuitcaseForm from "../userdashboard/SuitcaseForm";
-import { utils } from "mocha";
+import React, { Component } from 'react';
+import MySuitcaseItem from './SuitcaseItem';
+import API from '../utils/API';
+import './Suitcase.css';
+import MySuitcaseForm from '../userdashboard/SuitcaseForm';
+import { utils } from 'mocha';
 
 class MySuitcase extends Component {
-  state = { suitcaseID: "", suitcaseNote: "", suitcaseItems: [] };
+  state = { suitcaseID: '', suitcaseItems: [] };
 
   componentDidMount = () => {
-    // console.log(this.state);
-    // console.log(this.props);
+    this.getDataForPage();
+  };
 
+  getDataForPage = () => {
     API.getSuitcase(this.props.suitcaseID).then(data => {
-      // console.log(data);
+      console.log(data);
       // console.log(data.data[0].items);
       this.setState({
         suitcaseID: this.props.suitcaseID,
-        suitcaseItems: data.data[0].items,
-        suitcaseNote: data.data[0].notes
+        suitcaseItems: data.data[0].items
       });
     });
   };
@@ -31,27 +31,24 @@ class MySuitcase extends Component {
   render() {
     return (
       <div>
-        <div className="suitcase">
+        <div className='suitcase'>
           {this.state.suitcaseItems.map((suitcaseItem, index) => (
             <MySuitcaseItem
               onDelete={this.onDelete}
               item={suitcaseItem.name}
               quantity={suitcaseItem.quantity}
+              notes={suitcaseItem.notes}
               id={index}
               key={index}
             />
           ))}
-          <div className="suitcase-notes">
-            <p>Note: {this.state.suitcaseNote}</p>
-          </div>
         </div>
-        <div className="suitcase-form-input">
-          {this.state.suitcaseNote && (
-            <MySuitcaseForm
-              note={this.state.suitcaseNote}
-              suitcaseID={this.state.suitcaseID}
-            />
-          )}
+        <div className='suitcase-form-input'>
+          <MySuitcaseForm
+            note={this.state.suitcaseNote}
+            suitcaseID={this.state.suitcaseID}
+            getDataForPage={this.getDataForPage}
+          />
         </div>
       </div>
     );
