@@ -9,7 +9,6 @@ class FlightFinder extends Component {
   render() {
     return (
       <div style={{ minWidth: "100vw", minHeight: "100vh" }}>
-        Hello this is the flight finder page.
         <FlightSearchForm />
       </div>
     );

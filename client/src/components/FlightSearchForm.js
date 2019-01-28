@@ -1,6 +1,16 @@
 import React, { Component } from "react";
 import Calendar from "./flightfinder/Calendar";
 
+const styles = {
+  form: {
+    height: 'inherit',
+    width: 'inherit',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between'
+  }
+}
+
 class FlightSearchForm extends Component {
   state = {
     departureDate: null,
@@ -19,30 +29,34 @@ class FlightSearchForm extends Component {
     });
   }
 
-
-
   render() {
     return (
-      <form>
-        <label>
-          Origin
+      <div className="container-div" id='flight-search-container'>
+        <div className="card">
+          <div className="card-body" style={{ height: '90vh' }}>
+            <form id="flight-search-form" style={styles.form}>
+              <label>
+                Origin
           <input name="origin" type="text" value={this.state.origin} onChange={this.handleInputChange} />
-        </label>
-        <label>
-          Leaving Date
+              </label>
+              <label>
+                Leaving Date
           <input name="departureDate" type="date" value={this.state.departureDate} onChange={this.handleInputChange} />
-        </label>
-        <label>
-          Destination
+              </label>
+              <label>
+                Destination
           <input name="destination" type="text" value={this.state.destination} onChange={this.handleInputChange} />
-        </label>
-        <label>
-          Length Of Stay
+              </label>
+              <label>
+                Length Of Stay
           <input name="lengthOfStay" type="number" value={this.state.lengthOfStay} onChange={this.handleInputChange} />
-        </label>
-        <Calendar />
-        <input type="submit" value="Submit" />
-      </form>
+              </label>
+              <Calendar />
+              <input type="submit" value="Submit" />
+            </form>
+          </div>
+        </div>
+      </div>
     );
   }
 }
