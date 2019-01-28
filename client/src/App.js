@@ -1,15 +1,19 @@
+
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './components/Home';
+
 import { FlightFinder, Landing, User, FAQ, About, Contact } from './components/pages';
 import { withAuthentication } from './components/pages/Session'
 import SignUpPage from './components/pages/SignUp';
+
 import SignInPage from './components/pages/SignIn';
 import Navigation from './components/pages/Navigation';
 import HomePage from './components/pages/Home';
 import { MenuBar, Footer } from './components';
 import dotenv from 'dotenv';
 dotenv.config();
+
 
 class App extends Component {
   render() {
@@ -18,6 +22,7 @@ class App extends Component {
         <>
           <Navigation />
           <Switch>
+
             <Route exact path='/' component={Landing} />
             <Route exact path='/home' component={HomePage} />
             <Route exact path='/test' component={Home} />
@@ -28,6 +33,8 @@ class App extends Component {
             <Route exact path='/Contact' component={Contact} />
             <Route exact path='/Signin' component={SignInPage} />
             <Route exact path='/signup' component={SignUpPage} />
+            <Route exact path="/tripdetails" component={TripDetails} />      
+
           </Switch>
           <Footer />
         </>

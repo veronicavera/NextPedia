@@ -20,7 +20,6 @@ function MySuitcaseItem(props) {
 
         <p>Quantity: {props.quantity}</p>
       </div>
-      <p>Notes: {props.notes}</p>
     </div>
   );
 }
