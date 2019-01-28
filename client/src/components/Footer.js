@@ -14,6 +14,10 @@ class Footer extends Component {
         const liStyle = {
             margin: "50px"
         }
+
+        const copyrightStyle = {
+            fontSize: '0.7rem'
+        }
         return (
             <footer style={footerStyle} className="footer d-flex justify-content-center bg-light" >
                 <div>
@@ -21,7 +25,7 @@ class Footer extends Component {
                     <Link style={liStyle} to='/FAQ'>FAQ</Link>
                     <Link style={liStyle} to='/Contact'>Contact</Link>
                     <br />
-                    <div className="footer-copyright text-center py-3">© 2019 Copyright:
+                    <div className="footer-copyright text-center py-3" style={copyrightStyle}>© 2019 Copyright:
                         <a href="https://github.com/veronicavera/NextPedia"> NextPedia</a>
                     </div>
                 </div>
