@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import MyCalendar from "./Calendar";
+import MyCalendar from "../Calendar";
 
 class Home extends Component {
   state = {
