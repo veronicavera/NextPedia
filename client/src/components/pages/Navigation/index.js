@@ -5,27 +5,28 @@ import SignOutButton from '../SignOut';
 import * as ROUTES from '../../../constants/routes';
 
 import { AuthUserContext } from '../Session';
+import './navigation.css';
 
 const Navigation = () => (
-  <div>
-    <AuthUserContext.Consumer>
-      {authUser =>
-        authUser ? <NavigationAuth /> : <NavigationNonAuth />
-      }
-    </AuthUserContext.Consumer>
-  </div>
+  <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <>
+
+      <AuthUserContext.Consumer>
+        {authUser =>
+          authUser ? <NavigationAuth /> : <NavigationNonAuth />
+        }
+      </AuthUserContext.Consumer>
+    </>
+  </nav>
 );
 
 const NavigationAuth = () => (
-  <ul>
+  <ul className="navbar-nav links">
     <li>
-      <Link to={ROUTES.LANDING}>Landing</Link>
+      <Link to={ROUTES.FLIGHTFINDER}>Flight Finder</Link>
     </li>
     <li>
-      <Link to={ROUTES.HOME}>Home</Link>
-    </li>
-    <li>
-      <Link to={ROUTES.ACCOUNT}>Account</Link>
+      <Link to={ROUTES.ACCOUNT}>Profile</Link>
     </li>
     <li>
       <SignOutButton />
@@ -34,9 +35,9 @@ const NavigationAuth = () => (
 );
 
 const NavigationNonAuth = () => (
-  <ul>
+  <ul className="navbar-nav links">
     <li>
-      <Link to={ROUTES.LANDING}>Landing</Link>
+      <Link to={ROUTES.LANDING}>Home</Link>
     </li>
     <li>
       <Link to={ROUTES.SIGN_IN}>Sign In</Link>

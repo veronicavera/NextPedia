@@ -6,13 +6,18 @@ import { SignUpLink } from '../SignUp';
 import { PasswordForgetLink } from '../PasswordForget';
 import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../../constants/routes';
+import './signin.css';
 
 const SignInPage = () => (
-  <div>
-    <h1>SignIn</h1>
-    <SignInForm />
-    <SignUpLink />
-    <PasswordForgetLink />
+  <div className="container-div">
+    <div className="card">
+      <div className="card-body">
+        <h1 className="card-title">Sign In</h1>
+        <SignInForm />
+        <SignUpLink />
+        <PasswordForgetLink />
+      </div>
+    </div>
   </div>
 );
 
@@ -37,7 +42,7 @@ class SignInFormBase extends Component {
       .doSignInWithEmailAndPassword(email, password)
       .then(() => {
         this.setState({ ...INITIAL_STATE });
-        this.props.history.push(ROUTES.HOME);
+        this.props.history.push(ROUTES.FLIGHTFINDER);
       })
       .catch(error => {
         this.setState({ error });
@@ -71,7 +76,7 @@ class SignInFormBase extends Component {
           type="password"
           placeholder="Password"
         />
-        <button disabled={isInvalid} type="submit">
+        <button disabled={isInvalid} type="submit" className="btn btn-outline-success">
           Sign In
         </button>
 
