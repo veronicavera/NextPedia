@@ -7,7 +7,7 @@ import FAQ from './FAQ';
 import About from './About';
 import Contact from './Contact';
 import SignIn from './SignIn';
-import SignUp from  './SignUp';
+import SignUpPage from  './SignUp';
 
 export { User, Landing, FlightFinder, Navigation, FAQ, About, Contact,
-     SignIn, SignUp };
+     SignIn, SignUpPage };

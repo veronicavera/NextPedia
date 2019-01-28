@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import SignOutButton from '../LoginLanding/SignOut';
+import SignOutButton from './SignOut';
 import * as ROUTES from '../../constants/routes';
 
-import { AuthUserContext } from '../LoginLanding/Session';
+import { AuthUserContext } from './Session';
 
 const Navigation = () => (
   <nav className="navbar navbar-expand-lg navbar-light bg-light">
