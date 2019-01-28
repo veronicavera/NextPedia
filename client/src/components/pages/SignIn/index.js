@@ -32,7 +32,7 @@ class SignInFormBase extends Component {
   onSubmit = event => {
     event.preventDefault();
     const { email, password } = this.state;
-
+    // ERROR ON LINE 36
     this.props.firebase
       .doSignInWithEmailAndPassword(email, password)
       .then(() => {
