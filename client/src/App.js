@@ -1,10 +1,12 @@
+
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './components/Home';
-import { FlightFinder, Landing, User, FAQ, About, Contact, Navigation} from './components/pages';
+import { FlightFinder, TripDetails, Landing, User, FAQ, About, Contact, Navigation} from './components/pages';
 import SignUpPage from './components/pages/SignUp'
 import SignInPage from './components/pages/SignIn';
 import { MenuBar, Footer } from './components';
+
 
 class App extends Component {
   render() {
@@ -13,6 +15,7 @@ class App extends Component {
         <>
           <Navigation />
           <Switch>
+
             <Route exact path='/' component={Landing} />
             <Route exact path='/test' component={Home} />
             <Route exact path='/user' component={User} />
@@ -22,6 +25,8 @@ class App extends Component {
             <Route exact path='/Contact' component={Contact} />
             <Route exact path='/Signin' component={SignInPage} />
             <Route exact path='/signup' component={SignUpPage} />
+            <Route exact path="/tripdetails" component={TripDetails} />      
+
           </Switch>
           <Footer />
         </>

@@ -4,50 +4,21 @@ import API from "../utils/API";
 import "./Suitcase.css";
 import { utils } from "mocha";
 
-const testSuit = [
-  {
-    item: "jacket",
-    quantity: 2,
-    notes: "heavy - we're going to antarctica!",
-    id: 3
-  },
-  {
-    item: "socks",
-    quantity: 10,
-    notes: "I love socks!",
-    id: 17
-  }
-];
-
-// case-item" value={this.props.id}>
-//         <p>Item: {this.props.item}</p>
-//         <p>Quantity: {this.props.quantity}</p>
-//         <p>Notes {this.props.notes}</p>
 class MySuitcase extends Component {
-  state = { testSuit, suitcases: {} };
-
-  // componentDidMount = () => this.setState(props.suitcases);
-  // ObjectId("5c4c7d8729afb9562f3b8e6d") - user ID
-  // ObjectId("5c4c7d8729afb9562f3b8e72") - suitcase
-  // ObjectId("5c4c7d8729afb9562f3b8e70") - user
-  // componentWillMount = () => {
-  //   console.log("in component will mount");
-  //   API.getSuitcaseItemsAll().then(function(data) {
-  //     console.log(data);
-  //   });
-  // };
-
-  // componentDidMount = () => {
-  //   console.log("in component did mount");
-  //   API.getSuitcaseItems("tripPlanner@gmail.com").then(function(data) {
-  //     console.log(data);
-  //   });
-  // };
+  state = { suitcaseID: "", suitcaseNote: "", suitcaseItems: [] };
 
   componentDidMount = () => {
-    console.log(this.props);
-    this.setState({
-      suitcases: this.props.suitcases
+    // console.log(this.state);
+    // console.log(this.props);
+
+    API.getSuitcase(this.props.suitcaseID).then(data => {
+      // console.log(data);
+      // console.log(data.data[0].items);
+      this.setState({
+        suitcaseID: this.props.suitcaseID,
+        suitcaseItems: data.data[0].items,
+        suitcaseNote: data.data[0].notes
+      });
     });
   };
 
@@ -59,16 +30,18 @@ class MySuitcase extends Component {
   render() {
     return (
       <div className="suitcase">
-        {this.state.testSuit.map(suitcaseItem => (
+        {this.state.suitcaseItems.map((suitcaseItem, index) => (
           <MySuitcaseItem
             onDelete={this.onDelete}
-            item={suitcaseItem.item}
+            item={suitcaseItem.name}
             quantity={suitcaseItem.quantity}
-            notes={suitcaseItem.notes}
-            id={suitcaseItem.id}
-            key={suitcaseItem.id}
+            id={index}
+            key={index}
           />
         ))}
+        <div className="suitcase-notes">
+          <p>Note: {this.state.suitcaseNote}</p>
+        </div>
       </div>
     );
   }
