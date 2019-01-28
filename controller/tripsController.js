@@ -1,6 +1,12 @@
 const db = require('../models');
 
 module.exports = {
+    getTrip: (req, res) => {
+        db.Trip
+            .find({_id: req.params.id})
+            .then(dbTrip => res.json(dbTrip))
+            .catch(err => res.status(422).json(err));
+    },
     getAllUsersWithTrips: (req, res) => {
         db.User
             .find()

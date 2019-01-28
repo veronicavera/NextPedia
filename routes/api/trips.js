@@ -15,4 +15,7 @@ router.route('/:id')
     .put(tripsController.putTrip)
     .delete(tripsController.deleteTrip);
 
+router.route('/search/:id')
+    .get(tripsController.getTrip)
+
 module.exports = router;
