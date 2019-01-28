@@ -7,6 +7,7 @@ import SignUpPage from './SignUp'
 
 class Landing extends Component {
   render() {
+
     return (    
     <>
       <AuthUserContext.Consumer>
