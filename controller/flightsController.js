@@ -50,7 +50,7 @@ module.exports = {
                         {"t": endAirport}
                     ])
                 },
-                headers: { "X-RapidAPI-Key": "8c84ad5690msh440ca4287c8e714p198a46jsn2c3f79979b67"}
+                headers: { "X-RapidAPI-Key": process.env.FLIGHTS_API_KEY}
             })
 
             const flightInformation = route.data.steps[0].distance.flight
