@@ -23,7 +23,7 @@ const Navigation = () => (
 const NavigationAuth = () => (
   <ul className="navbar-nav links">
     <li>
-      <Link to={ROUTES.FLIGHTFINDER}>Flight Finder</Link>
+      <Link to={ROUTES.FLIGHTFINDER}>Home</Link>
     </li>
     <li>
       <Link to={ROUTES.ACCOUNT}>Profile</Link>
