@@ -42,7 +42,8 @@ module.exports = {
             .create({
                 items: {
                     name: req.body.item,
-                    quantity: req.body.quantity
+                    quantity: req.body.quantity,
+                    notes: req.body.notes
                 }
             })
             .then(dbSuitcase => res.json(dbSuitcase))
@@ -56,10 +57,10 @@ module.exports = {
                         $push: {
                             items: {
                                 name: req.body.item,
-                                quantity: req.body.quantity
+                                quantity: req.body.quantity,
+                                notes: req.body.notes
                             }
-                        },
-                        notes: req.body.notes
+                        }
                     })
                 .then(success => res.json(success))
                 .catch(err => res.json(err));
@@ -76,14 +77,14 @@ module.exports = {
                     })
                 .then(success => res.json(success))
                 .catch(err => res.json(err));
-        } else if (req.body.notes) {
-            db.Suitcase
-                .updateOne({_id: req.params.id}, 
-                    {
-                        notes: req.body.notes
-                    })
-                .then(success => res.json(success))
-                .catch(err => res.json(err));
+        // } else if (req.body.notes) {
+        //     db.Suitcase
+        //         .updateOne({_id: req.params.id}, 
+        //             {
+        //                 notes: req.body.notes
+        //             })
+        //         .then(success => res.json(success))
+        //         .catch(err => res.json(err));
         } else {
             res.status(403).send('Insufficient data. Please send both quantity and item');
         }
