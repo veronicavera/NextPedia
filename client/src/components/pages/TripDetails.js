@@ -1,10 +1,7 @@
-// note from ry - i've been using this to test things
-// without having to deal with react router. please don't delete!
-
 import React, { Component } from "react";
 
 import MySuitcase from "../userdashboard/Suitcase";
-import MySuitcaseForm from "../userdashboard/SuitcaseForm";
+
 import API from "../utils/API";
 
 /**
@@ -31,41 +28,35 @@ const useremail = "tripPlanner@gmail.com";
 class TripDetails extends Component {
   state = {
     useremail: useremail,
-    trip: {},
-    suitcases: {}
+    suitcases_id: null
   };
-  // onChange = date => {
-  //   console.log(date);
-  //   this.setState({ date });
-  // };
+
   componentDidMount = () => {
-    // console.log("in component did mount");
     API.getSuitcaseItems(useremail).then(data => {
-      // console.log(data);
-      // console.log(data.data[0]);
       this.setState({
         trip: data.data[0],
-        suitcases: data.data[0].suitcases
+        suitcases_id: data.data[0].suitcases._id
       });
-      console.log(this.state);
     });
   };
 
   testFunc = event => {
     event.preventDefault();
-    console.log(this.state.suitcases);
+    alert("Hi! " + this.state.suitcases_id);
   };
 
   render() {
+    // console.log(this.state.suitcases_id);
     return (
       <div>
         <button onClick={this.testFunc}>Hello</button>
-        <MySuitcase
-          suitcases={this.state.suitcases}
-          useremail={this.state.useremail}
-          trip={this.state.trip}
-        />
-        <MySuitcaseForm suitcaseID={this.state.suitcases._id} />
+        {this.state.suitcases_id && (
+          <MySuitcase suitcaseID={this.state.suitcases_id} />
+        )}
+
+        {/* {this.state.suitcases_id && (
+          <MySuitcaseForm suitcaseID={this.state.suitcases_id} />
+        )} */}
       </div>
     );
   }

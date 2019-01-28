@@ -30,9 +30,13 @@ export default {
   },
   getSuitcaseItems: function(userid) {
     //router.route('/:user') .get(suitcasesController.getUserWithSuitcases)
-    console.log(userid);
+    // console.log(userid);
     //Returns array of trips associated with the user and includes data on suitcases
 
     return axios.get(`/api/suitcases/${userid}`);
+  },
+  getSuitcase: function(suitcaseID) {
+    // console.log(suitcaseID);
+    return axios.get(`/api/suitcases/search/${suitcaseID}`);
   }
 };
