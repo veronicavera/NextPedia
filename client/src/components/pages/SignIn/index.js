@@ -30,6 +30,7 @@ class SignInFormBase extends Component {
   }
 
   onSubmit = event => {
+    
     const { email, password } = this.state;
 
     this.props.firebase

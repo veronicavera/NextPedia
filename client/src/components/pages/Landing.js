@@ -4,7 +4,7 @@ import './landingpage.css';
 class Landing extends Component {
   render() {
     return (
-      <div class="container-div" style={styles.font}>
+      <div className="container-div" style={styles.font}>
         <h1>About Us</h1>
         <p>Our Purpose
         Nextpedia is customer centric tool that provides customers with an effortless way to book inclusive and sustainable flights globally.</p>
