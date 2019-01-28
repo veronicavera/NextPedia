@@ -1,7 +1,7 @@
 .suitcase-item-header {
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px grey solid;
+
   font-size: 18px;
   font-weight: bold;
 }
@@ -21,6 +21,12 @@
   font-size: 24px;
   margin: 0;
   text-align: right;
+}
+
+.suitcase-notes {
+  font-size: 14px;
+  font-style: italic;
+  font-weight: bold;
 }
 
 .suitcase-form-input {

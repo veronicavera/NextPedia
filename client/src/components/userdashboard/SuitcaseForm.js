@@ -3,6 +3,7 @@ import "./Suitcase.css";
 
 class MySuitcaseForm extends Component {
   state = {
+    suitcaseID: this.props.suitcaseID,
     item: "",
     quantity: 0,
     notes: ""
