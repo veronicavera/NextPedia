@@ -23,13 +23,10 @@ const Navigation = () => (
 const NavigationAuth = () => (
   <ul className="navbar-nav links">
     <li>
-      <Link to={ROUTES.LANDING}>Landing</Link>
+      <Link to={ROUTES.FLIGHTFINDER}>Flight Finder</Link>
     </li>
     <li>
-      <Link to={ROUTES.HOME}>Home</Link>
-    </li>
-    <li>
-      <Link to={ROUTES.ACCOUNT}>Account</Link>
+      <Link to={ROUTES.ACCOUNT}>Profile</Link>
     </li>
     <li>
       <SignOutButton />
@@ -40,7 +37,7 @@ const NavigationAuth = () => (
 const NavigationNonAuth = () => (
   <ul className="navbar-nav links">
     <li>
-      <Link to={ROUTES.LANDING}>Landing</Link>
+      <Link to={ROUTES.LANDING}>Home</Link>
     </li>
     <li>
       <Link to={ROUTES.SIGN_IN}>Sign In</Link>
