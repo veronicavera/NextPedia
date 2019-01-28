@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import MySuitcase from "../userdashboard/Suitcase";
-import MySuitcaseForm from "../userdashboard/SuitcaseForm";
+
 import API from "../utils/API";
 
 /**
@@ -54,9 +54,9 @@ class TripDetails extends Component {
           <MySuitcase suitcaseID={this.state.suitcases_id} />
         )}
 
-        {this.state.suitcases_id && (
+        {/* {this.state.suitcases_id && (
           <MySuitcaseForm suitcaseID={this.state.suitcases_id} />
-        )}
+        )} */}
       </div>
     );
   }
