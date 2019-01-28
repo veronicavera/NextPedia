@@ -2,29 +2,30 @@ import React, { Component } from "react";
 import "./Suitcase.css";
 
 class MySuitcaseForm extends Component {
+  componentDidMount = () => {
+    console.log(this.props);
+  };
   state = {
     suitcaseID: this.props.suitcaseID,
     item: "",
     quantity: 0,
-    notes: ""
+    note: this.props.note
   };
   // state: should be what goes into the form
 
   // on change: update the state
   handleInputChange = event => {
-    const newitem = event.target.item;
-    const newquantity = event.target.quantity;
-    const newnotes = event.target.notes;
+    const name = event.target.name;
+    const value = event.target.value;
+
     this.setState({
-      item: newitem,
-      quantity: newquantity,
-      notes: newnotes
+      [name]: value
     });
   };
 
   // on submit: do the ajax query to the backend
-  onSubmit = event => {
-    console.log(event);
+  eventTest = () => {
+    alert(this.state.item + " " + this.state.quantity);
   };
 
   render() {
@@ -33,16 +34,34 @@ class MySuitcaseForm extends Component {
         <form className="suitcase-form">
           <div className="suitcase-form-input">
             <label htmlFor="item">Item</label>
-            <input id="item" type="text" />
+            <input
+              onChange={this.handleInputChange}
+              name="item"
+              id="item"
+              type="text"
+            />
           </div>
           <div className="suitcase-form-input">
             <label htmlFor="quantity">Quantity</label>
-            <input id="quantity" type="number" />
+            <input
+              onChange={this.handleInputChange}
+              name="quantity"
+              id="quantity"
+              type="number"
+            />
           </div>
           <div className="suitcase-form-input">
             <label htmlFor="note">Note</label>
-            <input id="note" type="text" />
+            <input
+              value={this.state.note}
+              onChange={this.handleInputChange}
+              name="note"
+              id="note"
+              type="text"
+            />
           </div>
+
+          <p onClick={this.eventTest}>asdf</p>
 
           <input type="submit" value="Submit" />
         </form>

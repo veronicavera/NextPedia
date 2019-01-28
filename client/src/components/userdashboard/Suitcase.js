@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import MySuitcaseItem from "./SuitcaseItem";
 import API from "../utils/API";
 import "./Suitcase.css";
+import MySuitcaseForm from "../userdashboard/SuitcaseForm";
 import { utils } from "mocha";
 
 class MySuitcase extends Component {
@@ -29,18 +30,28 @@ class MySuitcase extends Component {
 
   render() {
     return (
-      <div className="suitcase">
-        {this.state.suitcaseItems.map((suitcaseItem, index) => (
-          <MySuitcaseItem
-            onDelete={this.onDelete}
-            item={suitcaseItem.name}
-            quantity={suitcaseItem.quantity}
-            id={index}
-            key={index}
-          />
-        ))}
-        <div className="suitcase-notes">
-          <p>Note: {this.state.suitcaseNote}</p>
+      <div>
+        <div className="suitcase">
+          {this.state.suitcaseItems.map((suitcaseItem, index) => (
+            <MySuitcaseItem
+              onDelete={this.onDelete}
+              item={suitcaseItem.name}
+              quantity={suitcaseItem.quantity}
+              id={index}
+              key={index}
+            />
+          ))}
+          <div className="suitcase-notes">
+            <p>Note: {this.state.suitcaseNote}</p>
+          </div>
+        </div>
+        <div className="suitcase-form-input">
+          {this.state.suitcaseNote && (
+            <MySuitcaseForm
+              note={this.state.suitcaseNote}
+              suitcaseID={this.state.suitcaseID}
+            />
+          )}
         </div>
       </div>
     );
