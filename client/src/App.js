@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import Home from './components/Home';
+import Home from './components/pages/Home';
 import User from "./components/User"
 import FlightFinder from './components/pages/FlightFinder';
 import FlightSearchResults from './components/pages/FlightSearchResults';
