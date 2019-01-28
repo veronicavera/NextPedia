@@ -12,6 +12,7 @@ const DeletedSuitcaseSchema = new Schema({
             type: Number,
             required: true
         },
+        notes: String,
         _id: false
     }]
 });

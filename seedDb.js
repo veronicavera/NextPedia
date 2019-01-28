@@ -59,14 +59,14 @@ const suitcases = [
         items: [
             {
                 name: 'shirt', 
-                quantity: 2
+                quantity: 2,
+                notes: 'decide on suit'
             },
             {
                 name: 'pant',
                 quantity: 4
             }
         ],
-        notes: 'decide on suit'
     },
     {
         items: [
@@ -84,14 +84,14 @@ const suitcases = [
         items: [
             {
                 name: 'neck pillow', 
-                quantity: 1
+                quantity: 1,
+                notes: 'add more items'
             },
             {
                 name: 'tablet',
                 quantity: 1
             }
-        ],
-        notes: 'add more items'
+        ]
     },
     {
         items: [

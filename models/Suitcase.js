@@ -11,9 +11,9 @@ const SuitcaseSchema = new Schema({
             type: Number,
             required: true
         },
+        notes: String,
         _id: false
-    }],
-    notes: String
+    }]
 });
 
 const Suitcase = mongoose.model('Suitcase', SuitcaseSchema);
