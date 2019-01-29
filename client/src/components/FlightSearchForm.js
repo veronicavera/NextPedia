@@ -52,7 +52,7 @@ class FlightSearchForm extends Component {
                 <input name="lengthOfStay" type="number" value={this.state.lengthOfStay} onChange={this.handleInputChange} />
               </label>
               <Calendar />
-              <input type="submit" value="Submit" />
+              <input type="submit" value="Submit" className="btn btn-outline-success" />
             </form>
           </div>
         </div>

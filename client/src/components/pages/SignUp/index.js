@@ -7,13 +7,13 @@ import './signup.css';
 
 const SignUpPage = () => (
   <div className="container-div">
-  <div className="card">
-    <div className="card-body">
-      <h1 className="card-title">Sign Up</h1>
-      <SignUpForm />
+    <div className="card">
+      <div className="card-body">
+        <h1 className="card-title">Sign Up</h1>
+        <SignUpForm />
+      </div>
     </div>
   </div>
-</div>
 );
 
 const INITIAL_STATE = {
@@ -79,7 +79,7 @@ class SignUpFormBase extends Component {
       username === '';
 
     return (
-      <form onSubmit={this.onSubmit}>
+      <form onSubmit={this.onSubmit} style={{ flexDirection: 'column', height: '90%' }}>
         <input
           name="username"
           value={username}
@@ -108,7 +108,7 @@ class SignUpFormBase extends Component {
           type="password"
           placeholder="Confirm Password"
         />
-        <button disabled={isInvalid} type="submit">
+        <button disabled={isInvalid} type="submit" className="btn btn-outline-success">
           Sign Up
         </button>
 
