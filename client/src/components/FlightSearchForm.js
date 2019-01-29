@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Calendar from "./flightfinder/Calendar";
+import './flightsearchform.css';
 
 const styles = {
   form: {
@@ -8,7 +9,12 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-between'
-  }
+  },
+  label: {
+    display: 'flex',
+    justifyContent: 'flex-end',
+    alignItems: 'center'
+  },
 }
 
 class FlightSearchForm extends Component {
@@ -35,21 +41,21 @@ class FlightSearchForm extends Component {
         <div className="card">
           <div className="card-body" style={{ height: '90vh' }}>
             <form id="flight-search-form" style={styles.form}>
-              <label>
+              <label style={styles.label}>
                 Origin:
-          <input name="origin" type="text" value={this.state.origin} onChange={this.handleInputChange} />
+          <input name="origin" type="text" value={this.state.origin} onChange={this.handleInputChange} className="flightFormInput" />
               </label>
-              <label>
+              <label style={styles.label}>
                 Leaving Date:
-          <input name="departureDate" type="date" value={this.state.departureDate} onChange={this.handleInputChange} />
+          <input name="departureDate" type="date" value={this.state.departureDate} onChange={this.handleInputChange} className="flightFormInput" />
               </label>
-              <label>
+              <label style={styles.label}>
                 Destination:
-          <input name="destination" type="text" value={this.state.destination} onChange={this.handleInputChange} />
+          <input name="destination" type="text" value={this.state.destination} onChange={this.handleInputChange} className="flightFormInput" />
               </label>
-              <label>
+              <label style={styles.label}>
                 Length Of Stay:
-                <input name="lengthOfStay" type="number" value={this.state.lengthOfStay} onChange={this.handleInputChange} />
+                <input name="lengthOfStay" type="number" value={this.state.lengthOfStay} onChange={this.handleInputChange} className="flightFormInput" />
               </label>
               <Calendar />
               <input type="submit" value="Submit" className="btn btn-outline-success" />
