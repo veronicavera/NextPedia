@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import MenuBar from "../MenuBar.js"
-import Footer from "../Footer.js"
+
 class User extends Component {
 
     render() {
@@ -14,8 +13,8 @@ class User extends Component {
             textAlign: "center"
         }
         return (
+            <React.Fragment>
             <div>
-                <MenuBar />
                 <br />
                 <div className='container'>
                     <div className="row">
@@ -51,8 +50,8 @@ class User extends Component {
                         </div>
                     </div>
                 </div>
-                <Footer />
             </div>
+            </React.Fragment>
         );
     }
 }

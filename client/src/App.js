@@ -13,6 +13,7 @@ import {
 } from "./components/pages";
 import { withAuthentication } from "./components/pages/Session";
 import SignUpPage from "./components/pages/SignUp";
+import AccountPage from "./components/pages/Account"
 
 import SignInPage from "./components/pages/SignIn";
 import Navigation from "./components/pages/Navigation";
@@ -39,6 +40,7 @@ class App extends Component {
             <Route exact path="/Signin" component={SignInPage} />
             <Route exact path="/signup" component={SignUpPage} />
             <Route exact path="/tripdetails" component={TripDetails} />
+            <Route exact path="/Account" component={AccountPage} />
           </Switch>
           <Footer />
         </>
