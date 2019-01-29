@@ -3,7 +3,6 @@ const moment = require('moment');
 
 module.exports = {
     getFlightData: (req, res) => {
-
         const promise = async () => {
             const getAirlineCode = () => {
                 const randomNumber = Math.floor(Math.random() * 15);
