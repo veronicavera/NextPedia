@@ -3,7 +3,7 @@
 }
 
 .container-div {
-  background-image: linear-gradient(rgba(255, 153, 255, 0.5), rgba(153, 204, 255, 0.5)), url('../../images/backgroundimglanding.jpg');
+  background-image: linear-gradient(rgba(255, 153, 255, 0.5), rgba(153, 204, 255, 0.5)), url('../../../images/scenic-mountain-landscape-small.jpg');
   min-width: 100vw;
   min-height: 100vh;
   background-size: 100vh, 100vw;
@@ -41,12 +41,5 @@ a {
 
 h1 {
   font-size: 2.4rem;
-}
-
-p {
-  line-height: 1.7rem;
-}
-
-h2 {
-  font-size: 1.4rem;
+  font-weight: 600;
 }

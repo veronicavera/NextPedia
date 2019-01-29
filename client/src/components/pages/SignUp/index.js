@@ -1,14 +1,19 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-
+import SignInLink from '../SignIn'
 import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../../constants/routes';
+import './signup.css';
 
 const SignUpPage = () => (
-  <div>
-    <h1>SignUp</h1>
-    <SignUpForm />
+  <div className="container-div">
+  <div className="card">
+    <div className="card-body">
+      <h1 className="card-title">Sign Up</h1>
+      <SignUpForm />
+    </div>
   </div>
+</div>
 );
 
 const INITIAL_STATE = {
@@ -41,7 +46,7 @@ class SignUpFormBase extends Component {
           })
           .then(() => {
             this.setState({ ...INITIAL_STATE });
-            this.props.history.push(ROUTES.HOME);
+            this.props.history.push(ROUTES.LANDING);
           })
           .catch(error => {
             this.setState({ error });
