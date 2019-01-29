@@ -37,23 +37,18 @@ class MySuitcaseUpdateForm extends Component {
    * underlying database. Upon completion, refresh the page.
    */
   updateSuitcaseItem = () => {
-    alert(this.state.item, this.state.quantity, this.state.notes);
+    // 1. create itemInfo
+
+    // 2. do API.updateItemInSuitcase with suitcaseID and then itemInfo
+    alert(this.state.item);
+    alert(this.state.quantity);
+    alert(this.state.notes);
   };
 
   render() {
     return (
       <div>
         <form>
-          <div className='suitcase-form-input'>
-            <label htmlFor='item'>Item</label>
-            <input
-              onChange={this.handleInputChange}
-              name='item'
-              id='item'
-              type='text'
-              value={this.state.item}
-            />
-          </div>
           <div className='suitcase-form-input'>
             <label htmlFor='quantity'>Quantity</label>
             <input
