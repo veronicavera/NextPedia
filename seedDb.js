@@ -139,28 +139,38 @@ mongoose.connect(
   process.env.MONGODB_URI || 'mongodb://localhost/nextpedia',
   { useNewUrlParser: true }
 );
-
-for (let i = 0; i < users.length; i++) {
-  db.User.create({ user: users[i] })
-    .then(() => console.log(`user ${i} created`))
-    .catch(err => console.log(err));
-
-  db.Trip.create(trips[i])
-    .then(trip => {
-      console.log(`trip ${i} created`);
-      tripIds.push(trip._id);
-      db.User.updateOne({ user: users[i] }, { $push: { trips: trip._id } })
-        .then(() => console.log(`user ${i} updated`))
-        .catch(err => console.log(err));
-    })
-    .catch(err => console.log(err));
-  db.Suitcase.create(suitcases[i]).then(suitcase => {
-    console.log(`suitcase ${i} created`);
-    db.Trip.updateOne(
-      { _id: tripIds[i] },
-      { $push: { suitcases: suitcase._id } }
-    )
-      .then(() => console.log(`trip ${i} updated`))
-      .catch(() => console.log(err));
+const setDatabase = async () => {
+  const promises = ['User', 'Trip', 'Suitcase'].map(async collection => {
+    const empty = await db[collection].deleteMany({});
+    console.log(collection);
+    console.log(empty);
   });
+
+  await Promise.all(promises);
+  for (let i = 0; i < users.length; i++) {
+    db.User.create({ user: users[i] })
+      .then(() => console.log(`user ${i} created`))
+      .catch(err => console.log(err));
+
+    db.Trip.create(trips[i])
+      .then(trip => {
+        console.log(`trip ${i} created`);
+        tripIds.push(trip._id);
+        db.User.updateOne({ user: users[i] }, { $push: { trips: trip._id } })
+          .then(() => console.log(`user ${i} updated`))
+          .catch(err => console.log(err));
+      })
+      .catch(err => console.log(err));
+    db.Suitcase.create(suitcases[i]).then(suitcase => {
+      console.log(`suitcase ${i} created`);
+      db.Trip.updateOne(
+        { _id: tripIds[i] },
+        { $push: { suitcases: suitcase._id } }
+      )
+        .then(() => console.log(`trip ${i} updated`))
+        .catch(() => console.log(err));
+    });
+  }
 }
+
+setDatabase();
