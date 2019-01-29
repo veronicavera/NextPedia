@@ -39,6 +39,7 @@ class SignInFormBase extends Component {
     this.props.firebase
       .doSignInWithEmailAndPassword(email, password)
       .then(() => {
+        localStorage.user = email;
         this.setState({ ...INITIAL_STATE });
         this.props.history.push(ROUTES.LANDING);
       })
