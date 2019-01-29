@@ -58,5 +58,21 @@ export default {
    */
   deleteItemFromSuitcase: function(suitcaseID, itemName) {
     return axios.patch(`/api/suitcases/${suitcaseID}`, itemName);
+  },
+
+  /**
+   * Updates a single item in a single suitcase.
+   *
+   * The item is looked up by ITEM NAME. In order to keep from creating
+   * just a new item, the [] must be set to "old" -- this will UPDATE
+   * instead of CREATING.
+   * @param {string} suitcaseID
+   * @param {object} itemInfo
+   */
+  updateItemInSuitcase: function(suitcaseID, itemInfo) {
+    return;
+    // router.route('/:id')
+    // .put(suitcasesController.addToSuitcase)
+    // return axios.put(`/api/suitcases/${suitcaseID}`, itemInfo);
   }
 };
