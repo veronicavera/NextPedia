@@ -3,10 +3,14 @@ import './Suitcase.css';
 import API from '../utils/API';
 
 class MySuitcaseForm extends Component {
-  componentDidMount = () => {
-    console.log(this.props);
-  };
+  // componentDidMount = () => {
+  //   console.log(this.props);
+  // };
 
+  /**
+   * getDataForPage queries the database and loads a full list of items
+   * within the suitcase. See Suitcase.js for more details.
+   */
   getDataForPage = this.props.getDataForPage;
 
   state = {
@@ -18,6 +22,10 @@ class MySuitcaseForm extends Component {
   // state: should be what goes into the form
 
   // on change: update the state
+  /**
+   * handleInputChange updates the state of the suitcase form every time
+   * a user types anything into the form.
+   */
   handleInputChange = event => {
     const name = event.target.name;
     const value = event.target.value;
@@ -27,8 +35,12 @@ class MySuitcaseForm extends Component {
     });
   };
 
+  /**
+   * UpdateSuitcase will take the information from the state of the suitcase
+   * form (updated as part of _handleInputChange_, see above) and add it to the
+   * underlying database. Upon completion, refresh the page.
+   */
   updateSuitcase = () => {
-    console.log('hi');
     API.addItemToSuitcase(this.props.suitcaseID, {
       item: this.state.item,
       quantity: parseInt(this.state.quantity),
@@ -37,27 +49,6 @@ class MySuitcaseForm extends Component {
       console.log(data);
       this.getDataForPage();
     });
-  };
-
-  // addToSuitcase: (req, res) => {
-  //   if (req.body.item && req.body.quantity && req.body.notes) {
-  //       db.Suitcase
-  //           .updateOne({_id: req.params.id},
-  //               {
-  //                   $push: {
-  //                       items: {
-  //                           name: req.body.item,
-  //                           quantity: req.body.quantity
-  //                       }
-  //                   },
-  //                   notes: req.body.notes
-  //               })
-  //           .then(success => res.json(success))
-  //           .catch(err => res.json(err));
-
-  // on submit: do the ajax query to the backend
-  eventTest = () => {
-    alert(this.state.item + ' ' + this.state.quantity);
   };
 
   render() {
@@ -92,9 +83,7 @@ class MySuitcaseForm extends Component {
             />
           </div>
 
-          <p onClick={this.updateSuitcase}>asdf</p>
-
-          <input type='submit' value='Submit' />
+          <input type='submit' value='Submit' onClick={this.updateSuitcase} />
         </form>
       </div>
     );

@@ -35,15 +35,28 @@ export default {
 
     return axios.get(`/api/suitcases/${userid}`);
   },
+  /**
+   * Returns all items within a single suitcase.
+   *
+   * Note: you can get the suitcase ID through trips. You can get the trip
+   * ID through user.
+   * @param {string} suitcaseID
+   */
   getSuitcase: function(suitcaseID) {
-    // console.log(suitcaseID);
     return axios.get(`/api/suitcases/search/${suitcaseID}`);
   },
   addItemToSuitcase: function(suitcaseID, newItem) {
-    //
-    console.log(suitcaseID);
-    console.log(newItem);
-
     return axios.put(`/api/suitcases/${suitcaseID}`, newItem);
+  },
+  /**
+   * Removes a single item from a single suitcase.
+   *
+   * The item deleted is by ITEM NAME. This must be passed in
+   * an object with a key of "item".
+   * @param {string} suitcaseID
+   * @param {object} itemName
+   */
+  deleteItemFromSuitcase: function(suitcaseID, itemName) {
+    return axios.patch(`/api/suitcases/${suitcaseID}`, itemName);
   }
 };
