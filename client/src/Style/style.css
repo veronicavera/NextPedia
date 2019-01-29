@@ -1,0 +1,93 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+}
+.content {
+  background-color: #404040;
+  width: 730px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 15px;
+  margin-top: 0;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  margin-top: 80px;
+}
+.flightResult {
+  background-color: #e8e8e8;
+  height: 60px;
+  width: 700px;
+  border-radius: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 15px;
+}
+.airlineName {
+  /* background-color: yellow; */
+  width: 260px;
+  display: inline-block;
+  /* font-size: 1.2em; */
+  margin-top: 14px;
+  text-align: center;
+  line-height: 2.1em;
+}
+.flightTimes {
+  display: inline-block;
+  /* background-color: white; */
+  width: 160px;
+  text-align: center;
+}
+.startTime {
+  display: inline-block;
+  /* background-color: orange; */
+  width: 70px;
+  text-align: center;
+  font-size: 0.8em;
+}
+.endTime {
+  display: inline-block;
+  /* background-color: orange; */
+  width: 70px;
+  text-align: center;
+  font-size: 0.8em;
+}
+.airportNames {
+  display: inline-block;
+  /* background-color: pink; */
+  width: 110px;
+  text-align: center;
+}
+.startAirport {
+  display: inline-block;
+  font-size: 0.8em;
+  /* background-color: orange; */
+}
+.endAirport {
+  display: inline-block;
+  font-size: 0.8em;
+  /* background-color: orange; */
+}
+.flightFare {
+  display: inline-block;
+  /* background-color: aqua; */
+  font-weight: bold;
+  text-align: center;
+  margin-left: 10px;
+  width: 80px;
+}
+.selectBtn {
+  color: white;
+  vertical-align: unset;
+  background-image: linear-gradient(135deg, #ff690f 0%, #e8381b 100%);
+}
+.selectBtn:hover {
+  background-image: linear-gradient(135deg, #b14b0c 0%, #8a2110 100%);
+}
+.selectBtn:active {
+  color: black;
+}
+.selectBtn:focus {
+  box-shadow: none;
+}
