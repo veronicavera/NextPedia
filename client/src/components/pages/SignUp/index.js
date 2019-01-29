@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import SignInLink from '../SignIn'
-import { withFirebase } from '../Firebase';
+// import SignInLink from '../SignIn'
+import { withFirebase } from '../../index';
 import * as ROUTES from '../../../constants/routes';
 import './signup.css';
 
@@ -128,4 +128,4 @@ const SignUpForm = withRouter(withFirebase(SignUpFormBase));
 
 export default SignUpPage;
 
-export { SignUpForm, SignUpLink };
+export { SignUpForm, SignUpLink, SignUpPage };

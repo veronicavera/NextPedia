@@ -1,14 +1,17 @@
-import User from "./User";
-import Landing from "./Landing";
-import Navigation from "./Navigation"
-import FlightFinder from "./FlightFinder";
-import FAQ from './FAQ';
 import About from './About';
 import Contact from './Contact';
-import SignIn from './SignIn';
-import SignUpPage from  './SignUp';
+import FAQ from './FAQ';
+import FlightFinder from "./FlightFinder";
+import Landing from "./Landing";
+// import PasswordChangeForm from './PasswordChange';
+// import Password
+import SignInPage from './SignIn';
+import SignUpPage from './SignUp';
 import TripDetails from "./TripDetails";
+import User from "./User";
 
-export { User, Landing, FlightFinder, Navigation, FAQ, About, Contact,
-     SignIn, SignUpPage, TripDetails };
+export {
+     User, Landing, FlightFinder, FAQ, About, Contact,
+     SignInPage, SignUpPage, TripDetails
+};
 
