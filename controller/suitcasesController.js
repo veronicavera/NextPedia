@@ -50,7 +50,49 @@ module.exports = {
             .catch(err => res.status(422).json(err));
     },
     addToSuitcase: (req, res) => {
-        if (req.body.item && req.body.quantity && req.body.notes) {
+        if (req.body.old && req.body.item && (req.body.quantity || req.body.notes)) {
+            if (req.body.quantity && req.body.notes) {
+                db.Suitcase
+                    .updateOne({_id: req.params.id}, 
+                        {
+                            $set: {
+                                'items.$[element].notes': req.body.notes,
+                                'items.$[element].quantity': req.body.quantity
+                            }
+                        }, {
+                            arrayFilters: [{'element.name': req.body.item}]
+                        }
+                    )
+                    .then(success => res.json(success))
+                    .catch(err => res.json(err));
+            } else if (req.body.notes) {
+                db.Suitcase
+                    .updateOne({_id: req.params.id}, 
+                        {
+                            $set: {
+                                'items.$[element].notes': req.body.notes
+                            }
+                        }, {
+                            arrayFilters: [{'element.name': req.body.item}]
+                        }
+                    )
+                    .then(success => res.json(success))
+                    .catch(err => res.json(err));
+            } else {
+                db.Suitcase
+                    .updateOne({_id: req.params.id}, 
+                        {
+                            $set: {
+                                'items.$[element].quantity': req.body.quantity
+                            }
+                        }, {
+                            arrayFilters: [{'element.name': req.body.item}]
+                        }
+                    )
+                    .then(success => res.json(success))
+                    .catch(err => res.json(err));
+            }
+        } else if (req.body.item && req.body.quantity && req.body.notes) {
             db.Suitcase
                 .updateOne({_id: req.params.id}, 
                     {
