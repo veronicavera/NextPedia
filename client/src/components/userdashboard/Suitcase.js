@@ -8,14 +8,20 @@ import { utils } from 'mocha';
 class MySuitcase extends Component {
   state = { suitcaseID: '', suitcaseItems: [] };
 
+  /**
+   * As soon as the component mounts, run the getDataForPage function.
+   */
   componentDidMount = () => {
     this.getDataForPage();
   };
 
+  /**
+   * This queries the underlying database and grabs all items within
+   * the individual suitcase being searched. This data is passed to
+   * the suitcaseItem component below.
+   */
   getDataForPage = () => {
     API.getSuitcase(this.props.suitcaseID).then(data => {
-      console.log(data);
-      // console.log(data.data[0].items);
       this.setState({
         suitcaseID: this.props.suitcaseID,
         suitcaseItems: data.data[0].items
@@ -23,9 +29,22 @@ class MySuitcase extends Component {
     });
   };
 
-  onDelete = id => {
-    //
-    alert(id);
+  /**
+   * This function is used to delete individual items from a given
+   * user's specific suitcase. Using the value of an item,
+   * it constructs a delete query.
+   */
+  onDelete = value => {
+    //itemName
+    const itemName = {
+      item: value
+    };
+
+    API.deleteItemFromSuitcase(this.props.suitcaseID, itemName).then(data => {
+      console.log(data);
+      // console.log(data.data[0].items);
+      this.getDataForPage();
+    });
   };
 
   render() {
@@ -35,6 +54,7 @@ class MySuitcase extends Component {
           {this.state.suitcaseItems.map((suitcaseItem, index) => (
             <MySuitcaseItem
               onDelete={this.onDelete}
+              value={suitcaseItem.name}
               item={suitcaseItem.name}
               quantity={suitcaseItem.quantity}
               notes={suitcaseItem.notes}
