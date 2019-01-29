@@ -1,15 +1,42 @@
 import React, { Component } from 'react';
+// import API from '../utils/API';
+
 class Contact extends Component {
   state = {
+    body: '',
+    subject: ''
+  }
+  handleInputChange = event => {
+    let value = event.target.value;
+    const name = event.target.name;
+    this.setState({
+        [name]: value
+    });
+  };
 
-  }
   render() {
-    return (
-      <div style={{ minWidth: "100vw", minHeight: "100vh" }}>
-        Hello this is the Contact page.
-      </div>
-    );
-  }
+      return (
+          <>
+              <h1>
+                  Contact Us!
+              </h1>
+              <form action={`mailto:nextpedia21@gmail.com?subject=Please Help Me&body=${this.state.body}`} method='post' enctype='text/plain'>
+                  <h2>
+                      What can we help you with?
+                  </h2>
+                  <textarea
+                      value={this.state.body}
+                      name="body"
+                      type="text"
+                      placeholder="body"
+                      onChange={this.handleInputChange}
+                  />
+                  <input type='reset'/>
+                  <button type='submit'>Submit</button>
+              </form>
+          </>
+      );
+    }
 }
 
 export default Contact;

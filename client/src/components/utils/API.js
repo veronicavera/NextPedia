@@ -9,19 +9,19 @@ export default {
    * @param {number} lengthOfStay - This is a number the represents the amount of time that individual is staying in a given location
    */
   getFlightsData: function(origin, destination, departureDate, lengthOfStay) {
-    if (!origin || !destination || !departureDate || !lengthOfStay) {
-      return {
-        error:
-          'Please pass an origin, destination, departureDate and lengthOfStay'
-      };
-    }
+    // if (!origin || !destination || !departureDate || !lengthOfStay) {
+    //   return {
+    //     error:
+    //       'Please pass an origin, destination, departureDate and lengthOfStay'
+    //   };
+    // }
 
-    axios.put('/flights', {
-      origin: origin,
-      destination: destination,
-      departureDate: departureDate,
-      lengthofstay: lengthOfStay
-    });
+    // axios.put('/flights', {
+    //   origin: origin,
+    //   destination: destination,
+    //   departureDate: departureDate,
+    //   lengthofstay: lengthOfStay
+    // });
   },
 
   getSuitcaseItemsAll: function() {
