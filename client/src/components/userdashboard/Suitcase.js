@@ -47,13 +47,29 @@ class MySuitcase extends Component {
     });
   };
 
+  /** this function is used to update an individual item
+   * from a given suitcase. Using the value of an item, it
+   * updates the form and lets users update.
+   */
+  onUpdate = value => {
+    alert(value);
+  };
+
   render() {
     return (
-      <div>
+      <div className='suitcase-wrapper'>
+        <div className='suitcase-form-wrapper'>
+          <MySuitcaseForm
+            note={this.state.suitcaseNote}
+            suitcaseID={this.state.suitcaseID}
+            getDataForPage={this.getDataForPage}
+          />
+        </div>
         <div className='suitcase'>
           {this.state.suitcaseItems.map((suitcaseItem, index) => (
             <MySuitcaseItem
               onDelete={this.onDelete}
+              onUpdate={this.onUpdate}
               value={suitcaseItem.name}
               item={suitcaseItem.name}
               quantity={suitcaseItem.quantity}
@@ -62,13 +78,6 @@ class MySuitcase extends Component {
               key={index}
             />
           ))}
-        </div>
-        <div className='suitcase-form-input'>
-          <MySuitcaseForm
-            note={this.state.suitcaseNote}
-            suitcaseID={this.state.suitcaseID}
-            getDataForPage={this.getDataForPage}
-          />
         </div>
       </div>
     );

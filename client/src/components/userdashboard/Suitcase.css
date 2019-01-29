@@ -1,21 +1,30 @@
-.suitcase-item-header {
-  display: flex;
-  justify-content: space-between;
+/*******************************************************
+Formatting for each suitcase item -- associated with
+SuitcaseItem.js 
+*******************************************************/
 
-  font-size: 18px;
-  font-weight: bold;
-}
-
+/* overall item border and padding */
 .suitcase-item {
-  width: 45%;
   border: 1px grey solid;
   padding: 2px;
 }
 
-.suitcase {
-  margin: 5px;
+/* header - the name of item and quantity */
+.suitcase-item-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+  font-weight: bold;
 }
 
+/* notes for each suitcase item */
+.suitcase-item-notes {
+  font-size: 14px;
+  font-style: italic;
+  border-top: 1px grey solid;
+}
+
+/* the delete button */
 .suitcase-item-delete {
   color: red;
   font-size: 24px;
@@ -23,18 +32,35 @@
   text-align: right;
 }
 
-.suitcase-item-notes {
-  font-size: 14px;
-  font-style: italic;
-  border-top: 1px grey solid;
-}
+/*******************************************************
+Overall suitcase component formatting
+*******************************************************/
 
-.suitcase-form-input {
+/* contains both the suitcase list itself and the 
+suitcase form */
+.suitcase-wrapper {
   display: flex;
   justify-content: space-between;
+}
+
+/* this is the container for the list of items already added */
+.suitcase {
+  margin: 5px;
+  width: 45%;
+}
+
+/* each line of the input form is a suitcase-form-input */
+.suitcase-form-input {
   padding: 2px 10px;
 }
 
-.suitcase-form {
+/* wrapper for suitcase to set the font size and the width */
+.suitcase-form-wrapper {
   width: 45%;
+  font-size: 20px;
+}
+
+/* class name used to make the suitcase form not display: flex */
+.suitcase-form {
+  display: block;
 }

@@ -10,10 +10,11 @@
 import React from 'react';
 import '../allpages/reset.css';
 import './Suitcase.css';
+import MySuitcaseUpdateForm from './SuitcaseUpdateForm';
 
 function MySuitcaseItem(props) {
   return (
-    <div className='suitcase-item' value={props.id}>
+    <div className='suitcase-item' value={props.value}>
       <p
         className='suitcase-item-delete'
         onClick={() => props.onDelete(props.value)}
@@ -31,6 +32,14 @@ function MySuitcaseItem(props) {
           <p>Notes: {props.notes}</p>
         </div>
       )}
+      <div className='suitcase-item-update-button'>
+        <button onClick={() => props.onUpdate(props.value)}>Update Item</button>
+      </div>
+      <MySuitcaseUpdateForm
+        item={props.item}
+        quantity={props.quantity}
+        notes={props.notes}
+      />
     </div>
   );
 }
