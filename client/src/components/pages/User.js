@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import FetchData from "../utils/userTripsGet.js"
+import AccountPage from "../pages/Account"
+
 class User extends Component {
 
     render() {
@@ -13,6 +15,8 @@ class User extends Component {
             textAlign: "center"
         }
         return (
+         <div>
+            <AccountPage />
             <React.Fragment>
             <div>
                 <br />
@@ -41,6 +45,7 @@ class User extends Component {
                 </div>
             </div>
             </React.Fragment>
+            </div>
         );
     }
 }
