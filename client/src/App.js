@@ -41,6 +41,7 @@ class App extends Component {
             <Route exact path="/signup" component={SignUpPage} />
             <Route exact path="/tripdetails" component={TripDetails} />
             <Route exact path="/Account" component={AccountPage} />
+            
           </Switch>
           <Footer />
         </>
