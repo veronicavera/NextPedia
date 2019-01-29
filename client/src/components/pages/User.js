@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import FetchData from "../utils/userTripsGet.js"
 class User extends Component {
 
     render() {
@@ -33,18 +33,7 @@ class User extends Component {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td style={thStyle}>Trip to Miami</td>
-                                        <td style={thStyle} ><button className="btn btn-info">Manage trip</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td style={thStyle}>Trip to LA</td>
-                                        <td style={thStyle}><button className="btn btn-info">Manage trip</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td style={thStyle}>Trip to Seattle</td>
-                                        <td style={thStyle}><button className="btn btn-info">Manage trip</button></td>
-                                    </tr>
+                                    <FetchData/>
                                 </tbody>
                             </table>
                         </div>
