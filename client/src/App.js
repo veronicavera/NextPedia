@@ -1,25 +1,26 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Home from "./components/Home";
+import dotenv from "dotenv";
 
 import {
-  FlightFinder,
-  TripDetails,
-  Landing,
-  User,
-  FAQ,
   About,
-  Contact
+  Contact,
+  FAQ,
+  FlightFinder,
+  Landing,
+  TripDetails,
+  User,
+  SignUpPage,
+  SignInPage
 } from "./components/pages";
-import { withAuthentication } from "./components/pages/Session";
-import SignUpPage from "./components/pages/SignUp";
-import AccountPage from "./components/pages/Account"
+import { withAuthentication } from "./components/Session";
+import { AccountPage, Navigation, Footer } from "./components/index"
+import './components/reset.css';
 
-import SignInPage from "./components/pages/SignIn";
-import Navigation from "./components/pages/Navigation";
-import HomePage from "./components/pages/Home";
-import { MenuBar, Footer } from "./components";
-import dotenv from "dotenv";
+// import SignUpPage from "./components/pages/SignUp";
+// import SignInPage from "./components/pages/SignIn";
+// import Navigation from "./components/Navigation";
+// import { Footer } from "./components";
 dotenv.config();
 
 class App extends Component {
@@ -30,8 +31,6 @@ class App extends Component {
           <Navigation />
           <Switch>
             <Route exact path="/" component={Landing} />
-            <Route exact path="/home" component={HomePage} />
-            <Route exact path="/test" component={Home} />
             <Route exact path="/user" component={User} />
             <Route exact path="/flightFinder" component={FlightFinder} />
             <Route exact path="/FAQ" component={FAQ} />
@@ -41,7 +40,7 @@ class App extends Component {
             <Route exact path="/signup" component={SignUpPage} />
             <Route exact path="/tripdetails" component={TripDetails} />
             <Route exact path="/Account" component={AccountPage} />
-            
+
           </Switch>
           <Footer />
         </>

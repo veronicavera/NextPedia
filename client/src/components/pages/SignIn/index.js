@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { compose } from 'recompose';
 import { Link, withRouter } from 'react-router-dom';
-
 import { PasswordForgetLink } from '../PasswordForget';
-import { withFirebase } from '../Firebase';
+import { withFirebase } from '../../index';
 import * as ROUTES from '../../../constants/routes';
 import './signin.css';
 
@@ -33,7 +32,7 @@ class SignInFormBase extends Component {
   }
 
   onSubmit = event => {
-    
+
     const { email, password } = this.state;
 
     this.props.firebase
@@ -98,4 +97,4 @@ const SignInLink = () => (
 
 export default SignInPage;
 
-export { SignInForm, SignInLink };
+export { SignInForm, SignInLink, SignInPage };
