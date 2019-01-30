@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-// import API from '../utils/API';
-
+import './index.css';
 class Contact extends Component {
   state = {
     body: '',
