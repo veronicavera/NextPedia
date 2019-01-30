@@ -3,31 +3,26 @@ import axios from 'axios';
 export default {
   /**
    * This function will make a put request to our server to get flight information
-   * @param {string} origin - This is a three character string that represents the airport that they are departing from
-   * @param {string} destination - This is a three character string that represents the airport that they are arriving at
-   * @param {string} departureDate - This is a string formatted as "YYYY-MM-DD" that represents when they are leaving
-   * @param {number} lengthOfStay - This is a number the represents the amount of time that individual is staying in a given location
+   * YYYY-MM-DD
+   * @param {string} startAirport - A three character string representing the starting flight location
+   * @param {string} endAirport - A three character string representing the ending flight location
+   * @param {string} time - A string representing the time in YYYY-MM-DD format
+   * @returns - A promise representing the axios call
    */
-  getFlightsData: function(origin, destination, departureDate, lengthOfStay) {
-    // if (!origin || !destination || !departureDate || !lengthOfStay) {
-    //   return {
-    //     error:
-    //       'Please pass an origin, destination, departureDate and lengthOfStay'
-    //   };
-    // }
-    // axios.put('/flights', {
-    //   origin: origin,
-    //   destination: destination,
-    //   departureDate: departureDate,
-    //   lengthofstay: lengthOfStay
-    // });
+  getFlightsData: function (startAirport, endAirport, time) {
+    const data = {
+      startAirport: [startAirport],
+      endAirport: [endAirport],
+      time: [time]
+    };
+    return axios.get('/api/flights/', data);
   },
 
-  getSuitcaseItemsAll: function() {
+  getSuitcaseItemsAll: function () {
     //
     return axios.get(`/api/suitcases/all`);
   },
-  getSuitcaseItems: function(userid) {
+  getSuitcaseItems: function (userid) {
     //router.route('/:user') .get(suitcasesController.getUserWithSuitcases)
     // console.log(userid);
     //Returns array of trips associated with the user and includes data on suitcases
@@ -41,10 +36,10 @@ export default {
    * ID through user.
    * @param {string} suitcaseID
    */
-  getSuitcase: function(suitcaseID) {
+  getSuitcase: function (suitcaseID) {
     return axios.get(`/api/suitcases/search/${suitcaseID}`);
   },
-  addItemToSuitcase: function(suitcaseID, newItem) {
+  addItemToSuitcase: function (suitcaseID, newItem) {
     return axios.put(`/api/suitcases/${suitcaseID}`, newItem);
   },
   /**
@@ -55,7 +50,7 @@ export default {
    * @param {string} suitcaseID
    * @param {object} itemName
    */
-  deleteItemFromSuitcase: function(suitcaseID, itemName) {
+  deleteItemFromSuitcase: function (suitcaseID, itemName) {
     return axios.patch(`/api/suitcases/${suitcaseID}`, itemName);
   },
 
@@ -68,7 +63,7 @@ export default {
    * @param {string} suitcaseID
    * @param {object} itemInfo
    */
-  updateItemInSuitcase: function(suitcaseID, itemInfo) {
+  updateItemInSuitcase: function (suitcaseID, itemInfo) {
     console.log(suitcaseID);
     console.log(itemInfo);
 
@@ -77,7 +72,7 @@ export default {
     return axios.put(`/api/suitcases/${suitcaseID}`, itemInfo);
   },
 
-  getAirportInfo: function(iata) {
+  getAirportInfo: function (iata) {
     console.log(iata);
     return axios.get(`/api/airports/${iata}`);
   },
