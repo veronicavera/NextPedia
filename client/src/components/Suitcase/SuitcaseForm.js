@@ -56,8 +56,9 @@ class MySuitcaseForm extends Component {
       <div>
         <form className='suitcase-form'>
           <div className='suitcase-form-input'>
-            <label htmlFor='item'>Item</label>
+            <label htmlFor='item'>Item: </label>
             <input
+              className='suitcase-form-input-area'
               onChange={this.handleInputChange}
               name='item'
               id='item'
@@ -65,8 +66,9 @@ class MySuitcaseForm extends Component {
             />
           </div>
           <div className='suitcase-form-input'>
-            <label htmlFor='quantity'>Quantity</label>
+            <label htmlFor='quantity'>Quantity: </label>
             <input
+              className='suitcase-form-input-area'
               onChange={this.handleInputChange}
               name='quantity'
               id='quantity'
@@ -74,8 +76,9 @@ class MySuitcaseForm extends Component {
             />
           </div>
           <div className='suitcase-form-input'>
-            <label htmlFor='notes'>Notes</label>
+            <label htmlFor='notes'>Notes: </label>
             <input
+              className='suitcase-form-input-area'
               onChange={this.handleInputChange}
               name='notes'
               id='notes'
@@ -83,7 +86,12 @@ class MySuitcaseForm extends Component {
             />
           </div>
 
-          <input type='submit' value='Submit' onClick={this.updateSuitcase} />
+          <input
+            className='suitcase-form-submit'
+            type='submit'
+            value='Submit'
+            onClick={this.updateSuitcase}
+          />
         </form>
       </div>
     );

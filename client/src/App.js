@@ -16,11 +16,8 @@ import {
 import { withAuthentication } from "./components/Session";
 import { AccountPage, Navigation, Footer } from "./components/index"
 import './components/reset.css';
+import MyFlightDetails from './components/FlightDetails/FlightDetails';
 
-// import SignUpPage from "./components/pages/SignUp";
-// import SignInPage from "./components/pages/SignIn";
-// import Navigation from "./components/Navigation";
-// import { Footer } from "./components";
 dotenv.config();
 
 class App extends Component {
@@ -33,6 +30,7 @@ class App extends Component {
             <Route exact path="/" component={Landing} />
             <Route exact path="/user" component={User} />
             <Route exact path="/flightFinder" component={FlightFinder} />
+            <Route exact path="/flights/:startAirport/:endAirport/:date" component={MyFlightDetails} />
             <Route exact path="/FAQ" component={FAQ} />
             <Route exact path="/About" component={About} />
             <Route exact path="/Contact" component={Contact} />
@@ -40,7 +38,6 @@ class App extends Component {
             <Route exact path="/signup" component={SignUpPage} />
             <Route exact path="/tripdetails" component={TripDetails} />
             <Route exact path="/Account" component={AccountPage} />
-
           </Switch>
           <Footer />
         </>

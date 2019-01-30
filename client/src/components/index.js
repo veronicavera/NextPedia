@@ -10,10 +10,6 @@ import {
   withAuthentication,
   withAuthorization
 } from './Session';
-// import {
-//   // MySuitcase,
-//   MySuitcaseUpdateForm,
-// } from './Suitcase/index';
 import MySuitcaseUpdateForm from './Suitcase/SuitcaseUpdateForm';
 import MySuitcase from './Suitcase/Suitcase';
 import ClearMySuitcase from './Suitcase/SuitcaseClear';

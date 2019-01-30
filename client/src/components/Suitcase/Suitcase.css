@@ -26,10 +26,16 @@ SuitcaseItem.js
 
 /* the delete button */
 .suitcase-item-delete {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.suitcase-item-delete p {
   color: red;
   font-size: 24px;
   margin: 0;
-  text-align: right;
+  text-align: center;
+  max-width: 24px;
 }
 
 /*******************************************************
@@ -45,13 +51,13 @@ suitcase form */
 
 /* this is the container for the list of items already added */
 .suitcase {
-  margin: 5px;
+  margin: 5px 0;
   width: 45%;
 }
 
 /* each line of the input form is a suitcase-form-input */
 .suitcase-form-input {
-  padding: 2px 10px;
+  padding: 2px 0;
 }
 
 /* wrapper for suitcase to set the font size and the width */
@@ -63,8 +69,22 @@ suitcase form */
 /* class name used to make the suitcase form not display: flex */
 .suitcase-form {
   display: block;
+  border: 1px grey solid;
+  margin: 5px 0;
+  padding: 10px;
 }
 /* 
 .suitcase-item-update-area {
   display: none;
 } */
+
+.suitcase-form-input-area {
+  margin: 5px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.suitcase-form-submit {
+  width: 35%;
+  padding: 5px;
+}
