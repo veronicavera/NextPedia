@@ -3,6 +3,10 @@ import { utils } from 'mocha';
 import API from '../utils/API';
 import './FlightDetails.css';
 
+const config = {
+  weatherApiKey: process.env.REACT_APP_WEATHER_API_KEY
+};
+
 class MyFlightDetails extends Component {
   state = {
     startlocation: null,
@@ -18,6 +22,9 @@ class MyFlightDetails extends Component {
     });
     API.getAirportInfo(this.props.trip.endLocation).then(data => {
       console.log(data);
+      console.log(data.data[0].latitude);
+      console.log(data.data[0].longitude);
+      API.getWeatherInfo(data.data[0].latitude, data.data[0].longitude);
       this.setState({
         endlocation: data.data[0]
       });
@@ -56,7 +63,10 @@ class MyFlightDetails extends Component {
             )}
           </div>
         </div>
-        <div className='flight-details-weather'>Weather Stuff Placeholder</div>
+        <div className='flight-details-weather'>
+          Weather Stuff Placeholder
+          <a href='https://darksky.net/poweredby/'>Powered by Dark Sky</a>
+        </div>
       </div>
     );
   }
