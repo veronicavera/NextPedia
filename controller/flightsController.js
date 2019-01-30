@@ -23,7 +23,7 @@ module.exports = {
             }
 
             const populateFlightData = () => {
-                let date = req.body.date || '2019-4-4' 
+                let date = req.params.date || '2019-4-4' 
                 let time1 = moment(date + ' 07:30 am', 'YYYY-MM_DD hh:mm a').format();
                 let time2 = moment(date + ' 01:30 pm', 'YYYY-MM_DD hh:mm a').format();
                 let time3 = moment(date + ' 05:30 pm', 'YYYY-MM_DD hh:mm a').format();
@@ -65,7 +65,8 @@ module.exports = {
                     return flightData;
                 }
             }
-            let startAirport = req.body.startAirport, endAirport = req.body.endAirport;
+            
+            let startAirport = req.params.startAirport, endAirport = req.params.endAirport;
             const route = await axios({
                 method: 'GET',
                 url: 'https://distanceto.p.rapidapi.com/get?car=false&foot=false',
