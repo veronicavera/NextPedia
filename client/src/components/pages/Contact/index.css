@@ -1,0 +1,32 @@
+div h1, div h2 {
+    font-weight: bold;
+}
+
+div h1 {
+    margin-top: 24px;
+    font-size: 24px;
+    text-align: center;
+}
+
+div > #contactForm {
+    height: 80vh;
+}
+
+#contactForm {
+    display: grid;
+    grid-template-columns: 80vw;
+    grid-template-rows: 10px 50px 10px 120px 20px;
+    grid-row-gap: 20px;
+    color: #656;
+}
+
+#contactForm button{
+    width: 70px;
+    height: 25px;
+    border-radius: 5px;
+}
+
+#contactForm textarea {
+    border-radius: 5px;
+    border-color: #ccc;
+}
