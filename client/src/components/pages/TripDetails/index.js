@@ -25,12 +25,6 @@ class TripDetails extends Component {
     });
   };
 
-  getAirplaneData = () => {
-    API.getAirportInfo('ORD').then(data => {
-      console.log(data);
-    });
-  };
-
   render() {
     return (
       <div>
