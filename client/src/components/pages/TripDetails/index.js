@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { MySuitcase } from '../../index';
 import API from '../../utils/API';
 import MyFlightDetails from '../../FlightDetails/FlightDetails';
+import './index.css';
 
 const useremail = 'occasionalFlier@yahoo.com';
 
@@ -27,15 +28,18 @@ class TripDetails extends Component {
 
   render() {
     return (
-      <div>
-        <button onClick={this.getAirplaneData}>Click me!</button>
-        {this.state.suitcases_id && <MyFlightDetails trip={this.state.trip} />}
-        {/* Note: We use the && below in order to trick React
+      <div className='trip-details-page-body'>
+        <div className='trip-details-wrapper'>
+          {this.state.suitcases_id && (
+            <MyFlightDetails trip={this.state.trip} />
+          )}
+          {/* Note: We use the && below in order to trick React
         into doing what we want -- React will not load the MySuitcase
         component until the data that feeds into it is available. */}
-        {this.state.suitcases_id && (
-          <MySuitcase suitcaseID={this.state.suitcases_id} />
-        )}
+          {this.state.suitcases_id && (
+            <MySuitcase suitcaseID={this.state.suitcases_id} />
+          )}
+        </div>
       </div>
     );
   }

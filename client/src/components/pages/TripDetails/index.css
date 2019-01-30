@@ -1,0 +1,21 @@
+.trip-details-wrapper {
+  max-width: 80vw;
+  min-width: 80vw;
+  background-color: rgba(243, 209, 243, 0.7);
+  margin: 10px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.trip-details-page-body {
+  background-image: linear-gradient(
+    rgba(255, 153, 255, 0.5),
+    rgba(153, 204, 255, 0.5)
+  );
+  min-width: 100vw;
+  min-height: 100vh;
+  background-size: 100vh, 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
