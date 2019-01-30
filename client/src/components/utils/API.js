@@ -75,5 +75,10 @@ export default {
     // router.route('/:id')
     // .put(suitcasesController.addToSuitcase)
     return axios.put(`/api/suitcases/${suitcaseID}`, itemInfo);
+  },
+
+  getAirportInfo: function(iata) {
+    console.log(iata);
+    return axios.get(`/api/airports/${iata}`);
   }
 };

@@ -25,9 +25,16 @@ class TripDetails extends Component {
     });
   };
 
+  getAirplaneData = () => {
+    API.getAirportInfo('ORD').then(data => {
+      console.log(data);
+    });
+  };
+
   render() {
     return (
       <div>
+        <button onClick={this.getAirplaneData}>Click me!</button>
         {this.state.suitcases_id && <MyFlightDetails trip={this.state.trip} />}
         {/* Note: We use the && below in order to trick React
         into doing what we want -- React will not load the MySuitcase

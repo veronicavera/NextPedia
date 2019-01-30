@@ -6,6 +6,7 @@
     "dotenv": "^6.2.0",
     "firebase": "^5.8.1",
     "moment": "^2.24.0",
+    "mysql": "^2.16.0",
     "react": "^16.7.0",
     "react-calendar": "^2.18.1",
     "react-dom": "^16.7.0",
