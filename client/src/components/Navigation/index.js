@@ -27,8 +27,10 @@ const Navigation = () => (
 
 const NavigationAuth = () => (
   <ul className="navbar-nav links">
+
     <li style={btnStyle}>
-      <Link to={ROUTES.FLIGHTFINDER} >Home</Link>
+      <Link to={ROUTES.LANDING} >Home</Link>
+
     </li>
     <li style={btnStyle}>
       <Link to={ROUTES.ACCOUNT} >Profile</Link>

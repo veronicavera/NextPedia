@@ -1,5 +1,10 @@
-div h1, div h2 {
-    font-weight: bold;
+/* https://www.pexels.com/photo/seaport-during-daytime-132037/ */
+body {
+    background: url(../../../images/seaportDuringDaytime.jpeg) no-repeat center center fixed;
+}
+
+div h1, div h2, #contactForm {
+    font-family: 'Quicksand', sans-serif;
 }
 
 div h1 {
@@ -8,8 +13,18 @@ div h1 {
     text-align: center;
 }
 
-div > #contactForm {
-    height: 80vh;
+#pageSizing {
+    height: 88vh;
+    display: grid;
+    justify-content: center;
+}
+
+#contactFormContainer {
+    background-color: rgba(267, 221, 221, .7);
+    width: 85vw;
+    height: 52vh;
+    margin-top: 10vw;
+    border-radius: 5px;
 }
 
 #contactForm {
@@ -17,16 +32,30 @@ div > #contactForm {
     grid-template-columns: 80vw;
     grid-template-rows: 10px 50px 10px 120px 20px;
     grid-row-gap: 20px;
-    color: #656;
 }
 
-#contactForm button{
+#contactForm button, #contactForm textarea {
+    background-color: rgba(0, 0, 0, 0);
+    border-color: #888;
+}
+
+#contactForm button {
     width: 70px;
     height: 25px;
     border-radius: 5px;
 }
 
+#contactForm button:hover {
+    border-color: #388;
+    cursor: pointer;
+}
+
 #contactForm textarea {
+    color: #222;
     border-radius: 5px;
-    border-color: #ccc;
+}
+
+
+#contactForm textarea::placeholder {
+    color: #222;
 }

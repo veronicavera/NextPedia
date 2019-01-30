@@ -75,5 +75,15 @@ export default {
   getAirportInfo: function (iata) {
     console.log(iata);
     return axios.get(`/api/airports/${iata}`);
+  },
+  getWeatherInfo: function(lat, long) {
+    // process.env.REACT_APP_WEATHER_API_KEY
+    const weatherUrl = 'https://api.darksky.net/forecast';
+    const weatherUrlEnd = '2019-04-01T12:00:00?exclude=currently,hourly,flags';
+    // https://api.darksky.net/forecast/[key]/[lat],[long],2019-04-01T12:00:00?exclude=currently,hourly,flags
+    console.log(lat);
+    console.log(long);
+
+    return;
   }
 };
