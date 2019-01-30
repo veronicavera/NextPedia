@@ -22,33 +22,35 @@ class Contact extends Component {
 
   render() {
       return (
-        <div>
-            <h1>
-                Contact Us!
-            </h1>
-            <form id='contactForm'>
-                <h2>
-                    What can we help you with?
-                </h2>
-                <textarea
-                    value={this.state.subject}
-                    name="subject"
-                    type="text"
-                    placeholder="Subject"
-                    onChange={this.handleInputChange}
-                />
-                <h2>
-                    Please describe the issue in more depth
-                </h2>
-                <textarea
-                    value={this.state.body}
-                    name="body"
-                    type="text"
-                    placeholder="Body"
-                    onChange={this.handleInputChange}
-                />
-                <button onClick={this.handleFormSubmit} type='submit'>Submit</button>
-            </form>
+        <div id='pageSizing'>
+            <div id='contactFormContainer'>
+                <h1>
+                    Contact Us!
+                </h1>
+                <form id='contactForm'>
+                    <h2>
+                        What can we help you with?
+                    </h2>
+                    <textarea
+                        value={this.state.subject}
+                        name="subject"
+                        type="text"
+                        placeholder="Subject"
+                        onChange={this.handleInputChange}
+                    />
+                    <h2>
+                        Please describe the issue in more depth
+                    </h2>
+                    <textarea
+                        value={this.state.body}
+                        name="body"
+                        type="text"
+                        placeholder="Body"
+                        onChange={this.handleInputChange}
+                    />
+                    <button onClick={this.handleFormSubmit} type='submit'>Submit</button>
+                </form>
+            </div>
         </div>
       );
     }
