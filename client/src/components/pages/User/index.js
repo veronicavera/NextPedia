@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import FetchData from "../../utils/userTripsGet.js"
 import { AccountPage } from "../../index"
+import { Link } from 'react-router-dom';
+import * as ROUTES from '../../../constants/routes';
+import './user.css'
 
 class User extends Component {
 
@@ -15,7 +18,7 @@ class User extends Component {
             textAlign: "center"
         }
         return (
-            <div>
+            <div className = 'container-div'>
                 <AccountPage />
                 <React.Fragment>
                     <div>
@@ -27,7 +30,7 @@ class User extends Component {
                             </div>
                             <br />
                             <div className="row">
-                                <div className="col-md-6"><button className="btn btn-danger">Create a new trip</button></div>
+                               <Link to={ROUTES.LANDING} className="btn btn-danger">Create a new trip</Link>
                                 <div className="col-md-6">
                                     <table style={tableStyle}>
                                         <thead>
