@@ -42,3 +42,7 @@ a {
 h1 {
   font-size: 2.4rem;
 }
+
+input {
+  border-color: rgb(255, 153, 255);
+}
