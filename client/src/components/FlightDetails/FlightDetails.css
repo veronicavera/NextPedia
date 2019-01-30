@@ -1,0 +1,14 @@
+.flight-details-wrapper {
+  border: 1px grey solid;
+}
+
+.flight-details-header {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.flight-details-details {
+  display: flex;
+  justify-content: space-around;
+}
