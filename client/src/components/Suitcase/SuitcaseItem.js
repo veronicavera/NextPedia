@@ -7,40 +7,68 @@
  *
  */
 
-import React from 'react';
+import React, { Component } from 'react';
 import './Suitcase.css';
 import MySuitcaseUpdateForm from './SuitcaseUpdateForm';
 
-function MySuitcaseItem(props) {
-  return (
-    <div className='suitcase-item' value={props.value}>
-      <p
-        className='suitcase-item-delete'
-        onClick={() => props.onDelete(props.value)}
-      >
-        X
-      </p>
-      <div className='suitcase-item-header'>
-        <p>Item: {props.item}</p>
+class MySuitcaseItem extends Component {
+  state = {
+    showUpdate: false
+  };
 
-        <p>Quantity: {props.quantity}</p>
-      </div>
+  /** this function is used to update an individual item
+   * from a given suitcase. Using the value of an item, it
+   * updates the form and lets users update.
+   */
+  onUpdateSelect = () => {
+    // alert(value);
+    if (this.state.showUpdate === true) {
+      this.setState({
+        showUpdate: false
+      });
+    } else {
+      this.setState({
+        showUpdate: true
+      });
+    }
+  };
 
-      {props.notes && (
-        <div className='suitcase-item-notes'>
-          <p>Notes: {props.notes}</p>
+  render() {
+    return (
+      <div className='suitcase-item' value={this.props.value}>
+        <p
+          className='suitcase-item-delete'
+          onClick={() => this.props.onDelete(this.props.value)}
+        >
+          X
+        </p>
+        <div className='suitcase-item-header'>
+          <p>Item: {this.props.item}</p>
+
+          <p>Quantity: {this.props.quantity}</p>
         </div>
-      )}
-      <div className='suitcase-item-update-button'>
-        <button onClick={() => props.onUpdate(props.value)}>Update Item</button>
-      </div>
-      <MySuitcaseUpdateForm
-        item={props.item}
-        quantity={props.quantity}
-        notes={props.notes}
-      />
-    </div>
-  );
-}
 
+        {this.props.notes && (
+          <div className='suitcase-item-notes'>
+            <p>Notes: {this.props.notes}</p>
+          </div>
+        )}
+        <div className='suitcase-item-update-button'>
+          <button onClick={() => this.onUpdateSelect()}>Update Item</button>
+        </div>
+        <div
+          className='suitcase-item-update-area'
+          style={{ display: this.state.showUpdate ? 'block' : 'none' }}
+        >
+          <MySuitcaseUpdateForm
+            item={this.props.item}
+            quantity={this.props.quantity}
+            notes={this.props.notes}
+            suitcaseID={this.props.suitcaseID}
+          />
+        </div>
+      </div>
+    );
+  }
+}
 export default MySuitcaseItem;

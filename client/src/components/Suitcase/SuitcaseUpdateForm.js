@@ -3,12 +3,6 @@ import './Suitcase.css';
 import API from '../utils/API';
 
 class MySuitcaseUpdateForm extends Component {
-  /**
-   * getDataForPage queries the database and loads a full list of items
-   * within the suitcase. See Suitcase.js for more details.
-   */
-  getDataForPage = this.props.getDataForPage;
-
   state = {
     suitcaseID: this.props.suitcaseID,
     item: this.props.item,
@@ -38,11 +32,14 @@ class MySuitcaseUpdateForm extends Component {
    */
   updateSuitcaseItem = () => {
     // 1. create itemInfo
+    const itemInfo = {
+      item: this.state.item,
+      quantity: this.state.quantity,
+      notes: this.state.notes,
+      old: true
+    };
 
-    // 2. do API.updateItemInSuitcase with suitcaseID and then itemInfo
-    alert(this.state.item);
-    alert(this.state.quantity);
-    alert(this.state.notes);
+    API.updateItemInSuitcase(this.props.suitcaseID, itemInfo);
   };
 
   render() {
@@ -73,7 +70,7 @@ class MySuitcaseUpdateForm extends Component {
           <input
             type='submit'
             value='Submit'
-            onClick={this.updateSuitcaseItem}
+            onClick={() => this.updateSuitcaseItem()}
           />
         </form>
       </div>

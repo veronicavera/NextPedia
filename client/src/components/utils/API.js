@@ -15,7 +15,6 @@ export default {
     //       'Please pass an origin, destination, departureDate and lengthOfStay'
     //   };
     // }
-
     // axios.put('/flights', {
     //   origin: origin,
     //   destination: destination,
@@ -70,9 +69,11 @@ export default {
    * @param {object} itemInfo
    */
   updateItemInSuitcase: function(suitcaseID, itemInfo) {
-    return;
+    console.log(suitcaseID);
+    console.log(itemInfo);
+
     // router.route('/:id')
     // .put(suitcasesController.addToSuitcase)
-    // return axios.put(`/api/suitcases/${suitcaseID}`, itemInfo);
+    return axios.put(`/api/suitcases/${suitcaseID}`, itemInfo);
   }
 };
