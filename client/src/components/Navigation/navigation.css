@@ -8,4 +8,5 @@ a {
   justify-content: space-between;
   margin: 0;
   width: 100vw;
+  align-items: center;
 }

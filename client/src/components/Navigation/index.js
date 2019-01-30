@@ -7,7 +7,7 @@ import * as ROUTES from '../../constants/routes';
 import { AuthUserContext } from '../Session';
 import './navigation.css';
 
-const logOutBtnStyle = {
+const btnStyle = {
   lineHeight: 'inherit',
   padding: '0.25rem'
 }
@@ -27,10 +27,12 @@ const Navigation = () => (
 
 const NavigationAuth = () => (
   <ul className="navbar-nav links">
-    <li style={logOutBtnStyle}>
+
+    <li style={BtnStyle}>
       <Link to={ROUTES.LANDING} >Home</Link>
+
     </li>
-    <li style={logOutBtnStyle}>
+    <li style={btnStyle}>
       <Link to={ROUTES.ACCOUNT} >Profile</Link>
     </li>
     <li>
@@ -41,11 +43,18 @@ const NavigationAuth = () => (
 
 const NavigationNonAuth = () => (
   <ul className="navbar-nav links">
-    <li style={logOutBtnStyle}>
+    <li style={btnStyle}>
       <Link to={ROUTES.LANDING} >Home</Link>
     </li>
-    <li style={logOutBtnStyle}>
-      <Link to={ROUTES.SIGN_IN} >Sign In</Link>
+    <li style={btnStyle}>
+      <Link
+        to={ROUTES.SIGN_IN}
+        className="btn btn-outline-primary"
+        style={{
+          lineHeight: 'inherit',
+          padding: '0.2rem'
+        }}
+      >Sign In</Link>
     </li>
   </ul>
 );
