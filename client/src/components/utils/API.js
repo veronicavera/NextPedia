@@ -89,12 +89,6 @@ export default {
     console.log(lat);
     console.log(long);
 
-    axios({
-      method: 'get',
-      url: `${weatherUrl}/a8f908211438646ad0513207e90e4418/${lat},${long},${weatherUrlEnd}`
-    }).then(function(response) {
-      console.log(response);
-    });
     return;
   }
 };
