@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-
 import { MySuitcase } from '../../index';
-
 import API from '../../utils/API';
+import MyFlightDetails from '../../FlightDetails/FlightDetails';
 
 const useremail = 'occasionalFlier@yahoo.com';
 
@@ -29,6 +28,7 @@ class TripDetails extends Component {
   render() {
     return (
       <div>
+        {this.state.suitcases_id && <MyFlightDetails trip={this.state.trip} />}
         {/* Note: We use the && below in order to trick React
         into doing what we want -- React will not load the MySuitcase
         component until the data that feeds into it is available. */}
