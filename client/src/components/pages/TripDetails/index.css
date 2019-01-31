@@ -26,3 +26,7 @@ div h2,
 div h3 {
   font-family: 'Cantarell', sans-serif;
 }
+
+p {
+  font-family: 'Cantarell', sans-serif !important;
+}
