@@ -13,11 +13,21 @@ function getHourMinute(dateString) {
 }
 
 class ResultFlight extends React.Component {
-  state = {}
+  state = {
+    tripName: ''
+  }
+
+  handleInputChange = event => {
+    let value = event.target.value;
+    const name = event.target.name;
+    this.setState({
+        [name]: value
+    });
+  };
 
   handleFormSubmit(event, index) {
     event.preventDefault();
-    API.postTrip(this.state.data[index].arrivalAirport, this.state.data[index].departureTime, this.state.data[index].departureAirport, this.state.data[index].arrivalTime, localStorage.getItem('user'))
+    API.postTrip(this.state.data[index].arrivalAirport, this.state.data[index].departureTime, this.state.data[index].departureAirport, this.state.data[index].arrivalTime, localStorage.getItem('user'), this.state.tripName)
       .then(() => window.location.assign('/user'))
       .catch(() => alert('There was an error selecting your flight. Sorry! Please try again later'));
   }
@@ -31,8 +41,19 @@ class ResultFlight extends React.Component {
 
   render() {
     return this.state.data ? (
-      <div className="content">
-        <form>
+      <form id='formContainer'>
+        <h2>
+          Please name your trip
+        </h2>
+        <input
+          value={this.state.tripName}
+          name="tripName"
+          onChange={this.handleInputChange}
+          type="text"
+          placeholder="My New Trip"
+        />
+        <div className="content">
+
           {this.state.data.map((flightItem, index) => (
             <div className="flightResult" key={flightItem.airlineName}>
               <div className="airlineName">{dataCodes[flightItem.airlineName]}</div>
@@ -56,8 +77,8 @@ class ResultFlight extends React.Component {
               <input type="submit" className="btn selectBtn" onClick={event => this.handleFormSubmit(event, index)} value="Select" />
             </div>
           ))}
-        </form>
-      </div>
+        </div>
+      </form>
     ) : (<div/>);
   }
 }

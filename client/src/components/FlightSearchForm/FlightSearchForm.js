@@ -39,17 +39,20 @@ class FlightSearchForm extends Component {
   // handleSubmit
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log(this.state);
     this.setState({ redirect: true });
   }
 
   render() {
     const redirect = this.state.redirect;
-    console.log(redirect);
     if (redirect === true) {
       const { origin, destination, departureDate } = this.state;
-      const url = `/flights/${origin}/${destination}/${departureDate}`;
-      return <Redirect to={url} />
+      if (origin.length === 3 & destination.length === 3) {
+        const url = `/flights/${origin}/${destination}/${departureDate}`;
+        return <Redirect to={url} />
+      } else {
+        this.setState({redirect: false})
+        alert('Please use the 3 letter IATA (airport) codes');
+      }
     }
     return (
       <div className="container-div" id='flight-search-container'>
@@ -57,7 +60,7 @@ class FlightSearchForm extends Component {
           <div className="card-body" style={{ height: '90vh' }}>
             <form id="flight-search-form" style={styles.form} onSubmit={this.handleSubmit}>
               <label style={styles.label}>
-                Origin:
+                Departure Airport:
                 <input name="origin" type="text" value={this.state.origin} onChange={this.handleInputChange} className="flightFormInput" />
               </label>
               <label style={styles.label}>
@@ -65,13 +68,13 @@ class FlightSearchForm extends Component {
                 <input name="departureDate" type="date" value={this.state.departureDate} onChange={this.handleInputChange} className="flightFormInput" />
               </label>
               <label style={styles.label}>
-                Destination:
+                Destination Airport:
                 <input name="destination" type="text" value={this.state.destination} onChange={this.handleInputChange} className="flightFormInput" />
               </label>
-              <label style={styles.label}>
+              {/* <label style={styles.label}>
                 Length Of Stay:
                 <input name="lengthOfStay" type="number" value={this.state.lengthOfStay} onChange={this.handleInputChange} className="flightFormInput" />
-              </label>
+              </label> */}
               <MyCalendar />
               <input type="submit" value="Submit" className="btn btn-outline-success" />
             </form>
