@@ -1,8 +1,4 @@
 /* https://www.pexels.com/photo/seaport-during-daytime-132037/ */
-body {
-    background: url(../../../images/seaportDuringDaytime.jpeg) no-repeat center center fixed;
-}
-
 div h1, div h2, #contactForm {
     font-family: 'Quicksand', sans-serif;
 }
@@ -17,6 +13,7 @@ div h1 {
     height: 88vh;
     display: grid;
     justify-content: center;
+    background: url(../../../images/seaportDuringDaytime.jpeg) no-repeat center center fixed;
 }
 
 #contactFormContainer {

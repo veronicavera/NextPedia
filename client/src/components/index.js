@@ -4,7 +4,7 @@ import { FirebaseContext, withFirebase } from './Firebase';
 import FlightSearchForm from './FlightSearchForm/FlightSearchForm';
 import Footer from './Footer/Footer';
 import Navigation from './Navigation';
-import ResultFlight from './ResultFlight/ResultFlight';
+import ResultFlight from './ResultFlight/';
 import {
   AuthUserContext,
   withAuthentication,
