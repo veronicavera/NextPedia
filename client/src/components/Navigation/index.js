@@ -54,14 +54,11 @@ class NavigationNonAuth extends React.Component {
         <li style={btnStyle}>
           <Link to={ROUTES.LANDING}>Home</Link>
         </li>
-        <li style={btnStyle} onClick={() => this.setState({signIn: true})}>
+        <li style={btnStyle}>
           <Link
             to={ROUTES.SIGN_IN}
-            className="btn btn-outline-primary"
-            style={{
-              lineHeight: 'inherit',
-              padding: '0.2rem'
-            }}
+            className="btn btn-outline-primary linkBtn"
+            onClick={() => this.setState({signIn: true})}
           >Sign In</Link>
         </li>
       </ul>
@@ -70,14 +67,11 @@ class NavigationNonAuth extends React.Component {
         <li style={btnStyle}>
           <Link to={ROUTES.LANDING} onClick={() => this.setState({signIn: false})}>Home</Link>
         </li>
-        <li style={btnStyle} onClick={() => this.setState({signIn: false})}>
+        <li style={btnStyle} >
           <Link
             to={ROUTES.SIGN_UP}
-            className="btn btn-outline-primary"
-            style={{
-              lineHeight: 'inherit',
-              padding: '0.2rem'
-            }}
+            className="btn btn-outline-primary linkBtn"
+            onClick={() => this.setState({signIn: false})}
           >Sign Up</Link>
         </li>
       </ul>

@@ -10,3 +10,16 @@ a {
   width: 100vw;
   align-items: center;
 }
+
+.linkBtn {
+  line-height: inherit;
+  padding: 0.5rem;
+  color: rgba(235, 163, 235, 1);
+  border-color: rgba(235, 163, 235, 1);
+}
+
+.linkBtn:hover {
+  background-color: rgba(235, 163, 235, 1);
+  color: #fff;
+  border-color: rgba(235, 163, 235, 1);
+}
