@@ -29,7 +29,7 @@ class FlightSearchForm extends Component {
 
   handleInputChange = (event) => {
     const target = event.target;
-    const value = target.value;
+    const value = target.value.toUpperCase();
     const name = target.name;
     this.setState({
       [name]: value

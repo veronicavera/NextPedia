@@ -2,10 +2,18 @@ import React from "react";
 import "./style.css";
 import moment from "moment";
 import dataCodes from "./airlineCodes.json";
-function ResultFlight(props) {
-  return (
-    <div className="content">
-      {props.data.map(flightItem => (
+class ResultFlight extends React.Component {
+  componentDidMount() {
+    fetch('/api/flights/JFK/LAX/2019-05-05')
+      .then(res => res.json())
+      .then(data => console.log(data));
+  }
+
+  render() {
+    return (
+      <div className="content">
+        Hello world
+        {/* {props.data.map(flightItem => (
         <div className="flightResult" key={flightItem.airlineName}>
           <div className="airlineName">{dataCodes[flightItem.airlineName]}</div>
           <div className="flightTimes">
@@ -27,9 +35,10 @@ function ResultFlight(props) {
           </div>
           <input type="submit" className="btn selectBtn" value="Select" />
         </div>
-      ))}
-    </div>
-  );
+      ))} */}
+      </div>
+    );
+  }
 }
 export default ResultFlight;
 function getHourMinute(dateString) {
