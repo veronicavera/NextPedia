@@ -1,6 +1,6 @@
 .trip-details-wrapper {
-  max-width: 80vw;
-  min-width: 80vw;
+  width: 80vw;
+
   background-color: rgba(243, 209, 243, 0.7);
   margin: 10px;
   padding: 10px;

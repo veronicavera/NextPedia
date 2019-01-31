@@ -40,8 +40,7 @@ class MySuitcase extends Component {
       item: value
     };
 
-    API.deleteItemFromSuitcase(this.props.suitcaseID, itemName).then(data => {
-      console.log(data);
+    API.deleteItemFromSuitcase(this.props.suitcaseID, itemName).then(() => {
       // console.log(data.data[0].items);
       this.getDataForPage();
     });

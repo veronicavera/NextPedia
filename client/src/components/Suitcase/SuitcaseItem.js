@@ -37,7 +37,9 @@ class MySuitcaseItem extends Component {
     return (
       <div className='suitcase-item' value={this.props.value}>
         <div className='suitcase-item-delete'>
-          <p onClick={() => this.props.onDelete(this.props.value)}>X</p>
+          <button onClick={() => this.props.onDelete(this.props.value)}>
+            X
+          </button>
         </div>
         <div className='suitcase-item-header'>
           <p>Item: {this.props.item}</p>

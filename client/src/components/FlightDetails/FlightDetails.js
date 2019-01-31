@@ -3,32 +3,72 @@ import { utils } from 'mocha';
 import API from '../utils/API';
 import './FlightDetails.css';
 
-const config = {
-  weatherApiKey: process.env.REACT_APP_WEATHER_API_KEY
-};
-
 class MyFlightDetails extends Component {
   state = {
     startlocation: null,
-    endlocation: null
+    endlocation: null,
+    weather: null
   };
 
   componentDidMount = () => {
+    // format the start and end dates nicely
+
+    const startTimeNice = `${this.props.trip.startDate.substring(
+      5,
+      7
+    )}/${this.props.trip.startDate.substring(
+      8,
+      10
+    )}/${this.props.trip.startDate.substring(0, 4)}`;
+
+    const endTimeNice = `${this.props.trip.endDate.substring(
+      5,
+      7
+    )}/${this.props.trip.endDate.substring(
+      8,
+      10
+    )}/${this.props.trip.endDate.substring(0, 4)}`;
+
+    const endTimeQuery = `${this.props.trip.endDate.substring(
+      0,
+      4
+    )}-${this.props.trip.endDate.substring(
+      5,
+      7
+    )}-${this.props.trip.endDate.substring(8, 10)}`;
+
+    this.setState({
+      startTimeDisplay: startTimeNice,
+      endTimeDisplay: endTimeNice,
+      endDateQuery: endTimeQuery
+    });
+
+    // look up the airport information for the starting location
     API.getAirportInfo(this.props.trip.startLocation).then(data => {
-      console.log(data);
       this.setState({
         startlocation: data.data[0]
       });
     });
+
+    // look up the airport information for the ending location
     API.getAirportInfo(this.props.trip.endLocation).then(data => {
-      console.log(data);
-      console.log(data.data[0].latitude);
-      console.log(data.data[0].longitude);
-      API.getWeatherInfo(data.data[0].latitude, data.data[0].longitude);
       this.setState({
         endlocation: data.data[0]
       });
+
+      //[YYYY]-[MM]-[DD] is the format for date
+      API.getWeatherInfo(
+        data.data[0].latitude,
+        data.data[0].longitude,
+        this.state.endDateQuery
+      ).then(weather => {
+        this.setState({
+          weather: weather.data.daily.data[0]
+        });
+      });
     });
+
+    // format the end date for the weather api request
   };
 
   render() {
@@ -40,7 +80,7 @@ class MyFlightDetails extends Component {
         <div className='flight-details-details'>
           <div>
             <h2>Departure: {this.props.trip.startFlightTakeOffTime}</h2>
-            <h2>on {this.props.trip.startDate}</h2>
+            <h2>on {this.state.startTimeDisplay}</h2>
             {/* <h2>from {this.props.trip.startLocation}</h2> */}
 
             {this.state.startlocation && (
@@ -52,7 +92,7 @@ class MyFlightDetails extends Component {
           </div>
           <div>
             <h2>Arrival: {this.props.trip.endFlightTakeOffTime}</h2>
-            <h2>on {this.props.trip.endDate}</h2>
+            <h2>on {this.state.endTimeDisplay}</h2>
             {/* <h2>at {this.props.trip.endLocation}</h2> */}
 
             {this.state.endlocation && (
@@ -63,10 +103,20 @@ class MyFlightDetails extends Component {
             )}
           </div>
         </div>
-        <div className='flight-details-weather'>
-          Weather Stuff Placeholder
-          <a href='https://darksky.net/poweredby/'>Powered by Dark Sky</a>
-        </div>
+        {this.state.weather && (
+          <div className='flight-details-weather'>
+            <h2>
+              Forecast for destination for {this.state.endTimeDisplay}:{' '}
+              {this.state.weather.summary}
+            </h2>
+            <h3>
+              High: {this.state.weather.temperatureHigh} Low:{' '}
+              {this.state.weather.temperatureLow} Chance of precipitation:{' '}
+              {this.state.weather.precipProbability}
+            </h3>
+            <a href='https://darksky.net/poweredby/'>Powered by Dark Sky</a>
+          </div>
+        )}
       </div>
     );
   }

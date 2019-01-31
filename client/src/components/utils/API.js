@@ -9,13 +9,14 @@ export default {
    * @param {string} time - A string representing the time in YYYY-MM-DD format
    * @returns - A promise representing the axios call
    */
-  getFlightsData: (startAirport, endAirport, time) => axios.get(`/api/flights/${startAirport}/${endAirport}/${time}`),
+  getFlightsData: (startAirport, endAirport, time) =>
+    axios.get(`/api/flights/${startAirport}/${endAirport}/${time}`),
 
-  getSuitcaseItemsAll: function () {
+  getSuitcaseItemsAll: function() {
     //
     return axios.get(`/api/suitcases/all`);
   },
-  getSuitcaseItems: function (userid) {
+  getSuitcaseItems: function(userid) {
     //router.route('/:user') .get(suitcasesController.getUserWithSuitcases)
     // console.log(userid);
     //Returns array of trips associated with the user and includes data on suitcases
@@ -29,10 +30,10 @@ export default {
    * ID through user.
    * @param {string} suitcaseID
    */
-  getSuitcase: function (suitcaseID) {
+  getSuitcase: function(suitcaseID) {
     return axios.get(`/api/suitcases/search/${suitcaseID}`);
   },
-  addItemToSuitcase: function (suitcaseID, newItem) {
+  addItemToSuitcase: function(suitcaseID, newItem) {
     return axios.put(`/api/suitcases/${suitcaseID}`, newItem);
   },
   /**
@@ -43,7 +44,7 @@ export default {
    * @param {string} suitcaseID
    * @param {object} itemName
    */
-  deleteItemFromSuitcase: function (suitcaseID, itemName) {
+  deleteItemFromSuitcase: function(suitcaseID, itemName) {
     return axios.patch(`/api/suitcases/${suitcaseID}`, itemName);
   },
 
@@ -56,27 +57,33 @@ export default {
    * @param {string} suitcaseID
    * @param {object} itemInfo
    */
-  updateItemInSuitcase: function (suitcaseID, itemInfo) {
-    console.log(suitcaseID);
-    console.log(itemInfo);
-
-    // router.route('/:id')
-    // .put(suitcasesController.addToSuitcase)
+  updateItemInSuitcase: function(suitcaseID, itemInfo) {
     return axios.put(`/api/suitcases/${suitcaseID}`, itemInfo);
   },
 
-  getAirportInfo: function (iata) {
-    console.log(iata);
+  /**
+   * Does a get request for the airport data.
+   *
+   * Airport data is loaded into a MySQL database. The three-letter airport code is sent
+   * and the airport name, city it serves, latitude, and longitude are returned.
+   * @param {string} iata
+   */
+  getAirportInfo: function(iata) {
     return axios.get(`/api/airports/${iata}`);
   },
-  getWeatherInfo: function(lat, long) {
-    // process.env.REACT_APP_WEATHER_API_KEY
-    const weatherUrl = 'https://api.darksky.net/forecast';
-    const weatherUrlEnd = '2019-04-01T12:00:00?exclude=currently,hourly,flags';
-    // https://api.darksky.net/forecast/[key]/[lat],[long],2019-04-01T12:00:00?exclude=currently,hourly,flags
-    console.log(lat);
-    console.log(long);
 
-    return;
+  /**
+   * This queries the Dark Sky API for a specific latitude and longitude at a specific date.
+   * Note: only the DATE needs to be supplied -- since this is a daily high/low forecast,
+   * the time is always assumed to be noon (and doesn't matter either way)
+   *
+   * @param {string} lat
+   * @param {string} long
+   * @param {string} time - format YYYY-MM-DD
+   *
+   * Returns an object with the daily high, low, precipitation, summary, etc
+   */
+  getWeatherInfo: function(lat, long, time) {
+    return axios.get(`/api/weather/${lat}/${long}/${time}`);
   }
 };
