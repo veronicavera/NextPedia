@@ -44,7 +44,7 @@ const NavigationAuth = () => (
 const NavigationNonAuth = () => (
   <ul className="navbar-nav links">
     <li style={btnStyle}>
-      <Link to={ROUTES.LANDING} >Home</Link>
+      <Link to={ROUTES.LANDING}>Home</Link>
     </li>
     <li style={btnStyle}>
       <Link

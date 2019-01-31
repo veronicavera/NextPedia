@@ -7,8 +7,10 @@ class FetchData extends React.Component {
         tripName:[],
         tripId:[]
     }
-    componentDidMount() {
-     axios.get(`http://localhost:5000/api/trips/`+localStorage.user) //should be changed on `/api/trips/`+localStorage.user when deployed on heroku and real data is gonna be used
+    componentDidMount() {       
+        console.log(localStorage.getItem('user'));
+ 
+     axios.get(`http://localhost:5000/api/trips/` + localStorage.getItem('user')) //should be changed on `/api/trips/`+localStorage.user when deployed on heroku and real data is gonna be used
        .then(res => {
            console.log(res.data[0])
            console.log(localStorage.user)
