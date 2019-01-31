@@ -4,7 +4,6 @@ import { Link, withRouter } from 'react-router-dom';
 import { PasswordForgetLink } from '../PasswordForget';
 import { withFirebase } from '../../index';
 import * as ROUTES from '../../../constants/routes';
-import SignUpLink from '../SignUp'
 import './signin.css';
 
 const SignInPage = () => (
@@ -14,7 +13,7 @@ const SignInPage = () => (
         <h1 className="card-title">Sign In</h1>
         <SignInForm />
         <PasswordForgetLink />
-        <SignUpLink />
+        {/* <SignUpLink /> */}
       </div>
     </div>
   </div>

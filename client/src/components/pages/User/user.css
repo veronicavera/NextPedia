@@ -2,14 +2,12 @@
   font-size: calc(0.5vh + 0.5vw + 1vmin)
 }
 
-.container-div {
+.container {
   background-image: linear-gradient(rgba(255, 153, 255, 0.5), rgba(153, 204, 255, 0.5)), url('../../../images/backgroundimglanding.jpg');
   min-width: 100vw;
   min-height: 100vh;
   background-size: 100vh, 100vw;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+  
 }
 
 .card {

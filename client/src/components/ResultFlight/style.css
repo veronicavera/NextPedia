@@ -91,3 +91,7 @@
 .selectBtn:focus {
   box-shadow: none;
 }
+
+#formContainer {
+  display: grid;
+}
