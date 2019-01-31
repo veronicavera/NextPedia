@@ -41,22 +41,48 @@ const NavigationAuth = () => (
   </ul>
 );
                            
-const NavigationNonAuth = () => (
-  <ul className="navbar-nav links">
-    <li style={btnStyle}>
-      <Link to={ROUTES.LANDING}>Home</Link>
-    </li>
-    <li style={btnStyle}>
-      <Link
-        to={ROUTES.SIGN_IN}
-        className="btn btn-outline-primary"
-        style={{
-          lineHeight: 'inherit',
-          padding: '0.2rem'
-        }}
-      >Sign In</Link>
-    </li>
-  </ul>
-);
+class NavigationNonAuth extends React.Component {
+  state = {
+    signIn: false
+  }
+  componentDidMount() {
+    console.log(this)
+  }
+  render() {
+    return !this.state.signIn ? (
+      <ul className="navbar-nav links">
+        <li style={btnStyle}>
+          <Link to={ROUTES.LANDING}>Home</Link>
+        </li>
+        <li style={btnStyle} onClick={() => this.setState({signIn: true})}>
+          <Link
+            to={ROUTES.SIGN_IN}
+            className="btn btn-outline-primary"
+            style={{
+              lineHeight: 'inherit',
+              padding: '0.2rem'
+            }}
+          >Sign In</Link>
+        </li>
+      </ul>
+    ) : (
+      <ul className="navbar-nav links">
+        <li style={btnStyle}>
+          <Link to={ROUTES.LANDING} onClick={() => this.setState({signIn: false})}>Home</Link>
+        </li>
+        <li style={btnStyle} onClick={() => this.setState({signIn: false})}>
+          <Link
+            to={ROUTES.SIGN_UP}
+            className="btn btn-outline-primary"
+            style={{
+              lineHeight: 'inherit',
+              padding: '0.2rem'
+            }}
+          >Sign Up</Link>
+        </li>
+      </ul>
+    ) 
+  }
+};
 
 export default Navigation;
