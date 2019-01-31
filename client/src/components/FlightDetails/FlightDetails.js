@@ -80,7 +80,7 @@ class MyFlightDetails extends Component {
         </div>
         <div className='flight-details-details'>
           <div>
-            <h2>Departure: {this.props.trip.startFlightTakeOffTime}</h2>
+            <h2>Departure: {this.props.trip.takeOffTime}</h2>
             <h2>on {this.state.startTimeDisplay}</h2>
             {/* <h2>from {this.props.trip.startLocation}</h2> */}
 

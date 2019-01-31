@@ -1,11 +1,14 @@
 .flight-details-wrapper {
   border: 1px grey solid;
+  border-radius: 5px;
 }
 
 .flight-details-header {
   text-align: center;
   font-size: 24px;
   font-weight: bold;
+  padding-bottom: 10px;
+  border-bottom: 1px grey solid;
 }
 
 .flight-details-details {
