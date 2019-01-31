@@ -92,10 +92,21 @@ export default {
     startFlightTakeOffTime: takeOffTime,
     endLocation: endAirport,
     endFlightTakeOffTime: landingTime
-  })
+  }),
   getTripInfo: function(tripid) {
     // console.log(tripid);
 
     return axios.get(`/api/trips/search/${tripid}`);
-  }
+  },
+  addUser: user => { console.log(user)
+    axios.post('/api/users', { user: user}) 
+  },
+  
+
+  addSuitcase: suitcase => axios.post('/api/suitcase', { suitcase: suitcase}),
+
+  addTrips: trips => axios.post('/api/trips', { trips: trips}), 
+
+  addTripid: tripid => axios.post('/api/tripid', { tripid: tripid}), 
+    
 };
