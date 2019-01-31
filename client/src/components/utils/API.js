@@ -92,7 +92,7 @@ export default {
     startFlightTakeOffTime: takeOffTime,
     endLocation: endAirport,
     endFlightTakeOffTime: landingTime
-  })
+  }),
   getTripInfo: function(tripid) {
     // console.log(tripid);
 
