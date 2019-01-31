@@ -30,8 +30,18 @@ module.exports = {
             .catch(err => res.status(422).json(err));
     },
     postTrip: (req, res) => {
+        const {tripName, startLocation, startFlightTakeOffTime, endLocation, endFlightTakeOffTime} = req.body
         db.Trip
-            .create(req.body)
+            .create({
+                tripName: tripName,
+                startLocation: endLocation,
+                startDate: new Date(startFlightTakeOffTime.split(/-/g)[0], startFlightTakeOffTime.split(/-/g)[1], startFlightTakeOffTime.split(/-/g)[2].split(/T/)[0]),
+                startFlightTakeOffTime: startFlightTakeOffTime,
+                endDate: new Date (9999, 12, 12),
+                endLocation: startLocation,
+                endFlightTakeOffTime: endFlightTakeOffTime,
+                roundTrip: false
+            })
             .then(dbTrip => res.json(dbTrip))
             .catch(err => res.status(422).json(err));
     },

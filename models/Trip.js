@@ -34,9 +34,6 @@ const TripSchema = new Schema({
         type: Boolean,
         required: true
     },
-    // weatherInfo: {
-
-    // },
     suitcases : {
         type: Schema.Types.ObjectId,
         ref: 'Suitcase'
