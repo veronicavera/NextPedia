@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import dotenv from "dotenv";
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import dotenv from 'dotenv';
 
 import {
   About,
@@ -12,9 +12,9 @@ import {
   User,
   SignUpPage,
   SignInPage
-} from "./components/pages";
-import { withAuthentication } from "./components/Session";
-import { AccountPage, Navigation, Footer } from "./components/index"
+} from './components/pages';
+import { withAuthentication } from './components/Session';
+import { AccountPage, Navigation, Footer } from './components/index';
 import './components/reset.css';
 import ResultFlight from './components/ResultFlight/';
 
@@ -27,17 +27,21 @@ class App extends Component {
         <>
           <Navigation />
           <Switch>
-            <Route exact path="/" component={Landing} />
-            <Route exact path="/user" component={User} />
-            <Route exact path="/flightFinder" component={FlightFinder} />
-            <Route exact path="/flights/:startAirport/:endAirport/:date" component={ResultFlight} />
-            <Route exact path="/FAQ" component={FAQ} />
-            <Route exact path="/About" component={About} />
-            <Route exact path="/Contact" component={Contact} />
-            <Route exact path="/Signin" component={SignInPage} />
-            <Route exact path="/signup" component={SignUpPage} />
-            <Route exact path="/tripdetails" component={TripDetails} />
-            <Route exact path="/Account" component={AccountPage} />
+            <Route exact path='/' component={Landing} />
+            <Route exact path='/user' component={User} />
+            <Route exact path='/flightFinder' component={FlightFinder} />
+            <Route
+              exact
+              path='/flights/:startAirport/:endAirport/:date'
+              component={ResultFlight}
+            />
+            <Route exact path='/FAQ' component={FAQ} />
+            <Route exact path='/About' component={About} />
+            <Route exact path='/Contact' component={Contact} />
+            <Route exact path='/Signin' component={SignInPage} />
+            <Route exact path='/signup' component={SignUpPage} />
+            <Route exact path='/tripdetails/:trip' component={TripDetails} />
+            <Route exact path='/Account' component={AccountPage} />
           </Switch>
           <Footer />
         </>

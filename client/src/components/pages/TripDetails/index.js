@@ -8,9 +8,20 @@ const useremail = 'occasionalFlier@yahoo.com';
 
 class TripDetails extends Component {
   state = {
+    trip_id: this.props.match.params.trip,
     useremail: useremail,
     suitcases_id: null
   };
+
+  //   getTrip: (req, res) => {
+  //     db.Trip
+  //         .find({_id: req.params.id})
+  //         .then(dbTrip => res.json(dbTrip))
+  //         .catch(err => res.status(422).json(err));
+  // },
+
+  // router.route('/search/:id')
+  //   .get(tripsController.getTrip)
 
   /**
    * On component mount, query the API to get all suitcase items.
@@ -18,15 +29,26 @@ class TripDetails extends Component {
    * suitcase associated with the first flight!
    */
   componentDidMount = () => {
-    API.getSuitcaseItems(useremail).then(data => {
+    API.getTripInfo(this.state.trip_id).then(data => {
+      // console.log(data.data[0].suitcases);
+      // console.log('new', data.data[0]);
       this.setState({
         trip: data.data[0],
-        suitcases_id: data.data[0].suitcases._id
+        suitcases_id: data.data[0].suitcases
       });
     });
+    // API.getSuitcaseItems(useremail).then(data => {
+    //   console.log('original', data.data[0]);
+    //   this.setState({
+    //     trip: data.data[0],
+    //     suitcases_id: data.data[0].suitcases._id
+    //   });
+    // });
   };
 
   render() {
+    // console.log(this.props.match.params.trip);
+    // console.log(this.state.trip);
     return (
       <div className='trip-details-page-body'>
         <div className='trip-details-wrapper'>

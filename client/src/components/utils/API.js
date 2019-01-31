@@ -85,5 +85,10 @@ export default {
    */
   getWeatherInfo: function(lat, long, time) {
     return axios.get(`/api/weather/${lat}/${long}/${time}`);
+  },
+  getTripInfo: function(tripid) {
+    // console.log(tripid);
+
+    return axios.get(`/api/trips/search/${tripid}`);
   }
 };
