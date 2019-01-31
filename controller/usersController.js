@@ -24,6 +24,7 @@ module.exports = {
             .catch(err => res.status(422).json(err));
     },
     putUser: (req, res) => {
+        console.log('here');
         db.User
             .updateOne(req.params, {$push:req.body})
             .then(dbUser => res.json(dbUser))

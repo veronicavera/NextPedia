@@ -17,7 +17,7 @@ class ResultFlight extends React.Component {
 
   handleFormSubmit(event, index) {
     event.preventDefault();
-    API.postTrip(this.state.data[index].arrivalAirport, this.state.data[index].departureTime, this.state.data[index].departureAirport, this.state.data[index].arrivalTime)
+    API.postTrip(this.state.data[index].arrivalAirport, this.state.data[index].departureTime, this.state.data[index].departureAirport, this.state.data[index].arrivalTime, localStorage.getItem('user'))
       .then(() => window.location.assign('/user'))
       .catch(() => alert('There was an error selecting your flight. Sorry! Please try again later'));
   }
