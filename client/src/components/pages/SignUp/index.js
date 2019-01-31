@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 // import SignInLink from '../SignIn'
+import API from '../../utils/API';
 import { withFirebase } from '../../index';
 import * as ROUTES from '../../../constants/routes';
 import './signup.css';
@@ -21,7 +22,11 @@ const INITIAL_STATE = {
   email: '',
   passwordOne: '',
   passwordTwo: '',
+  suitcase: [],
+  trips: [],
+  tripid: [],
   error: null,
+  
 };
 
 class SignUpFormBase extends Component {
@@ -33,6 +38,16 @@ class SignUpFormBase extends Component {
 
   onSubmit = event => {
     const { username, email, passwordOne } = this.state;
+    event.preventDefault()
+    // console.log(
+    //   this.state.email,
+    //   this.state.suitcase,
+    //   this.state.trips,
+    //   this.state.tripid
+    // )
+
+   API.addUser(this.state.email)
+  //  API.postUser(this.state.suitcase).then(user => user, this.state.email)
 
     this.props.firebase
       .doCreateUserWithEmailAndPassword(email, passwordOne, username)

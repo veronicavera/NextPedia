@@ -40,7 +40,7 @@ const NavigationAuth = () => (
     </li>
   </ul>
 );
-
+                           
 const NavigationNonAuth = () => (
   <ul className="navbar-nav links">
     <li style={btnStyle}>

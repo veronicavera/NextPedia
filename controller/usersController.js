@@ -1,5 +1,5 @@
 const db = require('../models');
-
+// console.log(db.User)
 module.exports = {
     getUser: (req, res) => {
         db.User
@@ -18,6 +18,7 @@ module.exports = {
             });
     },
     postUser: (req, res) => {
+        console.log(req.body)
         db.User
             .create(req.body)
             .then(dbUser => res.json(dbUser))

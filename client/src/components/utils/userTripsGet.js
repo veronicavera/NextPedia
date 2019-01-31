@@ -8,9 +8,10 @@ class FetchData extends React.Component {
         tripId:[]
     }
     componentDidMount() {
-     axios.get(`http://localhost:5000/api/trips/flightAficionado@ymail.com`) //should be changed on `/api/trips/`+localStorage.user when deployed on heroku and real data is gonna be used
+     axios.get(`http://localhost:5000/api/trips/`+localStorage.user) //should be changed on `/api/trips/`+localStorage.user when deployed on heroku and real data is gonna be used
        .then(res => {
-           
+           console.log(res.data[0])
+           console.log(localStorage.user)
         res.data[0].trips.map(trip=>{
             var x = this.state.tripName;
             var y= this.state.tripId;
