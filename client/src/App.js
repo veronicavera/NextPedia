@@ -15,7 +15,6 @@ import {
 } from './components/pages';
 import { withAuthentication } from './components/Session';
 import { AccountPage, Navigation, Footer } from './components/index';
-import './components/reset.css';
 import ResultFlight from './components/ResultFlight/';
 
 dotenv.config();

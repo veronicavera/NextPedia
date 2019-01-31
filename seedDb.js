@@ -11,53 +11,48 @@ const users = [
 const trips = [
   {
     tripName: 'The Best Trip',
-    startLocation: 'ORD',
-    startDate: new Date(2019, 2, 2),
-    startFlightTakeOffTime: '3 p.m.',
-    endLocation: 'LAX',
-    endDate: new Date(2019, 2, 9),
-    endFlightTakeOffTime: '4 p.m.',
-    roundTrip: true
+    takeOffAirport: 'ORD',
+    takeOffDate: new Date(2019, 2, 2),
+    takeOffTime: '2019-04-04T07:30:00',
+    landingAirport: 'LAX',
+    landingDate: new Date(2019, 2, 9),
+    landingTime: '2019-04-04T09:17:00',
   },
   {
     tripName: 'Moving',
-    startLocation: 'ORD',
-    startDate: new Date(2019, 3, 2),
-    startFlightTakeOffTime: '8 a.m.',
-    endLocation: 'LAX',
-    endDate: new Date(2019, 3, 9),
-    endFlightTakeOffTime: 'N/A',
-    roundTrip: false
+    takeOffAirport: 'ORD',
+    takeOffDate: new Date(2019, 3, 2),
+    takeOffTime: '2019-04-04T07:30:00',
+    landingAirport: 'LAX',
+    landingDate: new Date(2019, 3, 9),
+    landingTime: '2019-04-04T09:17:00',
   },
   {
     tripName: 'My Trip',
-    startLocation: 'ORD',
-    startDate: new Date(2019, 3, 11),
-    startFlightTakeOffTime: '12 p.m.',
-    endLocation: 'LAX',
-    endDate: new Date(2019, 3, 18),
-    endFlightTakeOffTime: '11 a.m.',
-    roundTrip: true
+    takeOffAirport: 'ORD',
+    takeOffDate: new Date(2019, 3, 11),
+    takeOffTime: '2019-04-04T07:30:00',
+    landingAirport: 'LAX',
+    landingDate: new Date(2019, 3, 18),
+    landingTime: '2019-04-04T09:17:00',
   },
   {
     tripName: 'Meeting',
-    startLocation: 'ORD',
-    startDate: new Date(2019, 1, 11),
-    startFlightTakeOffTime: '6 p.m.',
-    endLocation: 'LAX',
-    endDate: new Date(2019, 1, 18),
-    endFlightTakeOffTime: '7 p.m.',
-    roundTrip: true
+    takeOffAirport: 'ORD',
+    takeOffDate: new Date(2019, 1, 11),
+    takeOffTime: '2019-04-04T07:30:00',
+    landingAirport: 'LAX',
+    landingDate: new Date(2019, 1, 18),
+    landingTime: '2019-04-04T09:17:00',
   },
   {
     tripName: 'Family Vacation',
-    startLocation: 'ORD',
-    startDate: new Date(2019, 3, 20),
-    startFlightTakeOffTime: '2 p.m.',
-    endLocation: 'LAX',
-    endDate: new Date(2019, 3, 27),
-    endFlightTakeOffTime: '5 p.m.',
-    roundTrip: true
+    takeOffAirport: 'ORD',
+    takeOffDate: new Date(2019, 3, 20),
+    takeOffTime: '2019-04-04T07:30:00',
+    landingAirport: 'LAX',
+    landingDate: new Date(2019, 3, 27),
+    landingTime: '2019-04-04T09:17:00',
   }
 ];
 const suitcases = [
@@ -139,6 +134,7 @@ mongoose.connect(
   process.env.MONGODB_URI || 'mongodb://localhost/nextpedia',
   { useNewUrlParser: true }
 );
+
 const setDatabase = async () => {
   const promises = ['User', 'Trip', 'Suitcase'].map(async collection => {
     const empty = await db[collection].deleteMany({});

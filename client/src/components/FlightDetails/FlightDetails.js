@@ -13,30 +13,31 @@ class MyFlightDetails extends Component {
   componentDidMount = () => {
     // format the start and end dates nicely
 
-    const startTimeNice = `${this.props.trip.startDate.substring(
+    const startTimeNice = `${this.props.trip.takeOffDate.substring(
       5,
       7
-    )}/${this.props.trip.startDate.substring(
+    )}/${this.props.trip.takeOffDate.substring(
       8,
       10
-    )}/${this.props.trip.startDate.substring(0, 4)}`;
+    )}/${this.props.trip.takeOffDate.substring(0, 4)}`;
 
-    const endTimeNice = `${this.props.trip.endDate.substring(
+    const endTimeNice = `${this.props.trip.landingDate.substring(
       5,
       7
-    )}/${this.props.trip.endDate.substring(
+    )}/${this.props.trip.landingDate.substring(
       8,
       10
-    )}/${this.props.trip.endDate.substring(0, 4)}`;
+    )}/${this.props.trip.landingDate.substring(0, 4)}`;
 
-    const endTimeQuery = `${this.props.trip.endDate.substring(
+    const endTimeQuery = `${this.props.trip.landingDate.substring(
       0,
       4
-    )}-${this.props.trip.endDate.substring(
+    )}-${this.props.trip.landingDate.substring(
       5,
       7
-    )}-${this.props.trip.endDate.substring(8, 10)}`;
+    )}-${this.props.trip.landingDate.substring(8, 10)}`;
 
+    console.log(endTimeQuery);
     this.setState({
       startTimeDisplay: startTimeNice,
       endTimeDisplay: endTimeNice,
@@ -44,14 +45,14 @@ class MyFlightDetails extends Component {
     });
 
     // look up the airport information for the starting location
-    API.getAirportInfo(this.props.trip.startLocation).then(data => {
+    API.getAirportInfo(this.props.trip.takeOffAirport).then(data => {
       this.setState({
         startlocation: data.data[0]
       });
     });
 
     // look up the airport information for the ending location
-    API.getAirportInfo(this.props.trip.endLocation).then(data => {
+    API.getAirportInfo(this.props.trip.landingAirport).then(data => {
       this.setState({
         endlocation: data.data[0]
       });

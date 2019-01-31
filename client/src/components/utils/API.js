@@ -86,12 +86,15 @@ export default {
   getWeatherInfo: function(lat, long, time) {
     return axios.get(`/api/weather/${lat}/${long}/${time}`);
   },
-  postTrip: (startAirport, takeOffTime, endAirport, landingTime) => axios.post('/api/trips', {
-    tripName: 'My New Trip',
-    startLocation: startAirport,
-    startFlightTakeOffTime: takeOffTime,
-    endLocation: endAirport,
-    endFlightTakeOffTime: landingTime
+
+  postTrip: (startAirport, takeOffTime, endAirport, landingTime, user, tripName) => axios.post('/api/trips', {
+    tripName: tripName || 'My New Trip',
+    takeOffAirport: endAirport,
+    takeOffTime: takeOffTime,
+    landingAirport: startAirport,
+    landingTime: landingTime,
+    user: user
+
   }),
   getTripInfo: function(tripid) {
     // console.log(tripid);

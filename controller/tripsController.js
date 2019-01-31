@@ -1,4 +1,5 @@
 const db = require('../models');
+const axios = require('axios');
 
 module.exports = {
     getTrip: (req, res) => {
@@ -30,19 +31,24 @@ module.exports = {
             .catch(err => res.status(422).json(err));
     },
     postTrip: (req, res) => {
-        const {tripName, startLocation, startFlightTakeOffTime, endLocation, endFlightTakeOffTime} = req.body
+        console.log(req.body);
+        const {tripName, takeOffAirport, takeOffTime, landingAirport, landingTime, user} = req.body
         db.Trip
             .create({
                 tripName: tripName,
-                startLocation: endLocation,
-                startDate: new Date(startFlightTakeOffTime.split(/-/g)[0], startFlightTakeOffTime.split(/-/g)[1], startFlightTakeOffTime.split(/-/g)[2].split(/T/)[0]),
-                startFlightTakeOffTime: startFlightTakeOffTime,
-                endDate: new Date (9999, 12, 12),
-                endLocation: startLocation,
-                endFlightTakeOffTime: endFlightTakeOffTime,
-                roundTrip: false
+                takeOffAirport: takeOffAirport,
+                takeOffDate: new Date(takeOffTime.split(/-/g)[0], takeOffTime.split(/-/g)[1], takeOffTime.split(/-/g)[2].split(/T/)[0]),
+                takeOffTime: takeOffTime,
+                landingAirport: landingAirport,
+                landingDate: new Date(landingTime.split(/-/g)[0], landingTime.split(/-/g)[1], landingTime.split(/-/g)[2].split(/T/)[0]),
+                landingTime: landingTime
             })
-            .then(dbTrip => res.json(dbTrip))
+            .then(dbTrip => {
+                db.User
+                    .updateOne({user: user}, {$push:{trips: dbTrip._id}})
+                    .then(dbUser => res.json(dbUser))
+                    .catch(err => res.status(422).json(err));
+            })
             .catch(err => res.status(422).json(err));
     },
     putTrip: (req, res) => {

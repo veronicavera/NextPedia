@@ -6,33 +6,29 @@ const TripSchema = new Schema({
         type: String,
         required: true
     },
-    startLocation: {
+    takeOffTime: {
         type: String,
         required: true
     },
-    startDate: {
-        type: Date,
-        required: true
+    takeOffDate: {
+            type: Date,
+            required: true
     },
-    startFlightTakeOffTime: {
+    takeOffAirport: {
+            type: String,
+            required: true
+    },
+    landingTime: {
         type: String,
         required: true
     },
-    endLocation: {
-        type: String,
-        required: true
+    landingDate: {
+            type: Date,
+            required: true
     },
-    endDate: {
-        type: Date,
-        required: true
-    },
-    endFlightTakeOffTime: {
-        type: String,
-        required: true
-    },
-    roundTrip: {
-        type: Boolean,
-        required: true
+    landingAirport: {
+            type: String,
+            required: true
     },
     suitcases : {
         type: Schema.Types.ObjectId,
