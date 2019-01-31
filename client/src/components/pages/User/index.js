@@ -14,23 +14,26 @@ class User extends Component {
         }
         const thStyle = {
             border: "1px solid gray",
-            padding: "10px",
+            padding: "20px",
             textAlign: "center"
         }
         return (
-            <div className = 'container-div'>
-                <AccountPage />
+            <div className = 'container center'>
+                 <div className="row"><AccountPage /></div>
+                 <br />
                 <React.Fragment>
                     <div>
                         <br />
-                        <div className='container'>
+                        
                             <div className="row">
                                 <div className="col-md-6"><h2 className="center">Create a new trip</h2></div>
                                 <div className="col-md-6"><h2 className="center">Manage your trips</h2></div>
                             </div>
                             <br />
                             <div className="row">
-                               <Link to={ROUTES.LANDING} className="btn btn-danger">Create a new trip</Link>
+                            <div className="col-md-6">
+                            <Link to={ROUTES.LANDING} className="btn btn-danger">Create a new trip</Link>
+                            </div>
                                 <div className="col-md-6">
                                     <table style={tableStyle}>
                                         <thead>
@@ -46,7 +49,7 @@ class User extends Component {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    
                 </React.Fragment>
             </div>
         );
