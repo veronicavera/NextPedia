@@ -13,6 +13,15 @@ class MyFlightDetails extends Component {
   componentDidMount = () => {
     // format the start and end dates nicely
 
+    // console.log(this.props.trip);
+
+    const startTimestampNice = this.props.trip.takeOffTime.substring(11) + ' ';
+
+    console.log(startTimestampNice);
+    const endTimestampNice = this.props.trip.landingTime.substring(11) + ' ';
+
+    console.log(endTimestampNice);
+
     const startTimeNice = `${this.props.trip.takeOffDate.substring(
       5,
       7
@@ -41,7 +50,9 @@ class MyFlightDetails extends Component {
     this.setState({
       startTimeDisplay: startTimeNice,
       endTimeDisplay: endTimeNice,
-      endDateQuery: endTimeQuery
+      endDateQuery: endTimeQuery,
+      startTimestampDisplay: startTimestampNice,
+      endTimestampDisplay: endTimestampNice
     });
 
     // look up the airport information for the starting location
@@ -79,43 +90,52 @@ class MyFlightDetails extends Component {
           <h1>{this.props.trip.tripName}</h1>
         </div>
         <div className='flight-details-details'>
-          <div>
-            <h2>Departure: {this.props.trip.takeOffTime}</h2>
-            <h2>on {this.state.startTimeDisplay}</h2>
-            {/* <h2>from {this.props.trip.startLocation}</h2> */}
+          <div className='flight-details-departure'>
+            <h2>Departure:</h2>
+            <p>
+              {' '}
+              {this.state.startTimestampDisplay} on{' '}
+              {this.state.startTimeDisplay}
+            </p>
 
             {this.state.startlocation && (
-              <h2>
+              <p>
                 from {this.state.startlocation.name}, serving{' '}
                 {this.state.startlocation.city}
-              </h2>
+              </p>
             )}
           </div>
-          <div>
-            <h2>Arrival: {this.props.trip.endFlightTakeOffTime}</h2>
-            <h2>on {this.state.endTimeDisplay}</h2>
-            {/* <h2>at {this.props.trip.endLocation}</h2> */}
-
+          <div className='flight-details-arrival'>
+            <h2>Arrival:</h2>
+            <p>
+              {' '}
+              {this.state.endTimestampDisplay} on {this.state.endTimeDisplay}
+            </p>
             {this.state.endlocation && (
-              <h2>
+              <p>
                 at {this.state.endlocation.name}, serving{' '}
                 {this.state.endlocation.city}
-              </h2>
+              </p>
             )}
           </div>
         </div>
         {this.state.weather && (
           <div className='flight-details-weather'>
-            <h2>
-              Forecast for destination for {this.state.endTimeDisplay}:{' '}
-              {this.state.weather.summary}
-            </h2>
-            <h3>
+            <h2>Forecast for destination for {this.state.endTimeDisplay}:</h2>
+            <p>{this.state.weather.summary}</p>
+            <p>
               High: {this.state.weather.temperatureHigh} Low:{' '}
               {this.state.weather.temperatureLow} Chance of precipitation:{' '}
-              {this.state.weather.precipProbability}
-            </h3>
-            <a href='https://darksky.net/poweredby/'>Powered by Dark Sky</a>
+              {parseInt(this.state.weather.precipProbability) * 100}%
+            </p>
+            <p>
+              <a
+                className='flight-details-attr-link'
+                href='https://darksky.net/poweredby/'
+              >
+                Powered by Dark Sky
+              </a>
+            </p>
           </div>
         )}
       </div>

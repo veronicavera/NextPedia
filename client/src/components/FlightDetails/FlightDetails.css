@@ -1,6 +1,7 @@
 .flight-details-wrapper {
   border: 1px grey solid;
   border-radius: 5px;
+  /* padding: 2px; */
 }
 
 .flight-details-header {
@@ -14,8 +15,24 @@
 .flight-details-details {
   display: flex;
   justify-content: space-around;
+  border-bottom: 1px grey solid;
+}
+
+.flight-details-departure {
+  text-align: left;
+  margin: 5px;
+}
+
+.flight-details-arrival {
+  text-align: right;
+  margin: 5px;
 }
 
 .flight-details-weather {
+  margin-top: 20px;
   text-align: center;
+}
+
+.flight-details-attr-link {
+  font-size: 10px;
 }
