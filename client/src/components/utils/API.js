@@ -9,14 +9,7 @@ export default {
    * @param {string} time - A string representing the time in YYYY-MM-DD format
    * @returns - A promise representing the axios call
    */
-  getFlightsData: function (startAirport, endAirport, time) {
-    const data = {
-      startAirport: [startAirport],
-      endAirport: [endAirport],
-      time: [time]
-    };
-    return axios.get('/api/flights/', data);
-  },
+  getFlightsData: (startAirport, endAirport, time) => axios.get(`/api/flights/${startAirport}/${endAirport}/${time}`),
 
   getSuitcaseItemsAll: function () {
     //
