@@ -6,7 +6,9 @@ SuitcaseItem.js
 /* overall item border and padding */
 .suitcase-item {
   border: 1px grey solid;
+  border-radius: 5px;
   padding: 2px;
+  margin: 2px 0;
 }
 
 /* header - the name of item and quantity */
@@ -52,7 +54,7 @@ suitcase form */
 /* this is the container for the list of items already added */
 .suitcase {
   margin: 5px 0;
-  width: 45%;
+  width: 49%;
 }
 
 /* each line of the input form is a suitcase-form-input */
@@ -62,7 +64,7 @@ suitcase form */
 
 /* wrapper for suitcase to set the font size and the width */
 .suitcase-form-wrapper {
-  width: 45%;
+  width: 49%;
   font-size: 20px;
 }
 
