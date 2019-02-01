@@ -70,7 +70,7 @@ class MySuitcaseUpdateForm extends Component {
           </div>
 
           <input
-            className='suitcase-form-input-button'
+            className='suitcase-form-input-button btn btn-outline-success'
             type='submit'
             value='Submit'
             onClick={() => this.updateSuitcaseItem()}

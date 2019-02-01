@@ -58,7 +58,7 @@ class MySuitcaseForm extends Component {
           <div className='suitcase-form-input'>
             <label htmlFor='item'>Item: </label>
             <input
-              className='suitcase-form-input-area'
+              className=' suitcase-form-input-area'
               onChange={this.handleInputChange}
               name='item'
               id='item'
@@ -87,7 +87,7 @@ class MySuitcaseForm extends Component {
           </div>
 
           <input
-            className='suitcase-form-submit'
+            className='suitcase-form-submit btn btn-outline-success'
             type='submit'
             value='Submit'
             onClick={this.updateSuitcase}
