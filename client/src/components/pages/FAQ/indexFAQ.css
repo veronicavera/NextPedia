@@ -1,0 +1,29 @@
+/* https://www.pexels.com/photo/seaport-during-daytime-132037/ */
+div h1, div h2 {
+    font-family: 'Quicksand', sans-serif;
+    /* padding-bottom: 3% */
+}
+
+div h1 {
+    margin-top: 10px;
+    font-size: 24px;
+    text-align: center;
+}
+
+#pageSizing {
+    height: 80vh;
+    display: grid;
+    justify-content: center;
+    background: url(../../../images/seaportDuringDaytime.jpeg) no-repeat center center fixed;
+}
+
+#contactFAQContainer {
+    background-color: rgba(267, 221, 221, .7);
+    width: 60vw;
+    height: 75vh;
+    margin-top: 1vw;
+    border-radius: 5px;
+    padding-left: 2%;
+    padding-right: 2%;
+
+}
