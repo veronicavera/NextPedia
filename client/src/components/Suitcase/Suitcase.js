@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { utils } from 'mocha';
+// import { utils } from 'mocha';
 import API from '../utils/API';
 import MySuitcaseItem from './SuitcaseItem';
 import MySuitcaseForm from './SuitcaseForm';

@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import Calendar from "react-calendar";
 import moment from "moment";
-import { componentFromProp } from "recompose";
-import { jsonEval } from "@firebase/util";
+// import { componentFromProp } from "recompose";
+// import { jsonEval } from "@firebase/util";
 
 class MyCalendar extends Component {
   constructor(props) {

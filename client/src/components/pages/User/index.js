@@ -18,14 +18,15 @@ class User extends Component {
             <React.Fragment>
               <div className='user-dashboard'>
                 <br />
-                <div className='user-dashboard-info'>
-                  <div className='row'>
-                    <div className='col-md-4'>
-                      <h2 className='center'>Create a new trip</h2>
-                    </div>
-                    <div className='col-md-8'>
-                      <h2 className='center'>Manage your trips</h2>
-                    </div>
+
+                <div className='row'>
+                  <div className='col-md-4'>
+                    <Link
+                      to={ROUTES.LANDING}
+                      className='btn btn-outline-success'
+                    >
+                      Go To Flight Finder
+                    </Link>
                   </div>
                   <br />
                   <div className='row'>
