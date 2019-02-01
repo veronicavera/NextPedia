@@ -41,14 +41,22 @@ class MySuitcaseForm extends Component {
    * underlying database. Upon completion, refresh the page.
    */
   updateSuitcase = () => {
-    API.addItemToSuitcase(this.props.suitcaseID, {
-      item: this.state.item,
-      quantity: parseInt(this.state.quantity),
-      notes: this.state.notes
-    }).then(data => {
-      console.log(data);
-      this.getDataForPage();
-    });
+    if (this.state.item.trim() === '') {
+      alert('Please enter an item!');
+      return;
+    } else if (parseInt(this.state.quantity) <= 0) {
+      alert('Please enter a quantity of 1 or greater!');
+      return;
+    } else {
+      API.addItemToSuitcase(this.props.suitcaseID, {
+        item: this.state.item,
+        quantity: parseInt(this.state.quantity),
+        notes: this.state.notes
+      }).then(data => {
+        console.log(data);
+        this.getDataForPage();
+      });
+    }
   };
 
   render() {
@@ -63,6 +71,7 @@ class MySuitcaseForm extends Component {
               name='item'
               id='item'
               type='text'
+              required
             />
           </div>
           <div className='suitcase-form-input'>
