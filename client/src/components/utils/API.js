@@ -94,10 +94,8 @@ export default {
     landingAirport: startAirport,
     landingTime: landingTime,
     user: user
-
   }),
   getTripInfo: function(tripid) {
-    // console.log(tripid);
 
     return axios.get(`/api/trips/search/${tripid}`);
   },
