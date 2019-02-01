@@ -25,7 +25,7 @@ const Navigation = () => (
 const NavigationAuth = () => (
   <ul className='navbar-nav links'>
     <li style={btnStyle}>
-      <Link to={ROUTES.LANDING}>Home</Link>
+      <Link to={ROUTES.SIGN_UP}>Home</Link>
     </li>
     <li style={btnStyle}>
       <Link to={ROUTES.ACCOUNT}>Profile</Link>

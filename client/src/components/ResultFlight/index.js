@@ -42,10 +42,11 @@ class ResultFlight extends React.Component {
   render() {
     return this.state.data ? (
       <form id='formContainer'>
-        <h2>
+        <h2 id='floatingH2'>
           Please name your trip
         </h2>
         <input
+          id='floatingInput'
           value={this.state.tripName}
           name="tripName"
           onChange={this.handleInputChange}
