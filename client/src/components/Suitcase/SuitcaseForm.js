@@ -55,7 +55,12 @@ class MySuitcaseForm extends Component {
         quantity: parseInt(this.state.quantity),
         notes: this.state.notes
       }).then(data => {
-        console.log(data);
+        console.log('yessssss ------------', data);
+        this.setState({
+          item: '',
+          quantity: 0,
+          notes: ''
+        });
         this.getDataForPage();
       });
     }
@@ -73,6 +78,7 @@ class MySuitcaseForm extends Component {
               name='item'
               id='item'
               type='text'
+              value={this.state.item}
               required
             />
           </div>
@@ -83,6 +89,7 @@ class MySuitcaseForm extends Component {
               onChange={this.handleInputChange}
               name='quantity'
               id='quantity'
+              value={this.state.quantity}
               type='number'
             />
           </div>
@@ -93,6 +100,7 @@ class MySuitcaseForm extends Component {
               onChange={this.handleInputChange}
               name='notes'
               id='notes'
+              value={this.state.notes}
               type='text'
             />
           </div>
