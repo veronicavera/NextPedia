@@ -37,10 +37,10 @@ module.exports = {
             .create({
                 tripName: tripName,
                 takeOffAirport: takeOffAirport,
-                takeOffDate: new Date(takeOffTime.split(/-/g)[0], takeOffTime.split(/-/g)[1], takeOffTime.split(/-/g)[2].split(/T/)[0]),
+                takeOffDate: new Date(takeOffTime.split(/-/g)[0], takeOffTime.split(/-/g)[1] - 1, takeOffTime.split(/-/g)[2].split(/T/)[0]),
                 takeOffTime: takeOffTime,
                 landingAirport: landingAirport,
-                landingDate: new Date(landingTime.split(/-/g)[0], landingTime.split(/-/g)[1], landingTime.split(/-/g)[2].split(/T/)[0]),
+                landingDate: new Date(landingTime.split(/-/g)[0], landingTime.split(/-/g)[1] - 1, landingTime.split(/-/g)[2].split(/T/)[0]),
                 landingTime: landingTime
             })
             .then(dbTrip => {
