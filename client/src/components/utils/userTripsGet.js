@@ -9,22 +9,19 @@ class FetchData extends React.Component {
     }
 
     componentDidMount() {
-        console.log(localStorage.getItem('user'))
-     axios.get(`http://localhost:5000/api/trips/flightAficionado@ymail.com`) //should be changed on `/api/trips/`+localStorage.user when deployed on heroku and real data is gonna be used
+        axios.get(`http://localhost:5000/api/trips/` + localStorage.user) //should be changed on `/api/trips/`+localStorage.user when deployed on heroku and real data is gonna be used
 
-       .then(res => {
-           console.log(res.data[0])
-           console.log(localStorage.user)
-        res.data[0].trips.map(trip=>{
-            var x = this.state.tripName;
-            var y= this.state.tripId;
-            x.push(trip.tripName);
-            y.push(trip._id);
-            console.log(y)
-            this.setState({tripName:x});
-            this.setState({tripId:y});
-            });
-       });
+        .then(res => {
+            res.data[0].trips.map(trip=>{
+                var x = this.state.tripName;
+                var y= this.state.tripId;
+                x.push(trip.tripName);
+                y.push(trip._id);
+                console.log(y)
+                this.setState({tripName:x});
+                this.setState({tripId:y});
+                });
+        });
     }
     _handleButtonClick = (event) => {
         this.props.history.push("/tripdetails/"+event.target.getAttribute('data-id'))
