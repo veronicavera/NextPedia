@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
+import moment from 'moment';
 
 import './flightsearchform.css';
 
@@ -58,12 +59,16 @@ class FlightSearchForm extends Component {
     const redirect = this.state.redirect;
     if (redirect === true) {
       const { origin, destination, departureDate } = this.state;
-      if ((origin.length === 3) & (destination.length === 3)) {
+      console.log(departureDate);
+      if ((origin.length === 3) & (destination.length === 3) && moment(departureDate) > moment()) {
         const url = `/flights/${origin}/${destination}/${departureDate}`;
         return <Redirect to={url} />;
-      } else {
+      } else if (moment(departureDate) > moment()){
         this.setState({ redirect: false });
         alert('Please use the 3 letter IATA (airport) codes');
+      } else {
+        this.setState({ redirect: false });
+        alert('Please select a date in the future');
       }
     }
     return (
