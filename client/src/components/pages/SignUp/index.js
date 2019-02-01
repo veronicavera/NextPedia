@@ -38,6 +38,7 @@ class SignUpFormBase extends Component {
 
   onSubmit = event => {
     const { username, email, passwordOne } = this.state;
+    
     event.preventDefault()
     // console.log(
     //   this.state.email,
@@ -61,6 +62,7 @@ class SignUpFormBase extends Component {
             email,
           })
           .then(() => {
+            localStorage.user = email;
             this.setState({ ...INITIAL_STATE });
             this.props.history.push(ROUTES.LANDING);
           })
