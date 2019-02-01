@@ -31,15 +31,20 @@ class MySuitcaseUpdateForm extends Component {
    * underlying database. Upon completion, refresh the page.
    */
   updateSuitcaseItem = () => {
-    // 1. create itemInfo
-    const itemInfo = {
-      item: this.state.item,
-      quantity: this.state.quantity,
-      notes: this.state.notes,
-      old: true
-    };
+    if (parseInt(this.state.quantity) <= 0) {
+      alert('Please enter a quantity of 1 or greater!');
+      return;
+    } else {
+      // 1. create itemInfo
+      const itemInfo = {
+        item: this.state.item,
+        quantity: this.state.quantity,
+        notes: this.state.notes,
+        old: true
+      };
 
-    API.updateItemInSuitcase(this.props.suitcaseID, itemInfo);
+      API.updateItemInSuitcase(this.props.suitcaseID, itemInfo);
+    }
   };
 
   render() {
