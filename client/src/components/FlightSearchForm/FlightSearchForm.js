@@ -80,15 +80,13 @@ class FlightSearchForm extends Component {
     const {destination} = this.state
     
     if (redirect === true) {
-
-      const { origin, destination, departureDate} = this.state;
-      // if (origin.length === 3 & destination.length === 3) {
-        if (true) {
-        const url = `/flights/${origin.value}/${destination.value}/${departureDate}`;
-        return <Redirect to={url} />
-      } else {
-        this.setState({redirect: false})
-
+      const { origin, destination, departureDate } = this.state;
+      console.log(departureDate);
+      if ((origin.length === 3) & (destination.length === 3) && moment(departureDate) > moment()) {
+        const url = `/flights/${origin}/${destination}/${departureDate}`;
+        return <Redirect to={url} />;
+      } else if (moment(departureDate) > moment()){
+        this.setState({ redirect: false });
         alert('Please use the 3 letter IATA (airport) codes');
       } else {
         this.setState({ redirect: false });
