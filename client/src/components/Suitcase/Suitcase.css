@@ -25,7 +25,6 @@ SuitcaseItem.js
 .suitcase-item-notes {
   font-size: 14px;
   font-style: italic;
-  border-top: 1px grey solid;
 }
 
 /* the delete button */
