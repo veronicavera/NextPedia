@@ -53,7 +53,9 @@ class MySuitcaseItem extends Component {
           </div>
         )}
         <div className='suitcase-item-update-button'>
-          <button onClick={() => this.onUpdateSelect()}>Update Item</button>
+          <button onClick={() => this.onUpdateSelect()}>
+            Toggle Update Form
+          </button>
         </div>
         <div
           className='suitcase-item-update-area'
