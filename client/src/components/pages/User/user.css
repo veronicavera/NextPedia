@@ -11,29 +11,62 @@
   min-width: 100vw;
   min-height: 100vh;
   background-size: 100vh, 100vw;
-}
-
-.card {
-  width: 50vw;
-  height: auto;
-  margin: auto;
-  font-family: 'Cantarell', sans-serif;
-  opacity: 0.8;
-}
-
-.card-body {
-  height: 45vh;
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
-  justify-content: space-around;
 }
 
-form {
-  width: 100%;
+.user-content {
+  width: 80vw;
+  background-color: rgba(255, 255, 255, 0.7);
+  margin: 10px 0;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+
+.btn {
+  font-size: 14px;
+}
+
+.user-greeting {
+  padding-left: 20px;
+}
+
+.user-dashboard {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
+  /* border-top: 1px grey solid; */
+}
+
+.user-dashboard-info {
+  padding-top: 20px;
+  width: 95%;
+}
+
+table {
+  border-collapse: separate;
+  border: solid grey 1px;
+
+  border-radius: 5px;
+
+  width: 100%;
+}
+
+th {
+  /* border: 1px solid gray; */
+  padding: 20px;
+  text-align: center;
+}
+
+td,
+th {
+  border-left: solid grey 1px;
+  border-top: solid grey 1px;
+}
+
+td:first-child,
+th:first-child {
+  border-left: none;
 }
 
 a {
