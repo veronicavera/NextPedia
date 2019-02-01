@@ -2,17 +2,34 @@
   font-size: calc(0.5vh + 0.5vw + 1vmin);
 }
 
+#backgroundImageContainer {
+  background: linear-gradient(
+    rgba(255, 153, 255, 0.5),
+    rgba(153, 204, 255, 0.5)
+  ),
+  url('../../../images/backgroundimglanding.jpg') no-repeat fixed center;
+  height: 100vh;
+}
+
 .container {
-  background-image: linear-gradient(
-      rgba(255, 153, 255, 0.5),
-      rgba(153, 204, 255, 0.5)
-    ),
-    url('../../../images/backgroundimglanding.jpg');
   min-width: 100vw;
-  min-height: 100vh;
+  /* min-height: 100vh; */
   background-size: 100vh, 100vw;
   display: flex;
   justify-content: center;
+}
+
+.flightFinderBtn {
+  font-weight: bold;
+  background-color: rgba(155, 153, 255, 0.5);
+  border: 1px solid rgba(155, 153, 255, 0.1);
+}
+
+.flightFinderBtn:hover {
+  font-weight: bold;
+  color: rgba(69, 66, 247, .5);
+  background-color: #fff;
+  border: 1px solid #fff;
 }
 
 .user-content {
@@ -22,6 +39,7 @@
   padding: 10px;
   box-sizing: border-box;
   border-radius: 5px;
+  padding-bottom: 30px;
 }
 
 .btn {

@@ -50,7 +50,7 @@ class FetchData extends React.Component {
               <td>{item}</td>
               <td>
                 <button
-                  className='btn btn-outline-success'
+                  className='btn btn-outline-success tripBtn'
                   data-id={this.state.tripId[i]}
                   onClick={this._handleButtonClick}
                 >
