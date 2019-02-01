@@ -19,8 +19,8 @@ class User extends Component {
               <div className='user-dashboard'>
                 <br />
 
-                <div className='row'>
-                  <div className='col-md-4'>
+                <div className='row user-contentrow'>
+                  <div className='col-md-3'>
                     <Link
                       to={ROUTES.LANDING}
                       className='btn btn-outline-success'
@@ -29,25 +29,24 @@ class User extends Component {
                     </Link>
                   </div>
                   <br />
-                  <div className='row'>
-                    <div className='col-md-8'>
-                      <table>
-                        {/* <table style={tableStyle}> */}
-                        <thead>
-                          <tr>
-                            <th>
-                              <h2>Trip name</h2>
-                            </th>
-                            <th>
-                              <h2>Manage</h2>
-                            </th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <FetchData />
-                        </tbody>
-                      </table>
-                    </div>
+
+                  <div className='col-md-9'>
+                    <table>
+                      {/* <table style={tableStyle}> */}
+                      <thead>
+                        <tr>
+                          <th>
+                            <h2>Trip name</h2>
+                          </th>
+                          <th>
+                            <h2>Manage</h2>
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <FetchData />
+                      </tbody>
+                    </table>
                   </div>
                 </div>
               </div>

@@ -4,10 +4,10 @@
 
 #backgroundImageContainer {
   background: linear-gradient(
-    rgba(255, 153, 255, 0.5),
-    rgba(153, 204, 255, 0.5)
-  ),
-  url('../../../images/backgroundimglanding.jpg') no-repeat fixed center;
+      rgba(255, 153, 255, 0.5),
+      rgba(153, 204, 255, 0.5)
+    ),
+    url('../../../images/backgroundimglanding.jpg') no-repeat fixed center;
   height: 100vh;
 }
 
@@ -27,7 +27,7 @@
 
 .flightFinderBtn:hover {
   font-weight: bold;
-  color: rgba(69, 66, 247, .5);
+  color: rgba(69, 66, 247, 0.5);
   background-color: #fff;
   border: 1px solid #fff;
 }
@@ -58,6 +58,10 @@
 
 .user-dashboard-info {
   padding-top: 20px;
+  width: 95%;
+}
+
+.user-contentrow {
   width: 95%;
 }
 
