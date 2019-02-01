@@ -30,18 +30,27 @@ module.exports = {
             .then(dbTrip => res.json(dbTrip))
             .catch(err => res.status(422).json(err));
     },
-    postTrip: (req, res) => {
+    postTrip: async (req, res) => {
         console.log(req.body);
         const {tripName, takeOffAirport, takeOffTime, landingAirport, landingTime, user} = req.body
+        const suitcase = await db.Suitcase
+            .create({
+                items: {
+                    name: 'Socks',
+                    quantity: 8,
+                    notes: ''
+                }
+            })
         db.Trip
             .create({
                 tripName: tripName,
                 takeOffAirport: takeOffAirport,
-                takeOffDate: new Date(takeOffTime.split(/-/g)[0], takeOffTime.split(/-/g)[1], takeOffTime.split(/-/g)[2].split(/T/)[0]),
+                takeOffDate: new Date(takeOffTime.split(/-/g)[0], takeOffTime.split(/-/g)[1] - 1, takeOffTime.split(/-/g)[2].split(/T/)[0]),
                 takeOffTime: takeOffTime,
                 landingAirport: landingAirport,
-                landingDate: new Date(landingTime.split(/-/g)[0], landingTime.split(/-/g)[1], landingTime.split(/-/g)[2].split(/T/)[0]),
-                landingTime: landingTime
+                landingDate: new Date(landingTime.split(/-/g)[0], landingTime.split(/-/g)[1] - 1, landingTime.split(/-/g)[2].split(/T/)[0]),
+                landingTime: landingTime,
+                suitcases: suitcase._id
             })
             .then(dbTrip => {
                 db.User

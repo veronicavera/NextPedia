@@ -6,7 +6,7 @@ import MySuitcaseForm from './SuitcaseForm';
 import './Suitcase.css';
 
 class MySuitcase extends Component {
-  state = { suitcaseID: '', suitcaseItems: [] };
+  state = { suitcaseID: '', suitcaseItems: [], deletedState: false };
 
   /**
    * As soon as the component mounts, run the getDataForPage function.
@@ -21,6 +21,7 @@ class MySuitcase extends Component {
    * the suitcaseItem component below.
    */
   getDataForPage = () => {
+    console.log('getting data for page');
     API.getSuitcase(this.props.suitcaseID).then(data => {
       this.setState({
         suitcaseID: this.props.suitcaseID,
@@ -36,42 +37,60 @@ class MySuitcase extends Component {
    */
   onDelete = value => {
     //itemName
+
+    this.setState({
+      deletedState: 'no'
+    });
+
+    console.log(this.state.deletedState);
+
     const itemName = {
       item: value
     };
+    console.log(this);
+    // console.log(value);
 
-    API.deleteItemFromSuitcase(this.props.suitcaseID, itemName).then(() => {
+    API.deleteItemFromSuitcase(this.props.suitcaseID, itemName).then(data => {
+      console.log(data);
+
       // console.log(data.data[0].items);
+      console.log('done');
+      this.setState({ deletedState: itemName });
       this.getDataForPage();
+      console.log(this);
+      this.forceUpdate();
     });
   };
 
   render() {
     return (
-      <div className='suitcase-wrapper'>
-        <div className='suitcase-form-wrapper'>
-          <MySuitcaseForm
-            note={this.state.suitcaseNote}
-            suitcaseID={this.state.suitcaseID}
-            getDataForPage={this.getDataForPage}
-          />
-        </div>
-        <div className='suitcase'>
-          {this.state.suitcaseItems.map((suitcaseItem, index) => (
-            <MySuitcaseItem
-              onDelete={this.onDelete}
-              getDataForPage={this.getDataForPage}
-              onUpdate={this.onUpdate}
-              value={suitcaseItem.name}
-              item={suitcaseItem.name}
-              quantity={suitcaseItem.quantity}
-              notes={suitcaseItem.notes}
-              id={index}
-              key={index}
-              showUpdate={this.state.showUpdate}
+      <div className='suitcase-area'>
+        <h2>Trip Suitcase</h2>
+        <div className='suitcase-wrapper'>
+          <div className='suitcase-form-wrapper'>
+            <MySuitcaseForm
+              note={this.state.suitcaseNote}
               suitcaseID={this.state.suitcaseID}
+              getDataForPage={this.getDataForPage}
             />
-          ))}
+          </div>
+          <div className='suitcase'>
+            {this.state.suitcaseItems.map((suitcaseItem, index) => (
+              <MySuitcaseItem
+                onDelete={this.onDelete}
+                getDataForPage={this.getDataForPage}
+                onUpdate={this.onUpdate}
+                value={suitcaseItem.name}
+                item={suitcaseItem.name}
+                quantity={suitcaseItem.quantity}
+                notes={suitcaseItem.notes}
+                id={index}
+                key={index}
+                showUpdate={this.state.showUpdate}
+                suitcaseID={this.state.suitcaseID}
+              />
+            ))}
+          </div>
         </div>
       </div>
     );

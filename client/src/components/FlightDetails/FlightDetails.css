@@ -14,7 +14,8 @@
 
 .flight-details-details {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  padding: 0 10px;
   border-bottom: 1px grey solid;
 }
 
