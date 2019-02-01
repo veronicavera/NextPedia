@@ -87,7 +87,7 @@ class MyFlightDetails extends Component {
     return (
       <div className='flight-details-wrapper'>
         <div className='flight-details-header'>
-          <h1>{this.props.trip.tripName}</h1>
+          <h1>{this.props.trip.tripName} - Trip Details</h1>
         </div>
         <div className='flight-details-details'>
           <div className='flight-details-departure'>
@@ -124,8 +124,9 @@ class MyFlightDetails extends Component {
             <h2>Forecast for destination for {this.state.endTimeDisplay}:</h2>
             <p>{this.state.weather.summary}</p>
             <p>
-              High: {this.state.weather.temperatureHigh} Low:{' '}
-              {this.state.weather.temperatureLow} Chance of precipitation:{' '}
+              High: {parseInt(this.state.weather.temperatureHigh)}°F | Low:{' '}
+              {parseInt(this.state.weather.temperatureLow)}°F | Chance of
+              precipitation:{' '}
               {parseInt(this.state.weather.precipProbability) * 100}%
             </p>
             <p>

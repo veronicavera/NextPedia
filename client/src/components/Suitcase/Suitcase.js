@@ -48,30 +48,33 @@ class MySuitcase extends Component {
 
   render() {
     return (
-      <div className='suitcase-wrapper'>
-        <div className='suitcase-form-wrapper'>
-          <MySuitcaseForm
-            note={this.state.suitcaseNote}
-            suitcaseID={this.state.suitcaseID}
-            getDataForPage={this.getDataForPage}
-          />
-        </div>
-        <div className='suitcase'>
-          {this.state.suitcaseItems.map((suitcaseItem, index) => (
-            <MySuitcaseItem
-              onDelete={this.onDelete}
-              getDataForPage={this.getDataForPage}
-              onUpdate={this.onUpdate}
-              value={suitcaseItem.name}
-              item={suitcaseItem.name}
-              quantity={suitcaseItem.quantity}
-              notes={suitcaseItem.notes}
-              id={index}
-              key={index}
-              showUpdate={this.state.showUpdate}
+      <div className='suitcase-area'>
+        <h2>Trip Suitcase</h2>
+        <div className='suitcase-wrapper'>
+          <div className='suitcase-form-wrapper'>
+            <MySuitcaseForm
+              note={this.state.suitcaseNote}
               suitcaseID={this.state.suitcaseID}
+              getDataForPage={this.getDataForPage}
             />
-          ))}
+          </div>
+          <div className='suitcase'>
+            {this.state.suitcaseItems.map((suitcaseItem, index) => (
+              <MySuitcaseItem
+                onDelete={this.onDelete}
+                getDataForPage={this.getDataForPage}
+                onUpdate={this.onUpdate}
+                value={suitcaseItem.name}
+                item={suitcaseItem.name}
+                quantity={suitcaseItem.quantity}
+                notes={suitcaseItem.notes}
+                id={index}
+                key={index}
+                showUpdate={this.state.showUpdate}
+                suitcaseID={this.state.suitcaseID}
+              />
+            ))}
+          </div>
         </div>
       </div>
     );

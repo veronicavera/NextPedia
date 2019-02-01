@@ -12,6 +12,7 @@ class FetchData extends React.Component {
         axios.get(`http://localhost:5000/api/trips/` + localStorage.user) //should be changed on `/api/trips/`+localStorage.user when deployed on heroku and real data is gonna be used
 
         .then(res => {
+          if(res.data[0]){
             res.data[0].trips.map(trip=>{
                 var x = this.state.tripName;
                 var y= this.state.tripId;
@@ -21,6 +22,7 @@ class FetchData extends React.Component {
                 this.setState({tripName:x});
                 this.setState({tripId:y});
                 });
+           }
         });
     }
     _handleButtonClick = (event) => {
