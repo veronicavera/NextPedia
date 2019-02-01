@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Redirect } from 'react-router-dom';
 import { MyCalendar } from "../index";
+import Select from 'react-select';
 import './flightsearchform.css';
 
 const styles = {
@@ -29,6 +30,16 @@ const styles = {
   }
 }
 
+const airports = [
+  { label: "ORD", value: "ORD" },
+  { label: "PHL", value: "PHL" },
+  { label: "SEA", value: "SEA" },
+  { label: "JFK", value: "JFK" },
+  { label: "LGA", value: "LGA" },
+  { label: "ATL", value: "ATL" },
+];
+
+
 class FlightSearchForm extends Component {
   state = {
     departureDate: null,
@@ -46,6 +57,13 @@ class FlightSearchForm extends Component {
       [name]: value
     });
   }
+  handleOriginChange = (origin) => {
+    this.setState({ origin });
+  }
+
+  handleDestinationChange = (destination) => {
+    this.setState({ destination });
+  }
 
   // handleSubmit
   handleSubmit = (e) => {
@@ -55,10 +73,14 @@ class FlightSearchForm extends Component {
 
   render() {
     const redirect = this.state.redirect;
+    const { origin } = this.state
+    const {destination} = this.state
+    
     if (redirect === true) {
-      const { origin, destination, departureDate } = this.state;
-      if (origin.length === 3 & destination.length === 3) {
-        const url = `/flights/${origin}/${destination}/${departureDate}`;
+      const { origin, destination, departureDate} = this.state;
+      // if (origin.length === 3 & destination.length === 3) {
+        if (true) {
+        const url = `/flights/${origin.value}/${destination.value}/${departureDate}`;
         return <Redirect to={url} />
       } else {
         this.setState({redirect: false})
@@ -72,7 +94,8 @@ class FlightSearchForm extends Component {
             <form id="flight-search-form" style={styles.form} onSubmit={this.handleSubmit}>
               <label style={styles.label}>
                 <h3 style={{ justifySelf: 'center'}}>Departure Airport:</h3>
-                <input name="origin" type="text" style={styles.input} value={this.state.origin} onChange={this.handleInputChange} className="flightFormInput" />
+                <Select value={origin} onChange={this.handleOriginChange} options={ airports } />
+                {/* <input name="origin" type="text" style={styles.input} value={this.state.origin} onChange={this.handleInputChange} className="flightFormInput" /> */}
               </label>
               <label style={styles.label}>
               <h3 style={{ justifySelf: 'center'}}>Departure Date:</h3>
@@ -80,7 +103,8 @@ class FlightSearchForm extends Component {
               </label>
               <label style={styles.label}>
               <h3 style={{ justifySelf: 'center'}}>Destination Airport:</h3>
-                <input name="destination" type="text" style={styles.input} value={this.state.destination} onChange={this.handleInputChange} className="flightFormInput" />
+              <Select value={destination} onChange={this.handleDestinationChange} options={ airports } />
+                {/* <input name="destination" type="text" style={styles.input} value={this.state.destination} onChange={this.handleInputChange} className="flightFormInput" /> */}
               </label>
               {/* <label style={styles.label}>
                 Length Of Stay:

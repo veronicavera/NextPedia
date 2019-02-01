@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { utils } from 'mocha';
 import API from '../utils/API';
 import './FlightDetails.css';
 

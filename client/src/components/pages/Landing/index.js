@@ -28,11 +28,11 @@ class Landing extends Component {
   }
 }
 
-const styles = {
-  font: {
-    color: 'black',
-    flexDirection: 'column',
-    textAlign: 'center'
-  },
-}
+// const styles = {
+//   font: {
+//     color: 'black',
+//     flexDirection: 'column',
+//     textAlign: 'center'
+//   },
+// }
 export default Landing;
