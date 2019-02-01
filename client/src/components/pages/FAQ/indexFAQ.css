@@ -10,8 +10,8 @@ div h1 {
     text-align: center;
 }
 
-#pageSizing {
-    height: 80vh;
+#pageSizingFAQ {
+    height: 100vh;
     display: grid;
     justify-content: center;
     background: url(../../../images/seaportDuringDaytime.jpeg) no-repeat center center fixed;
@@ -20,10 +20,11 @@ div h1 {
 #contactFAQContainer {
     background-color: rgba(267, 221, 221, .7);
     width: 60vw;
-    height: 75vh;
+    height: auto;
     margin-top: 1vw;
     border-radius: 5px;
     padding-left: 2%;
     padding-right: 2%;
-
+    margin-top: 25px;
+    margin-bottom: 25px;
 }

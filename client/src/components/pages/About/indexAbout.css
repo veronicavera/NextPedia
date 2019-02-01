@@ -1,6 +1,7 @@
 /* https://www.pexels.com/photo/seaport-during-daytime-132037/ */
 div h1, div h2 {
     font-family: 'Quicksand', sans-serif;
+    font-weight: normal !important;
     padding-bottom: 3%
 }
 
@@ -11,8 +12,8 @@ div h1 {
     padding-bottom: 2%
 }
 
-#pageSizing {
-    height: 88vh;
+#pageSizingAbout {
+    height: 90vh;
     display: grid;
     justify-content: center;
     background: url(../../../images/seaportDuringDaytime.jpeg) no-repeat center center fixed;
@@ -21,7 +22,7 @@ div h1 {
 #aboutUsContainer {
     background-color: rgba(267, 221, 221, .7);
     width: 75vw;
-    height: 25vh;
+    height: 30vh;
     margin-top: 10vw;
     border-radius: 5px;
     padding-left: 2%;
