@@ -3,35 +3,16 @@
   padding: 0;
   font-family: "Roboto", sans-serif;
 }
-
-#formContainer {
-  margin-top: 30px;
-  height: 90vh;
-  display: grid;
-  grid-template-rows: 5vh 5vh 47vh;
-  grid-gap: 10px;
-}
-
-#floatingH2 {
-  color: #fff;
-}
-
-#floatingInput {
-  border-width: 2px;
-  border-color: rgba(230, 140, 230, .7);
-}
-
-.content {
-  background-color: #404040;
+.flightsContent {
+  background-color: #fff;
+  opacity: 0.8;
   width: 730px;
   margin-left: auto;
   margin-right: auto;
   padding-bottom: 15px;
-  margin-top: 0;
   display: flex;
   flex-direction: column;
   border-radius: 10px;
-  margin-top: 80px;
 }
 .flightResult {
   background-color: #e8e8e8;
@@ -43,61 +24,53 @@
   margin-top: 15px;
 }
 .airlineName {
-  /* background-color: yellow; */
-  width: 260px;
+  width: 310px;
   display: inline-block;
-  /* font-size: 1.2em; */
-  margin-top: 14px;
+  font-size: 0.9em;
+  margin-top: 15px;
   text-align: center;
   line-height: 2.1em;
+  font-weight: bold;
 }
 .flightTimes {
   display: inline-block;
-  /* background-color: white; */
-  width: 160px;
+  width: 130px;
   text-align: center;
 }
 .startTime {
   display: inline-block;
-  /* background-color: orange; */
-  width: 70px;
+  width: 60px;
   text-align: center;
   font-size: 0.8em;
 }
 .endTime {
   display: inline-block;
-  /* background-color: orange; */
-  width: 70px;
+  width: 60px;
   text-align: center;
   font-size: 0.8em;
 }
 .airportNames {
   display: inline-block;
-  /* background-color: pink; */
   width: 110px;
   text-align: center;
+  font-style: italic;
 }
 .startAirport {
   display: inline-block;
   font-size: 0.8em;
-  /* background-color: orange; */
 }
 .endAirport {
   display: inline-block;
   font-size: 0.8em;
-  /* background-color: orange; */
 }
 .flightFare {
   display: inline-block;
-  /* background-color: aqua; */
   font-weight: bold;
   text-align: center;
-  margin-left: 10px;
-  width: 80px;
+  width: 70px;
 }
 .selectBtn {
   color: white;
-  vertical-align: unset;
   background-image: linear-gradient(135deg, #ff690f 0%, #e8381b 100%);
 }
 .selectBtn:hover {
@@ -110,7 +83,66 @@
   box-shadow: none;
 }
 
-#formContainer {
-  display: grid;
+@media screen and (max-width: 760px) and (min-width: 501px) {
+  .flightsContent {
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .flightResult {
+    width: 95%;
+    height: 90px;
+  }
+  .airlineName {
+    display: block;
+  }
+  .flightTimes {
+    margin-left: 10px;
+  }
+  .airportNames {
+    margin-left: 30px;
+  }
+  .flightFare {
+    float: right;
+    margin-top: -34px;
+    margin-right: 14%;
+  }
+  .selectBtn {
+    width: 30%;
+    clear: both;
+    float: right;
+    margin-top: -6px;
+    margin-right: 5%;
+  }
 }
 
+@media screen and (max-width: 500px) {
+  .flightsContent {
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .flightResult {
+    width: 95%;
+    height: 170px;
+  }
+  .airlineName {
+    width: 100%;
+  }
+  .flightTimes {
+    margin-left: 20%;
+  }
+  .flightFare {
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+    margin-top: 15px;
+  }
+  .selectBtn {
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    display: block;
+    margin-top: 5px;
+  }
+}

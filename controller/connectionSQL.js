@@ -8,7 +8,7 @@ if (process.env.JAWSDB_URL) {
     host: 'localhost',
 
     // Your port; if not 3306
-    port: 8889,
+    port: 3307,
 
     // Your username
     user: 'root',
