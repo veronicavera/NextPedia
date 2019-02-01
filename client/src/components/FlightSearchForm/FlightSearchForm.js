@@ -34,6 +34,22 @@ const airports = [
   { label: "JFK", value: "JFK" },
   { label: "LGA", value: "LGA" },
   { label: "ATL", value: "ATL" },
+  { label: "DFW", value: "DFW" },
+  { label: "LAX", value: "LAX" },
+  { label: "DEN", value: "DEN" },
+  { label: "SFO", value: "SFO" },
+  { label: "PHX", value: "PHX" },
+  { label: "MIA", value: "MIA" },
+  { label: "IAH", value: "IAH" },
+  { label: "BOS", value: "BOS" },
+  { label: "SLC", value: "SLC" },
+  { label: "DCA", value: "DCA" },
+  { label: "SAN", value: "SAN" },
+  { label: "TPA", value: "TPA" },
+  { label: "MDW", value: "MDW" },
+  { label: "HNL", value: "HNL" },
+  { label: "PDX", value: "PDX" },
+  
 ];
 
 
@@ -82,9 +98,11 @@ class FlightSearchForm extends Component {
     const redirect = this.state.redirect;
     const { origin, destination, departureDate } = this.state;
     if (redirect === true) {
+
       console.log(this.state);
       if ((origin.value.length === 3) & (destination.value.length === 3) && moment(departureDate) > moment()) {
         const url = `/flights/${origin.value}/${destination.value}/${departureDate}`;
+
         return <Redirect to={url} />;
       } else if (moment(departureDate) > moment()){
         this.setState({ redirect: false });
