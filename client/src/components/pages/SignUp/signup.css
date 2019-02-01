@@ -1,9 +1,14 @@
 :root {
-  font-size: calc(0.5vh + 0.5vw + 1vmin)
+  font-size: calc(0.5vh + 0.5vw + 1vmin);
 }
 
 .container-div {
-  background-image: linear-gradient(rgba(255, 153, 255, 0.5), rgba(153, 204, 255, 0.5)), url('../../../images/scenic-mountain-landscape-small.jpg');
+  background: linear-gradient(
+      rgba(255, 153, 255, 0.5),
+      rgba(153, 204, 255, 0.5)
+    ),
+    url('../../../images/mountains-and-lake-landscape-scenic-small.jpg')
+      no-repeat center fixed;
   min-width: 100vw;
   min-height: 100vh;
   background-size: 100vh, 100vw;
@@ -16,7 +21,7 @@
   width: 50vw;
   height: auto;
   margin: auto;
-  font-family: 'Pacifico', cursive;
+  font-family: 'Cantarell', sans-serif;
   opacity: 0.8;
 }
 
@@ -36,7 +41,7 @@ form {
 }
 
 a {
-  font-family: 'Pacifico', cursive;
+  font-family: 'Cantarell', sans-serif;
 }
 
 h1 {
@@ -44,5 +49,6 @@ h1 {
 }
 
 input {
-  border-color: rgb(255, 153, 255);
+  border-radius: 5px;
+  border: 1px solid rgba(255, 153, 255, 1);
 }

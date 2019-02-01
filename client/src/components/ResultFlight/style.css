@@ -3,6 +3,24 @@
   padding: 0;
   font-family: "Roboto", sans-serif;
 }
+
+#formContainer {
+  margin-top: 30px;
+  height: 90vh;
+  display: grid;
+  grid-template-rows: 5vh 5vh 47vh;
+  grid-gap: 10px;
+}
+
+#floatingH2 {
+  color: #fff;
+}
+
+#floatingInput {
+  border-width: 2px;
+  border-color: rgba(230, 140, 230, .7);
+}
+
 .content {
   background-color: #404040;
   width: 730px;
@@ -95,3 +113,4 @@
 #formContainer {
   display: grid;
 }
+

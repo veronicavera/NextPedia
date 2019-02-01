@@ -1,6 +1,7 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
-import { MyCalendar } from "../index";
+import Select from 'react-select';
+import moment from 'moment';
 import './flightsearchform.css';
 
 const styles = {
@@ -8,7 +9,7 @@ const styles = {
     height: 'inherit',
     width: 'inherit',
     display: 'grid',
-    // flexDirection: 'column',
+    paddingTop: '10px',
     justifyContent: 'center',
     justifyItems: 'center',
     alignItems: 'center',
@@ -16,10 +17,7 @@ const styles = {
   },
   label: {
     display: 'grid',
-    justifyContent: 'center',
-    // display: 'flex',
-    // justifyContent: 'space-between',
-    // alignItems: 'center'
+    justifyContent: 'center'
   },
   input: {
     marginTop: '10px',
@@ -27,7 +25,33 @@ const styles = {
     width: '30vw',
     height: '40px'
   }
-}
+};
+
+const airports = [
+  { label: "ORD", value: "ORD" },
+  { label: "PHL", value: "PHL" },
+  { label: "SEA", value: "SEA" },
+  { label: "JFK", value: "JFK" },
+  { label: "LGA", value: "LGA" },
+  { label: "ATL", value: "ATL" },
+  { label: "DFW", value: "DFW" },
+  { label: "LAX", value: "LAX" },
+  { label: "DEN", value: "DEN" },
+  { label: "SFO", value: "SFO" },
+  { label: "PHX", value: "PHX" },
+  { label: "MIA", value: "MIA" },
+  { label: "IAH", value: "IAH" },
+  { label: "BOS", value: "BOS" },
+  { label: "SLC", value: "SLC" },
+  { label: "DCA", value: "DCA" },
+  { label: "SAN", value: "SAN" },
+  { label: "TPA", value: "TPA" },
+  { label: "MDW", value: "MDW" },
+  { label: "HNL", value: "HNL" },
+  { label: "PDX", value: "PDX" },
+  
+];
+
 
 class FlightSearchForm extends Component {
   state = {
@@ -35,59 +59,98 @@ class FlightSearchForm extends Component {
     origin: null,
     destination: null,
     lengthOfStay: null,
-    redirect: false,
-  }
+    redirect: false
+  };
 
-  handleInputChange = (event) => {
+  // handleInputChange = event => {
+  //   console.log(event);
+  //   const value = event.value;
+  //   const name =  event.label || event.name;
+  //   this.setState({
+  //     [name]: value
+  //   });
+  // };
+
+  handleInputChange = event => {
     const target = event.target;
     const value = target.value.toUpperCase();
     const name = target.name;
     this.setState({
       [name]: value
     });
-  }
+  };
+
+  handleOriginChange = (origin) => {
+    this.setState({ origin });
+  };
+
+  handleDestinationChange = (destination) => {
+    this.setState({ destination });
+  };
 
   // handleSubmit
-  handleSubmit = (e) => {
+  handleSubmit = e => {
     e.preventDefault();
     this.setState({ redirect: true });
-  }
+  };
 
   render() {
     const redirect = this.state.redirect;
+    const { origin, destination, departureDate } = this.state;
     if (redirect === true) {
-      const { origin, destination, departureDate } = this.state;
-      if (origin.length === 3 & destination.length === 3) {
-        const url = `/flights/${origin}/${destination}/${departureDate}`;
-        return <Redirect to={url} />
-      } else {
-        this.setState({redirect: false})
+
+      console.log(this.state);
+      if ((origin.value.length === 3) & (destination.value.length === 3) && moment(departureDate) > moment()) {
+        const url = `/flights/${origin.value}/${destination.value}/${departureDate}`;
+
+        return <Redirect to={url} />;
+      } else if (moment(departureDate) > moment()){
+        this.setState({ redirect: false });
         alert('Please use the 3 letter IATA (airport) codes');
+      } else {
+        this.setState({ redirect: false });
+        alert('Please select a date in the future');
       }
     }
     return (
-      <div className="container-div" id='flight-search-container'>
-        <div className="card">
-          <div className="card-body" style={{ height: '90vh' }}>
-            <form id="flight-search-form" style={styles.form} onSubmit={this.handleSubmit}>
+      <div className='container-div' id='flight-search-container'>
+        <div className='card'>
+          <div className='card-body' style={{ height: '50vh' }}>
+            <form
+              id='flight-search-form'
+              style={styles.form}
+              onSubmit={this.handleSubmit}
+            >
               <label style={styles.label}>
+
                 <h3 style={{ justifySelf: 'center'}}>Departure Airport:</h3>
-                <input name="origin" type="text" style={styles.input} value={this.state.origin} onChange={this.handleInputChange} className="flightFormInput" />
+                <Select value={origin} onChange={this.handleOriginChange} options={ airports } />
+
               </label>
               <label style={styles.label}>
-              <h3 style={{ justifySelf: 'center'}}>Departure Date:</h3>
-                <input name="departureDate" type="date" style={styles.input} value={this.state.departureDate} onChange={this.handleInputChange} className="flightFormInput" />
+                <h3 style={{ justifySelf: 'center' }}>Departure Date:</h3>
+                <input
+                  name='departureDate'
+                  type='date'
+                  style={styles.input}
+                  value={this.state.departureDate}
+                  onChange={this.handleInputChange}
+                  className='flightFormInput'
+                />
               </label>
               <label style={styles.label}>
+
               <h3 style={{ justifySelf: 'center'}}>Destination Airport:</h3>
-                <input name="destination" type="text" style={styles.input} value={this.state.destination} onChange={this.handleInputChange} className="flightFormInput" />
+              <Select value={destination} onChange={this.handleDestinationChange} options={ airports } />
+
               </label>
-              {/* <label style={styles.label}>
-                Length Of Stay:
-                <input name="lengthOfStay" type="number" value={this.state.lengthOfStay} onChange={this.handleInputChange} className="flightFormInput" />
-              </label> */}
-              <MyCalendar />
-              <input type="submit" value="Submit" style={styles.input} className="btn btn-outline-success" />
+
+              <input
+                type='submit'
+                value='Submit'
+                style={styles.input}
+                className='btn btn-outline-success'
+              />
             </form>
           </div>
         </div>
@@ -95,5 +158,7 @@ class FlightSearchForm extends Component {
     );
   }
 }
+
+
 
 export default FlightSearchForm;

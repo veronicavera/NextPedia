@@ -1,16 +1,26 @@
+body {
+  /*  */
+  background: linear-gradient(
+      rgba(255, 153, 255, 0.5),
+      rgba(153, 204, 255, 0.5)
+    ),
+    url('../../../images/tripDetails-pexel.jpg') no-repeat;
+}
+
 .trip-details-wrapper {
   width: 80vw;
 
-  background-color: rgba(243, 209, 243, 0.7);
+  background-color: rgba(255, 255, 255, 0.9);
   margin: 10px;
   padding: 10px;
   box-sizing: border-box;
+  border-radius: 5px;
 }
 
 .trip-details-page-body {
   background-image: linear-gradient(
-    rgba(255, 153, 255, 0.5),
-    rgba(153, 204, 255, 0.5)
+    rgba(63, 54, 63, 0.5),
+    rgba(45, 51, 56, 0.5)
   );
   min-width: 100vw;
   min-height: 100vh;
@@ -18,4 +28,15 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
+}
+
+div h1,
+div h2,
+div h3 {
+  font-family: 'Cantarell', sans-serif;
+  font-weight: bold;
+}
+
+p {
+  font-family: 'Cantarell', sans-serif !important;
 }

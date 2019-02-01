@@ -86,6 +86,7 @@ export default {
   getWeatherInfo: function(lat, long, time) {
     return axios.get(`/api/weather/${lat}/${long}/${time}`);
   },
+
   postTrip: (startAirport, takeOffTime, endAirport, landingTime, user, tripName) => axios.post('/api/trips', {
     tripName: tripName || 'My New Trip',
     takeOffAirport: endAirport,
@@ -95,8 +96,18 @@ export default {
     user: user
   }),
   getTripInfo: function(tripid) {
-    // console.log(tripid);
 
     return axios.get(`/api/trips/search/${tripid}`);
-  }
+  },
+  addUser: user => { console.log(user)
+    axios.post('/api/users', { user: user}) 
+  },
+  
+
+  addSuitcase: suitcase => axios.post('/api/suitcase', { suitcase: suitcase}),
+
+  addTrips: trips => axios.post('/api/trips', { trips: trips}), 
+
+  addTripid: tripid => axios.post('/api/tripid', { tripid: tripid}), 
+    
 };

@@ -41,14 +41,22 @@ class MySuitcaseForm extends Component {
    * underlying database. Upon completion, refresh the page.
    */
   updateSuitcase = () => {
-    API.addItemToSuitcase(this.props.suitcaseID, {
-      item: this.state.item,
-      quantity: parseInt(this.state.quantity),
-      notes: this.state.notes
-    }).then(data => {
-      console.log(data);
-      this.getDataForPage();
-    });
+    if (this.state.item.trim() === '') {
+      alert('Please enter an item!');
+      return;
+    } else if (parseInt(this.state.quantity) <= 0) {
+      alert('Please enter a quantity of 1 or greater!');
+      return;
+    } else {
+      API.addItemToSuitcase(this.props.suitcaseID, {
+        item: this.state.item,
+        quantity: parseInt(this.state.quantity),
+        notes: this.state.notes
+      }).then(data => {
+        console.log(data);
+        this.getDataForPage();
+      });
+    }
   };
 
   render() {
@@ -58,11 +66,12 @@ class MySuitcaseForm extends Component {
           <div className='suitcase-form-input'>
             <label htmlFor='item'>Item: </label>
             <input
-              className='suitcase-form-input-area'
+              className=' suitcase-form-input-area'
               onChange={this.handleInputChange}
               name='item'
               id='item'
               type='text'
+              required
             />
           </div>
           <div className='suitcase-form-input'>
@@ -87,7 +96,7 @@ class MySuitcaseForm extends Component {
           </div>
 
           <input
-            className='suitcase-form-submit'
+            className='suitcase-form-submit btn btn-outline-success'
             type='submit'
             value='Submit'
             onClick={this.updateSuitcase}

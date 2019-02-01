@@ -31,15 +31,20 @@ class MySuitcaseUpdateForm extends Component {
    * underlying database. Upon completion, refresh the page.
    */
   updateSuitcaseItem = () => {
-    // 1. create itemInfo
-    const itemInfo = {
-      item: this.state.item,
-      quantity: this.state.quantity,
-      notes: this.state.notes,
-      old: true
-    };
+    if (parseInt(this.state.quantity) <= 0) {
+      alert('Please enter a quantity of 1 or greater!');
+      return;
+    } else {
+      // 1. create itemInfo
+      const itemInfo = {
+        item: this.state.item,
+        quantity: this.state.quantity,
+        notes: this.state.notes,
+        old: true
+      };
 
-    API.updateItemInSuitcase(this.props.suitcaseID, itemInfo);
+      API.updateItemInSuitcase(this.props.suitcaseID, itemInfo);
+    }
   };
 
   render() {
@@ -49,6 +54,7 @@ class MySuitcaseUpdateForm extends Component {
           <div className='suitcase-form-input'>
             <label htmlFor='quantity'>Quantity</label>
             <input
+              className='suitcase-form-input-area'
               onChange={this.handleInputChange}
               name='quantity'
               id='quantity'
@@ -59,6 +65,7 @@ class MySuitcaseUpdateForm extends Component {
           <div className='suitcase-form-input'>
             <label htmlFor='notes'>Notes</label>
             <input
+              className='suitcase-form-input-area'
               onChange={this.handleInputChange}
               name='notes'
               id='notes'
@@ -68,6 +75,7 @@ class MySuitcaseUpdateForm extends Component {
           </div>
 
           <input
+            className='suitcase-form-input-button btn btn-outline-success'
             type='submit'
             value='Submit'
             onClick={() => this.updateSuitcaseItem()}

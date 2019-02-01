@@ -10,7 +10,7 @@ class FAQ extends Component {
   render() {
     return (
       <div id='pageSizing'>
-      <div id='contactFAQContainer'>
+      <div id='contactFAQContainer' style={{ minWidth: "100vw", minHeight: "100vh" }}>
        <h1>
            Frequently Asked Questions
        </h1>

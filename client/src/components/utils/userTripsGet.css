@@ -1,0 +1,18 @@
+td {
+  /* border: 1px solid gray; */
+  padding: 10px;
+  text-align: center;
+}
+
+.tripBtn {
+  font-weight: bold;
+  background-color: rgba(60, 0, 60, .5);
+  border: 1px solid rgba(60, 0, 60, .1);
+}
+
+.tripBtn:hover {
+  font-weight: bold;
+  background-color: #fff;
+  border: 1px solid rgba(60, 0, 60, .1);
+  color: rgba(60, 0, 60, .5)
+}

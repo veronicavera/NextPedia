@@ -1,59 +1,61 @@
 import React, { Component } from 'react';
-import FetchData from "../../utils/userTripsGet.js"
-import { AccountPage } from "../../index"
+import FetchData from '../../utils/userTripsGet.js';
+import { AccountPage } from '../../index';
 import { Link } from 'react-router-dom';
 import * as ROUTES from '../../../constants/routes';
-import './user.css'
+import './user.css';
 
 class User extends Component {
-
-    render() {
-        const tableStyle = {
-            width: "100%",
-
-        }
-        const thStyle = {
-            border: "1px solid gray",
-            padding: "20px",
-            textAlign: "center"
-        }
-        return (
-            <div className = 'container center'>
-                 <div className="row"><AccountPage /></div>
-                 <br />
-                <React.Fragment>
-                    <div>
-                        <br />
-                        
-                            <div className="row">
-                                <div className="col-md-6"><h2 className="center">Create a new trip</h2></div>
-                                <div className="col-md-6"><h2 className="center">Manage your trips</h2></div>
-                            </div>
-                            <br />
-                            <div className="row">
-                            <div className="col-md-6">
-                            <Link to={ROUTES.LANDING} className="btn btn-danger">Create a new trip</Link>
-                            </div>
-                                <div className="col-md-6">
-                                    <table style={tableStyle}>
-                                        <thead>
-                                            <tr>
-                                                <th style={thStyle}>Trip name</th>
-                                                <th style={thStyle}>Manage</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <FetchData />
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    
-                </React.Fragment>
+  render() {
+    return (
+      <div id='backgroundImageContainer'>
+        <div className='container center'>
+          <div className='user-content'>
+            <div className='row user-greeting'>
+              <AccountPage />
             </div>
-        );
-    }
+            <br />
+            <React.Fragment>
+              <div className='user-dashboard'>
+                <br />
+
+                <div className='row user-contentrow'>
+                  <div className='col-md-3'>
+                    <Link
+                      to={ROUTES.LANDING}
+                      className='btn btn-outline-success'
+                    >
+                      Go To Flight Finder
+                    </Link>
+                  </div>
+                  <br />
+
+                  <div className='col-md-9'>
+                    <table>
+                      {/* <table style={tableStyle}> */}
+                      <thead>
+                        <tr>
+                          <th>
+                            <h2>Trip name</h2>
+                          </th>
+                          <th>
+                            <h2>Manage</h2>
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <FetchData />
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </React.Fragment>
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default User;

@@ -6,7 +6,9 @@ SuitcaseItem.js
 /* overall item border and padding */
 .suitcase-item {
   border: 1px grey solid;
+  border-radius: 5px;
   padding: 2px;
+  margin: 2px 0;
 }
 
 /* header - the name of item and quantity */
@@ -14,14 +16,15 @@ SuitcaseItem.js
   display: flex;
   justify-content: space-between;
   font-size: 18px;
-  font-weight: bold;
+  /* font-weight: bold; */
+  margin-bottom: 2px;
+  border-bottom: 1px grey solid;
 }
 
 /* notes for each suitcase item */
 .suitcase-item-notes {
   font-size: 14px;
   font-style: italic;
-  border-top: 1px grey solid;
 }
 
 /* the delete button */
@@ -38,9 +41,25 @@ SuitcaseItem.js
   max-width: 24px;
 }
 
+.suitcase-item-update-button {
+  /* display: flex; */
+  /* flex-direction: column; */
+  min-height: 30px;
+}
+.suitcase-item-update-button button {
+  height: 25px;
+  padding: 5px;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
 /*******************************************************
 Overall suitcase component formatting
 *******************************************************/
+
+.suitcase-area {
+  margin-top: 20px;
+}
 
 /* contains both the suitcase list itself and the 
 suitcase form */
@@ -52,7 +71,7 @@ suitcase form */
 /* this is the container for the list of items already added */
 .suitcase {
   margin: 5px 0;
-  width: 45%;
+  width: 49%;
 }
 
 /* each line of the input form is a suitcase-form-input */
@@ -60,16 +79,34 @@ suitcase form */
   padding: 2px 0;
 }
 
+.suitcase-form-input-area {
+  margin: 5px;
+  padding: 2px;
+  height: 25px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.suitcase-form-input-button {
+  margin-left: 5px;
+  padding: 2px;
+  height: 25px;
+  box-sizing: border-box;
+  margin-top: 19px;
+}
+
 /* wrapper for suitcase to set the font size and the width */
 .suitcase-form-wrapper {
-  width: 45%;
-  font-size: 20px;
+  width: 49%;
+  font-size: 18px;
+  font-family: 'Cantarell', sans-serif;
 }
 
 /* class name used to make the suitcase form not display: flex */
 .suitcase-form {
   display: block;
   border: 1px grey solid;
+  border-radius: 5px;
   margin: 5px 0;
   padding: 10px;
 }
@@ -77,12 +114,6 @@ suitcase form */
 .suitcase-item-update-area {
   display: none;
 } */
-
-.suitcase-form-input-area {
-  margin: 5px;
-  width: 100%;
-  box-sizing: border-box;
-}
 
 .suitcase-form-submit {
   width: 35%;

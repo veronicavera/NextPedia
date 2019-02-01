@@ -13,6 +13,7 @@ const SignInPage = () => (
         <h1 className="card-title">Sign In</h1>
         <SignInForm />
         <PasswordForgetLink />
+        {/* <SignUpLink /> */}
       </div>
     </div>
   </div>

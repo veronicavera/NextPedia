@@ -1,40 +1,98 @@
 :root {
-  font-size: calc(0.5vh + 0.5vw + 1vmin)
+  font-size: calc(0.5vh + 0.5vw + 1vmin);
+}
+
+#backgroundImageContainer {
+  background: linear-gradient(
+      rgba(255, 153, 255, 0.5),
+      rgba(153, 204, 255, 0.5)
+    ),
+    url('../../../images/backgroundimglanding.jpg') no-repeat fixed center;
+  height: 100vh;
 }
 
 .container {
-  background-image: linear-gradient(rgba(255, 153, 255, 0.5), rgba(153, 204, 255, 0.5)), url('../../../images/backgroundimglanding.jpg');
   min-width: 100vw;
-  min-height: 100vh;
+  /* min-height: 100vh; */
   background-size: 100vh, 100vw;
-  
-}
-
-.card {
-  width: 50vw;
-  height: auto;
-  margin: auto;
-  font-family: 'Pacifico', cursive;
-  opacity: 0.8;
-}
-
-.card-body {
-  height: 45vh;
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
-  justify-content: space-around;
 }
 
-form {
-  width: 100%;
+.flightFinderBtn {
+  font-weight: bold;
+  background-color: rgba(155, 153, 255, 0.5);
+  border: 1px solid rgba(155, 153, 255, 0.1);
+}
+
+.flightFinderBtn:hover {
+  font-weight: bold;
+  color: rgba(69, 66, 247, 0.5);
+  background-color: #fff;
+  border: 1px solid #fff;
+}
+
+.user-content {
+  width: 80vw;
+  background-color: rgba(255, 255, 255, 0.9);
+  margin: 10px 0;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  padding-bottom: 30px;
+}
+
+.btn {
+  font-size: 14px;
+}
+
+.user-greeting {
+  padding-left: 20px;
+}
+
+.user-dashboard {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
+  /* border-top: 1px grey solid; */
+}
+
+.user-dashboard-info {
+  padding-top: 20px;
+  width: 95%;
+}
+
+.user-contentrow {
+  width: 95%;
+}
+
+table {
+  border-collapse: separate;
+  border: solid grey 1px;
+
+  border-radius: 5px;
+
+  width: 100%;
+}
+
+th {
+  /* border: 1px solid gray; */
+  padding: 20px;
+  text-align: center;
+}
+
+td,
+th {
+  border-left: solid grey 1px;
+  border-top: solid grey 1px;
+}
+
+td:first-child,
+th:first-child {
+  border-left: none;
 }
 
 a {
-  font-family: 'Pacifico', cursive;
+  font-family: 'Cantarell', sans-serif;
 }
 
 h1 {
