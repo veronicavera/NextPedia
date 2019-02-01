@@ -29,7 +29,10 @@ class User extends Component {
                 <br />
                 <div className='row'>
                   <div className='col-md-4'>
-                    <Link to={ROUTES.LANDING} className='btn btn-danger'>
+                    <Link
+                      to={ROUTES.LANDING}
+                      className='btn btn-outline-success'
+                    >
                       Go To Flight Finder
                     </Link>
                   </div>
