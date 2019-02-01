@@ -30,7 +30,8 @@ class MySuitcaseUpdateForm extends Component {
    * form (updated as part of _handleInputChange_, see above) and add it to the
    * underlying database. Upon completion, refresh the page.
    */
-  updateSuitcaseItem = () => {
+  updateSuitcaseItem = e => {
+    e.preventDefault();
     if (parseInt(this.state.quantity) <= 0) {
       alert('Please enter a quantity of 1 or greater!');
       return;
@@ -42,9 +43,15 @@ class MySuitcaseUpdateForm extends Component {
         notes: this.state.notes,
         old: true
       };
-
-      API.updateItemInSuitcase(this.props.suitcaseID, itemInfo);
+      console.log('right before api!!');
+      API.updateItemInSuitcase(this.props.suitcaseID, itemInfo).then(function(
+        data
+      ) {
+        console.log('this is what we got back!@!!', data);
+        window.location.reload();
+      });
     }
+    console.log('bottom of func!!');
   };
 
   render() {
@@ -78,7 +85,7 @@ class MySuitcaseUpdateForm extends Component {
             className='suitcase-form-input-button btn btn-outline-success'
             type='submit'
             value='Submit'
-            onClick={() => this.updateSuitcaseItem()}
+            onClick={this.updateSuitcaseItem}
           />
         </form>
       </div>

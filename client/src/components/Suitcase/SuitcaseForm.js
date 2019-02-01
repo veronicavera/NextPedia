@@ -27,6 +27,7 @@ class MySuitcaseForm extends Component {
    * a user types anything into the form.
    */
   handleInputChange = event => {
+    event.preventDefault();
     const name = event.target.name;
     const value = event.target.value;
 
@@ -40,7 +41,8 @@ class MySuitcaseForm extends Component {
    * form (updated as part of _handleInputChange_, see above) and add it to the
    * underlying database. Upon completion, refresh the page.
    */
-  updateSuitcase = () => {
+  updateSuitcase = e => {
+    e.preventDefault();
     if (this.state.item.trim() === '') {
       alert('Please enter an item!');
       return;
