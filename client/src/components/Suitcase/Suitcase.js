@@ -59,6 +59,7 @@ class MySuitcase extends Component {
       this.getDataForPage();
       console.log(this);
       this.forceUpdate();
+      window.location.reload();
     });
   };
 
