@@ -11,7 +11,7 @@ class FetchData extends React.Component {
 
   componentDidMount() {
     axios
-      .get(`http://localhost:5000/api/trips/` + localStorage.user) //should be changed on `/api/trips/`+localStorage.user when deployed on heroku and real data is gonna be used
+      .get(`/api/trips/` + localStorage.user) //should be changed on `/api/trips/`+localStorage.user when deployed on heroku and real data is gonna be used
 
       .then(res => {
         if (res.data[0]) {
