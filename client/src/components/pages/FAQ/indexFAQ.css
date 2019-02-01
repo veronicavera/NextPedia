@@ -1,0 +1,62 @@
+/* https://www.pexels.com/photo/seaport-during-daytime-132037/ */
+div h1, div h2 {
+    font-family: 'Quicksand', sans-serif;
+    /* padding-bottom: 3% */
+}
+
+div h1 {
+    margin-top: 10px;
+    font-size: 24px;
+    text-align: center;
+}
+
+#pageSizing {
+    height: 80vh;
+    display: grid;
+    justify-content: center;
+    background: url(../../../images/seaportDuringDaytime.jpeg) no-repeat center center fixed;
+}
+
+#contactFAQContainer {
+    background-color: rgba(267, 221, 221, .7);
+    width: 60vw;
+    height: 75vh;
+    margin-top: 1vw;
+    border-radius: 5px;
+    padding-left: 2%;
+    padding-right: 2%;
+
+}
+
+/* #contactForm {
+    display: grid;
+    grid-template-columns: 80vw;
+    grid-template-rows: 10px 50px 10px 120px 20px;
+    grid-row-gap: 20px;
+}
+
+#contactForm button, #contactForm textarea {
+    background-color: rgba(0, 0, 0, 0);
+    border-color: #888;
+}
+
+#contactForm button {
+    width: 70px;
+    height: 25px;
+    border-radius: 5px;
+}
+
+#contactForm button:hover {
+    border-color: #388;
+    cursor: pointer;
+}
+
+#contactForm textarea {
+    color: #222;
+    border-radius: 5px;
+}
+
+
+#contactForm textarea::placeholder {
+    color: #222;
+} */
