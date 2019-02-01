@@ -15,7 +15,8 @@ class FetchData extends React.Component {
        .then(res => {
            console.log(res.data[0])
            console.log(localStorage.user)
-        res.data[0].trips.map(trip=>{
+           if(res.data[0]){
+               res.data[0].trips.map(trip=>{
             var x = this.state.tripName;
             var y= this.state.tripId;
             x.push(trip.tripName);
@@ -24,6 +25,7 @@ class FetchData extends React.Component {
             this.setState({tripName:x});
             this.setState({tripId:y});
             });
+        }
        });
     }
     _handleButtonClick = (event) => {
