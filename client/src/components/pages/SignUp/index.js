@@ -48,6 +48,7 @@ class SignUpFormBase extends Component {
 
    API.addUser(this.state.email)
   //  API.postUser(this.state.suitcase).then(user => user, this.state.email)
+  // API.addTrips(this.state.trips)
 
     this.props.firebase
       .doCreateUserWithEmailAndPassword(email, passwordOne, username)
