@@ -40,7 +40,7 @@ John Eastwood, Kaleb Kougl, Ry DeSoto, Shawn Ard, Alex Green, Veronica Vera, Ame
 
 ![Sign Up Page](./client/src/images/signup.png)
 
-![Flight FInder](./client/src/images/flight.png)
+![Flight Finder](./client/src/images/flightfinder.png)
 
 ![Profile Page](./client/src/images/profile.png)
 

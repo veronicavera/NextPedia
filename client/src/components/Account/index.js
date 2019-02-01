@@ -1,6 +1,5 @@
 import React from 'react';
 import { AuthUserContext } from '../Session';
-
 import { withAuthorization } from '../Session/';
 
 const AccountPage = () => (
