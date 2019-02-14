@@ -1,12 +1,10 @@
 # NextPedia
 
-NU Bootcamp Class Project - NextPedia
-
 Our App's Goal is to allow clients to book and manage vacations and flights that will be pushed to a cloud database. Clients will be able to create a personal account where they can book new trips, view existing trips, and manage their own virtual "suitcase" per trip.
 
 https://nextpedia.herokuapp.com/
 
-Login: test2@test.com Password: asdasdasd
+Login: test60@test.com Password: asdasdasd
 
 Our App Pages:
 
