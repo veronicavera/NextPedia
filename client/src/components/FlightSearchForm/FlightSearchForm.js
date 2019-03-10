@@ -98,20 +98,25 @@ class FlightSearchForm extends Component {
     const redirect = this.state.redirect;
     const { origin, destination, departureDate } = this.state;
     if (redirect === true) {
+      if (origin !== null && destination !== null && origin.value !== destination.value) {
 
-      console.log(this.state);
-      if ((origin.value.length === 3) & (destination.value.length === 3) && moment(departureDate) > moment()) {
-        const url = `/flights/${origin.value}/${destination.value}/${departureDate}`;
+      // console.log(this.state);
+        if (origin.value.length !== null && destination.value.length !== null && moment(departureDate) > moment()) {
+          const url = `/flights/${origin.value}/${destination.value}/${departureDate}`;
 
-        return <Redirect to={url} />;
-      } else if (moment(departureDate) > moment()){
+          return <Redirect to={url} />;
+        } else if (moment(departureDate) > moment()){
+          this.setState({ redirect: false });
+          alert('Please use the 3 letter IATA (airport) codes');
+        } else {
+          this.setState({ redirect: false });
+          alert('Please select a valid trip');
+        }
+      } else if (origin === null && destination === null || origin.value === destination.value) {
         this.setState({ redirect: false });
-        alert('Please use the 3 letter IATA (airport) codes');
-      } else {
-        this.setState({ redirect: false });
-        alert('Please select a date in the future');
+        alert('Please select a valid trip');
       }
-    }
+    } 
     return (
       <div className='container-div' id='flight-search-container'>
         <div className='card'>
